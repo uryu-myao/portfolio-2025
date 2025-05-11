@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
+
 import '@/styles/main.scss';
 import '@/styles/components/window.scss';
 

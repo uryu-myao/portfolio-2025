@@ -1,7 +1,10 @@
+import '@/styles/main.scss';
+import '@/styles/components/footer.scss';
+
 const footer = () => {
   return (
-    <footer>
-      <div>
+    <footer className="footer">
+      <div className="footer-inner">
         <ul>
           <li>
             <a href="">home</a>

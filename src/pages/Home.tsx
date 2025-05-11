@@ -3,10 +3,10 @@ import { useState } from 'react';
 import Time from '@/components/Time';
 import Footer from '@/components/Footer';
 import WindowManager from '@/components/WindowManager';
+import DesktopIconList from '@/components/DesktopIconList';
 
 // icons
-import DesktopIconList from '@/components/DesktopIconList';
-import DesktopIconImage from '@/assets/desktopIcon-nuskin.svg'; // 你自定义图标路径
+import DesktopIconImage from '@/assets/desktopIcon-nuskin.svg';
 
 type WindowData = {
   id: string;
@@ -76,16 +76,15 @@ const Home = () => {
 
   return (
     <main className="home">
-      <Time />
-
       <div className="home-inner">
+        <Time />
         <DesktopIconList icons={icons} />
         <WindowManager
           openWindows={openWindows}
           onCloseWindow={handleCloseWindow}
         />
+        <Footer />
       </div>
-      <Footer />
     </main>
   );
 };
