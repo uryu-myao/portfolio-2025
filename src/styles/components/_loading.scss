@@ -1,0 +1,77 @@
+// src/styles/loading.scss
+.loading-wrapper {
+  background: #010414;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-window {
+  border: 1px solid #333;
+  background-color: #000a1a;
+  width: 600px;
+  padding: 2rem;
+  color: white;
+  font-family: monospace;
+}
+
+.loading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2b3740;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.loading-date {
+  color: #36c;
+  font-size: 0.9rem;
+}
+
+.close-btn {
+  background: #4fc3f7;
+  border: none;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-box {
+  background: white;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.loading-icon {
+  color: #4fc3f7;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.bar {
+  width: 16px;
+  height: 32px;
+  background: #111827;
+  border: 1px solid #1e293b;
+}

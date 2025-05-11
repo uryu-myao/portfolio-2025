@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/Home';
 import Photos from '@/pages/Photos';
 import NotFound from '@/pages/NotFound';
+import LoadingScreen from '@/components/Loading';
 
 const App = () => {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+
+  return isLoading ? (
+    <LoadingScreen onComplete={() => setIsLoading(false)} />
+  ) : (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
