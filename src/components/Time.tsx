@@ -1,3 +1,6 @@
+import '@/styles/main.scss';
+import '@/styles/components/time.scss';
+
 const time = () => {
   const date = new Date();
   const options: Intl.DateTimeFormatOptions = {
@@ -10,7 +13,7 @@ const time = () => {
     hour12: false,
   };
   const formattedDate = date.toLocaleString('en-US', options);
-  return <div>{formattedDate}</div>;
+  return <div className="time">{formattedDate}</div>;
 };
 
 export default time;

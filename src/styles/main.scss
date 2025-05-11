@@ -1,7 +1,5 @@
 @use 'abstracts/variables';
 @use 'base/typography';
 @use 'base/reset';
-@use 'layout/desktop';
-@use 'components/window';
-@use 'components/loading';
+@use 'layout/layout';
 @use 'themes/default';
