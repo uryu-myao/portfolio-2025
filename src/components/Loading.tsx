@@ -1,7 +1,7 @@
 // src/components/LoadingScreen.tsx
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import '@/styles/main.scss';
+import '@/styles/components/loading.scss';
 
 interface LoadingScreenProps {
   onComplete: () => void;

@@ -1,4 +1,3 @@
-import '@/styles/main.scss';
 import '@/styles/components/footer.scss';
 
 const footer = () => {

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Pages
 import Home from '@/pages/Home';
 import Photos from '@/pages/Photos';
 import NotFound from '@/pages/NotFound';
+// Components
 import LoadingScreen from '@/components/Loading';
 
 const App = () => {

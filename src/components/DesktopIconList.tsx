@@ -1,6 +1,4 @@
 import DesktopIcon from './DesktopIcon';
-
-import '@/styles/main.scss';
 import '@/styles/components/desktop-icon-list.scss';
 
 interface IconItem {

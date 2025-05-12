@@ -1,19 +1,31 @@
-import '@/styles/main.scss';
+import { useEffect, useState } from 'react';
 import '@/styles/components/time.scss';
 
-const time = () => {
-  const date = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-  };
-  const formattedDate = date.toLocaleString('en-US', options);
-  return <div className="time">{formattedDate}</div>;
+const Time = () => {
+  const [timeStr, setTimeStr] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const date = new Date();
+      let hours = date.getHours();
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours === 0 ? 12 : hours; // 0点变成12
+
+      const hourStr = String(hours).padStart(2, '0');
+
+      setTimeStr(`${hourStr}:${minutes}:${seconds} ${ampm}`);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return <div className="time">{timeStr}</div>;
 };
 
-export default time;
+export default Time;

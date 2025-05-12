@@ -1,5 +1,4 @@
-import '@/styles/main.scss'; // 引入样式文件
-import '@/styles/components/desktop-icon.scss'; // 引入样式文件
+import '@/styles/components/desktop-icon.scss';
 
 interface DesktopIconProps {
   icon: string; // 图标路径

@@ -1,10 +1,9 @@
 import { useState } from 'react';
-
+// componets
 import Time from '@/components/Time';
 import Footer from '@/components/Footer';
 import WindowManager from '@/components/WindowManager';
 import DesktopIconList from '@/components/DesktopIconList';
-
 // icons
 import DesktopIconImage from '@/assets/desktopIcon-nuskin.svg';
 
