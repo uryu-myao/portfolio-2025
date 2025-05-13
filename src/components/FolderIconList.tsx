@@ -1,7 +1,5 @@
-import DesktopIcon from './DesktopIcon';
-
-import '@/styles/main.scss';
-import '@/styles/components/desktop-icon-list.scss';
+import FolderIcon from './FolderIcon';
+import '@/styles/components/folder-icon-list.scss';
 
 interface IconItem {
   id: string;
@@ -16,9 +14,9 @@ interface IconListProps {
 
 const IconList: React.FC<IconListProps> = ({ icons }) => {
   return (
-    <div className="desktop-icon-list">
+    <div className="folder-icon-list">
       {icons.map((icon) => (
-        <DesktopIcon
+        <FolderIcon
           key={icon.id}
           icon={icon.icon}
           label={icon.label}

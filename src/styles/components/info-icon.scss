@@ -1,0 +1,60 @@
+.info-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+
+  &__circle {
+    width: 48px;
+    height: 48px;
+    background: #4fc3f7;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 48px;
+    color: white;
+    font-weight: bold;
+  }
+
+  &__label {
+    font-size: 12px;
+    margin-top: 4px;
+    color: white;
+    text-shadow: 0 0 3px #000;
+  }
+
+  &:hover &__circle {
+    background: #0288d1;
+  }
+}
+.info-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+
+  &__circle {
+    width: 48px;
+    height: 48px;
+    background: #4fc3f7;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 48px;
+    color: white;
+    font-weight: bold;
+  }
+
+  &__label {
+    font-size: 12px;
+    margin-top: 4px;
+    color: white;
+    text-shadow: 0 0 3px #000;
+  }
+
+  &:hover &__circle {
+    background: #0288d1;
+  }
+}
