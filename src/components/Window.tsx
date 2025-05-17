@@ -18,18 +18,24 @@ const Window: React.FC<WindowProps> = ({
   initialY,
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const nodeRef = useRef<HTMLDivElement>(null!); // ✅ 正确类型// 👈 创建 ref
+  const [position, setPosition] = useState({ x: initialX, y: initialY });
+  const nodeRef = useRef<HTMLDivElement>(null!);
 
   return (
     <Draggable
       handle=".window-title"
-      disabled={isFullscreen}
       nodeRef={nodeRef}
-      defaultPosition={{ x: initialX, y: initialY }} // ⬅️ 添加这行
-    >
+      disabled={isFullscreen}
+      position={isFullscreen ? undefined : position}
+      onStop={(_, data) => {
+        if (!isFullscreen) {
+          setPosition({ x: data.x, y: data.y });
+        }
+      }}>
       <div
-        ref={nodeRef} // 👈 将 ref 绑定到目标元素
-        className={`window-wrapper ${isFullscreen ? 'fullscreen' : ''}`}>
+        ref={nodeRef}
+        className={`window-wrapper ${isFullscreen ? 'fullscreen' : ''}`}
+        style={isFullscreen ? { position: 'fixed' } : {}}>
         <div className="window-title">
           <span className="window-title__text">{title}</span>
           <div className="window-title__buttons">
