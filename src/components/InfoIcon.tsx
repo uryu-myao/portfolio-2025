@@ -4,7 +4,6 @@ const InfoIcon = ({ onOpen }: { onOpen: () => void }) => {
   return (
     <div className="info-icon" onClick={onOpen}>
       <div className="info-icon__circle">i</div>
-      <div className="info-icon__label">Welcome</div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// componets
+// components
 import Time from '@/components/Time';
 import Footer from '@/components/Footer';
 import WindowManager from '@/components/WindowManager';
@@ -8,7 +8,6 @@ import InfoIcon from '@/components/InfoIcon';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
 // icons
 import FolderIconImage from '@/assets/folderIcon-nuskin.svg';
-// import InfoIconImage from '@/assets/folderIcon-nuskin.svg';
 
 type WindowData = {
   id: string;
@@ -37,6 +36,8 @@ const Home = () => {
     },
   ]);
 
+  const [zOrders, setZOrders] = useState<string[]>(['welcome']);
+
   const handleOpenWindow = (
     id: string,
     title: string,
@@ -58,20 +59,16 @@ const Home = () => {
             initialY: baseY + newIndex * offset,
           };
 
-      return [
-        ...prev,
-        {
-          id,
-          title,
-          content,
-          ...position,
-        },
-      ];
+      return [...prev, { id, title, content, ...position }];
     });
+
+    // ➕ 保证新窗口 zIndex 在最顶层
+    setZOrders((prev) => [...prev.filter((z) => z !== id), id]);
   };
 
   const handleCloseWindow = (id: string) => {
     setOpenWindows((prev) => prev.filter((w) => w.id !== id));
+    setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
   const icons = [
@@ -107,6 +104,8 @@ const Home = () => {
         <WindowManager
           openWindows={openWindows}
           onCloseWindow={handleCloseWindow}
+          zOrders={zOrders}
+          setZOrders={setZOrders}
         />
         <Footer />
         <InfoIcon
@@ -121,7 +120,7 @@ const Home = () => {
                   projects.
                 </p>
               </div>,
-              true // 固定位置
+              true
             )
           }
         />
