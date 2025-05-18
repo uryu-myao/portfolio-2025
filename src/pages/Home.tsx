@@ -5,9 +5,10 @@ import Footer from '@/components/Footer';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
+import CanvasGridBackground from '@/components/CanvasGridBackground';
 // icons
 import FolderIconImage from '@/assets/folderIcon-nuskin.svg';
-import InfoIconImage from '@/assets/folderIcon-nuskin.svg';
+// import InfoIconImage from '@/assets/folderIcon-nuskin.svg';
 
 type WindowData = {
   id: string;
@@ -125,6 +126,7 @@ const Home = () => {
           }
         />
       </div>
+      <CanvasGridBackground />
     </main>
   );
 };
