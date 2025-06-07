@@ -552,3 +552,9 @@ section,
 article {
   container-type: inline-size;
 }
+
+/* Set up root font size for rem units.
+   ========================================================================== */
+html {
+  font-size: 62.5%; /* 62.5% of 16px = 10px */
+}

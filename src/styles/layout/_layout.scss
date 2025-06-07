@@ -4,4 +4,21 @@
     width: 100vw;
     height: 100vh;
   }
+
+  &-blur {
+    position: fixed;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgb(255, 255, 255) 100%
+    );
+    mask-image: radial-gradient(transparent 50%, black 100%);
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    backdrop-filter: blur(2.5px);
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+  }
 }

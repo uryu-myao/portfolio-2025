@@ -1,13 +1,15 @@
 import FolderIcon from './FolderIcon';
-import '@/styles/components/folder-icon-list.scss';
+import '@/styles/components/folder.scss';
 
 interface IconItem {
   id: string;
   icon: string;
   label: string;
   onOpen: () => void;
+  variant?: 'nuskin' | 'stores' | 'personal';
 }
 
+import type { IconItem } from '@/types';
 interface IconListProps {
   icons: IconItem[];
 }
@@ -21,6 +23,7 @@ const IconList: React.FC<IconListProps> = ({ icons }) => {
           icon={icon.icon}
           label={icon.label}
           onOpen={icon.onOpen}
+          variant={icon.variant}
         />
       ))}
     </div>
