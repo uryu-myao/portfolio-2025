@@ -29,7 +29,8 @@ const Time = () => {
   return (
     <div className="time">
       <p className="time-text">
-        {timeData.time} <span className="time-text__ampm">{timeData.ampm}</span>
+        {timeData.time}
+        <span className="time-text__ampm">{timeData.ampm}</span>
       </p>
     </div>
   );

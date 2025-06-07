@@ -1,6 +1,6 @@
 .time {
   position: absolute;
-  color: #fff;
+  color: #e3e3e3;
   top: 20px;
   left: 20px;
   font-family: 'Micro 5', sans-serif;
@@ -10,7 +10,7 @@
   text-align: center;
   cursor: default;
   user-select: none;
-  background-color: #000;
+  background-color: $black;
 
   &-text {
     font-feature-settings: 'tnum'; // 'tabular numbers'
@@ -20,6 +20,7 @@
     white-space: nowrap;
 
     &__ampm {
+      padding-left: 0.2em;
       opacity: 0.4;
       font-size: 0.8em;
       text-transform: uppercase;
