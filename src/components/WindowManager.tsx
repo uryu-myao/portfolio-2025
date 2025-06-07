@@ -1,4 +1,4 @@
-import Window from './Window';
+import Window from '@/components/Window';
 
 interface WindowData {
   id: string;

@@ -1,5 +1,9 @@
 import { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
+
+import CloseIcon from '@/assets/icon-close.svg';
+import FullscreenIcon from '@/assets/icon-zoom.svg';
+
 import '@/styles/components/window.scss';
 
 interface WindowProps {
@@ -23,7 +27,7 @@ const Window: React.FC<WindowProps> = ({
 
   return (
     <Draggable
-      handle=".window-title"
+      handle=".window-header"
       nodeRef={nodeRef}
       disabled={isFullscreen}
       position={isFullscreen ? undefined : position}
@@ -36,13 +40,19 @@ const Window: React.FC<WindowProps> = ({
         ref={nodeRef}
         className={`window-wrapper ${isFullscreen ? 'fullscreen' : ''}`}
         style={isFullscreen ? { position: 'fixed' } : {}}>
-        <div className="window-title">
-          <span className="window-title__text">{title}</span>
-          <div className="window-title__buttons">
-            <button onClick={onClose}>✕</button>
-            <button onClick={() => setIsFullscreen(!isFullscreen)}>⛶</button>
+        <header className="window-header">
+          <h4 className="window-header__ttl">{title}</h4>
+          <div className="window-header__buttons">
+            <button className="window-header__close" onClick={onClose}>
+              <img src={CloseIcon} alt="Close" />
+            </button>
+            <button
+              className="window-header__full"
+              onClick={() => setIsFullscreen(!isFullscreen)}>
+              <img src={FullscreenIcon} alt="Toggle Fullscreen" />
+            </button>
           </div>
-        </div>
+        </header>
         <div className="window-body">{children}</div>
       </div>
     </Draggable>
