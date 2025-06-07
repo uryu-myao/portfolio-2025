@@ -1,4 +1,4 @@
-import '@/styles/components/folder-icon.scss';
+import '@/styles/components/folder.scss';
 
 interface FolderIconProps {
   icon: string; // 图标路径

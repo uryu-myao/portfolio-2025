@@ -11,10 +11,10 @@ const CanvasGridBackground = () => {
     const dpr = window.devicePixelRatio || 1;
     const gridSize = window.innerWidth < 768 ? 16 : 32;
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    let cols = Math.ceil(width / gridSize);
-    let rows = Math.ceil(height / gridSize);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const cols = Math.ceil(width / gridSize);
+    const rows = Math.ceil(height / gridSize);
 
     // Draw static grid lines once
     if (staticCanvas) {
@@ -27,7 +27,7 @@ const CanvasGridBackground = () => {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
 
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.03)';
         ctx.lineWidth = 1;
         for (let x = 0; x <= width; x += gridSize) {
           ctx.beginPath();
@@ -40,6 +40,24 @@ const CanvasGridBackground = () => {
           ctx.moveTo(0, y);
           ctx.lineTo(width, y);
           ctx.stroke();
+        }
+        // Draw "+" markers at grid intersections
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+        ctx.lineWidth = 1;
+        const crossSize = 8;
+
+        for (let y = 0; y <= height; y += gridSize) {
+          for (let x = 0; x <= width; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, y - crossSize / 2);
+            ctx.lineTo(x, y + crossSize / 2);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(x - crossSize / 2, y);
+            ctx.lineTo(x + crossSize / 2, y);
+            ctx.stroke();
+          }
         }
       }
     }
@@ -75,6 +93,40 @@ const CanvasGridBackground = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+
+    const handleClick = (e: MouseEvent) => {
+      const clickX = Math.floor(e.clientX / gridSize);
+      const clickY = Math.floor(e.clientY / gridSize);
+
+      const maxRadius = 2.5; // 控制影响半径（单位：格数）
+
+      for (
+        let y = Math.max(0, clickY - 2);
+        y <= Math.min(rows - 1, clickY + 2);
+        y++
+      ) {
+        for (
+          let x = Math.max(0, clickX - 2);
+          x <= Math.min(cols - 1, clickX + 2);
+          x++
+        ) {
+          const dx = x - clickX;
+          const dy = y - clickY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          // 使用余弦函数构造脉冲波型 alpha（中心为1，边缘为0，过渡平滑）
+          const falloff = Math.max(
+            0,
+            Math.cos((distance / maxRadius) * (Math.PI / 2))
+          );
+
+          const cell = grid[y][x];
+          cell.alpha = falloff;
+          if (!cell.color) cell.color = getRandomColor();
+        }
+      }
+    };
+    window.addEventListener('click', handleClick);
 
     let animationId: number;
     let lastDraw = 0;
@@ -133,11 +185,13 @@ const CanvasGridBackground = () => {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('click', handleClick);
     };
   }, []);
 
   return (
     <>
+      <div className="home-blur"></div>
       <canvas
         ref={staticCanvasRef}
         style={{
@@ -148,7 +202,7 @@ const CanvasGridBackground = () => {
           height: '100vh',
           pointerEvents: 'none',
           backgroundColor: '#f8f8f8',
-          zIndex: -2,
+          zIndex: -3,
         }}
       />
       <canvas
@@ -160,7 +214,7 @@ const CanvasGridBackground = () => {
           width: '100vw',
           height: '100vh',
           pointerEvents: 'none',
-          zIndex: -1,
+          zIndex: -2,
         }}
       />
     </>

@@ -7,7 +7,7 @@ import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
 // icons
-import FolderIconImage from '@/assets/folderIcon-nuskin.svg';
+import FolderIconImage from '@/assets/folder-icon-nuskin.svg';
 
 type WindowData = {
   id: string;

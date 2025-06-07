@@ -1,7 +1,28 @@
 .time {
   position: absolute;
+  color: #fff;
   top: 20px;
   left: 20px;
-  font-size: 2rem;
+  font-family: 'Micro 5', sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
   cursor: default;
+  user-select: none;
+  background-color: #000;
+
+  &-text {
+    font-feature-settings: 'tnum'; // 'tabular numbers'
+    padding: 0.4em 0.5em;
+    display: inline-block;
+    width: 5.5em;
+    white-space: nowrap;
+
+    &__ampm {
+      opacity: 0.4;
+      font-size: 0.8em;
+      text-transform: uppercase;
+    }
+  }
 }

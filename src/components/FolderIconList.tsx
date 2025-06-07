@@ -1,5 +1,5 @@
 import FolderIcon from './FolderIcon';
-import '@/styles/components/folder-icon-list.scss';
+import '@/styles/components/folder.scss';
 
 interface IconItem {
   id: string;

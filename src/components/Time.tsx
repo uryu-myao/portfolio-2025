@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '@/styles/components/time.scss';
 
 const Time = () => {
-  const [timeStr, setTimeStr] = useState('');
+  const [timeData, setTimeData] = useState({ time: '', ampm: '' });
 
   useEffect(() => {
     const updateTime = () => {
@@ -13,11 +13,12 @@ const Time = () => {
 
       const ampm = hours >= 12 ? 'PM' : 'AM';
       hours = hours % 12;
-      hours = hours === 0 ? 12 : hours; // 0点变成12
+      hours = hours === 0 ? 12 : hours;
 
       const hourStr = String(hours).padStart(2, '0');
+      const time = `${hourStr}:${minutes}:${seconds}`;
 
-      setTimeStr(`${hourStr}:${minutes}:${seconds} ${ampm}`);
+      setTimeData({ time, ampm });
     };
 
     updateTime();
@@ -25,7 +26,13 @@ const Time = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="time">{timeStr}</div>;
+  return (
+    <div className="time">
+      <p className="time-text">
+        {timeData.time} <span className="time-text__ampm">{timeData.ampm}</span>
+      </p>
+    </div>
+  );
 };
 
 export default Time;
