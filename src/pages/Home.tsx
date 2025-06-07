@@ -1,29 +1,24 @@
 import { useState } from 'react';
-// components
+import type { WindowData } from '@/types';
+// import '@/styles/main.scss';
+
 import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
 import Footer from '@/components/Footer';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
-// types
-import type { IconItem } from '@/types';
-// Desktop icons
+
 import NuskinIcon from '@/assets/folder-icon-nuskin.svg';
 import StoresIcon from '@/assets/folder-icon-nuskin.svg';
 import PersonalIcon from '@/assets/folder-icon-nuskin.svg';
-// windows
+
 import NuskinWindow from '@/components/windows/NuskinWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
 import PersonalWindow from '@/components/windows/PersonalWindowContent';
+import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
-type WindowData = {
-  id: string;
-  title: string;
-  content: React.ReactNode;
-  initialX: number;
-  initialY: number;
-};
+const PASSWORD_PROTECTED_IDS = ['personal-1'];
 
 const Home = () => {
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
@@ -43,8 +38,29 @@ const Home = () => {
       initialY: 20,
     },
   ]);
-
   const [zOrders, setZOrders] = useState<string[]>(['welcome']);
+  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
+
+  const iconMeta = {
+    'nuskin-1': {
+      title: 'Nuskin',
+      content: <NuskinWindow />,
+      icon: NuskinIcon,
+    },
+    'stores-1': {
+      title: 'Stores.jp',
+      content: <StoresWindow />,
+      icon: StoresIcon,
+    },
+    'personal-1': {
+      title: 'Personal',
+      content: <PersonalWindow />,
+      icon: PersonalIcon,
+    },
+  } as Record<
+    string,
+    { title: string; content: React.ReactNode; icon: string }
+  >;
 
   const handleOpenWindow = (
     id: string,
@@ -54,7 +70,6 @@ const Home = () => {
   ) => {
     setOpenWindows((prev) => {
       if (prev.some((w) => w.id === id)) return prev;
-
       const offset = 20;
       const baseX = 100;
       const baseY = 100;
@@ -70,8 +85,19 @@ const Home = () => {
       return [...prev, { id, title, content, ...position }];
     });
 
-    // ➕ 保证新窗口 zIndex 在最顶层
     setZOrders((prev) => [...prev.filter((z) => z !== id), id]);
+  };
+
+  const handleProtectedOpenWindow = (id: string) => {
+    const unlocked = localStorage.getItem(`unlocked:${id}`) === 'true';
+    const meta = iconMeta[id];
+    if (!meta) return;
+
+    if (unlocked) {
+      handleOpenWindow(id, meta.title, meta.content);
+    } else {
+      setShowPasswordFor(id);
+    }
   };
 
   const handleCloseWindow = (id: string) => {
@@ -79,33 +105,34 @@ const Home = () => {
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
-  const icons: IconItem[] = [
-    {
-      id: 'nuskin-1',
-      icon: NuskinIcon,
-      label: 'Nuskin\nWeb Guide',
-      variant: 'nuskin',
-      onOpen: () => handleOpenWindow('nuskin-1', 'Nuskin', <NuskinWindow />),
-    },
-    {
-      id: 'stores-1',
-      icon: StoresIcon,
-      label: 'Stores.jp\nEC Design',
-      variant: 'stores',
-      onOpen: () => handleOpenWindow('stores-1', 'Stores.jp', <StoresWindow />),
-    },
-    {
-      id: 'personal-1',
-      icon: PersonalIcon,
-      label: 'My\nExperiments',
-      variant: 'personal',
-      onOpen: () =>
-        handleOpenWindow('personal-1', 'Personal', <PersonalWindow />),
-    },
-  ];
+  const icons = Object.entries(iconMeta).map(([id, meta]) => ({
+    id,
+    icon: meta.icon,
+    label: `${meta.title}\nProject`,
+    variant: id.startsWith('nuskin')
+      ? 'nuskin'
+      : id.startsWith('stores')
+      ? 'stores'
+      : 'personal',
+    onOpen: () =>
+      PASSWORD_PROTECTED_IDS.includes(id)
+        ? handleProtectedOpenWindow(id)
+        : handleOpenWindow(id, meta.title, meta.content),
+  }));
+
   return (
     <main className="home">
       <div className="home-inner">
+        {/* remove password cache */}
+        <button
+          onClick={() => {
+            Object.keys(localStorage)
+              .filter((key) => key.startsWith('unlocked:'))
+              .forEach((key) => localStorage.removeItem(key));
+            alert('所有密码验证缓存已清除');
+          }}>
+          重置所有密码验证
+        </button>
         <Time />
         <FolderIconList icons={icons} />
         <WindowManager
@@ -114,6 +141,21 @@ const Home = () => {
           zOrders={zOrders}
           setZOrders={setZOrders}
         />
+        {showPasswordFor && (
+          <PasswordPopup
+            folderId={showPasswordFor}
+            title={iconMeta[showPasswordFor].title}
+            onSuccess={() => {
+              handleOpenWindow(
+                showPasswordFor,
+                iconMeta[showPasswordFor].title,
+                iconMeta[showPasswordFor].content
+              );
+              setShowPasswordFor(null);
+            }}
+            onClose={() => setShowPasswordFor(null)}
+          />
+        )}
         <Footer />
         <InfoIcon
           onOpen={() =>

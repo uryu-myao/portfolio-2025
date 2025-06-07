@@ -1,4 +1,4 @@
-import Window from './Window';
+import Window from '@/components/Window';
 
 interface WindowData {
   id: string;
@@ -31,6 +31,7 @@ const WindowManager: React.FC<WindowManagerProps> = ({
         const zIndex = 100 + zOrders.indexOf(win.id);
         return (
           <div
+            className="window-pj"
             key={win.id}
             style={{ position: 'absolute', zIndex }}
             onMouseDown={() => bringToFront(win.id)}>
