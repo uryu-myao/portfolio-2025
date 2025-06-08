@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 const CanvasGridBackground = () => {
   const staticCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const dynamicCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const isDraggingRef = useRef(false);
 
   useEffect(() => {
     const staticCanvas = staticCanvasRef.current;
@@ -16,7 +17,6 @@ const CanvasGridBackground = () => {
     const cols = Math.ceil(width / gridSize);
     const rows = Math.ceil(height / gridSize);
 
-    // Draw static grid lines once
     if (staticCanvas) {
       const ctx = staticCanvas.getContext('2d');
       if (ctx) {
@@ -41,7 +41,7 @@ const CanvasGridBackground = () => {
           ctx.lineTo(width, y);
           ctx.stroke();
         }
-        // Draw "+" markers at grid intersections
+
         ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
         ctx.lineWidth = 1;
         const crossSize = 8;
@@ -62,7 +62,6 @@ const CanvasGridBackground = () => {
       }
     }
 
-    // Interactive animation on dynamic canvas
     if (!dynamicCanvas) return;
     const ctx = dynamicCanvas.getContext('2d');
     if (!ctx) return;
@@ -88,17 +87,17 @@ const CanvasGridBackground = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (isDraggingRef.current) return;
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-
     const handleClick = (e: MouseEvent) => {
+      if (isDraggingRef.current) return;
+
       const clickX = Math.floor(e.clientX / gridSize);
       const clickY = Math.floor(e.clientY / gridSize);
-
-      const maxRadius = 2.5; // 控制影响半径（单位：格数）
+      const maxRadius = 2.5;
 
       for (
         let y = Math.max(0, clickY - 2);
@@ -114,7 +113,6 @@ const CanvasGridBackground = () => {
           const dy = y - clickY;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          // 使用余弦函数构造脉冲波型 alpha（中心为1，边缘为0，过渡平滑）
           const falloff = Math.max(
             0,
             Math.cos((distance / maxRadius) * (Math.PI / 2))
@@ -126,12 +124,30 @@ const CanvasGridBackground = () => {
         }
       }
     };
+
+    const startDrag = () => {
+      isDraggingRef.current = true;
+    };
+    const endDrag = () => {
+      isDraggingRef.current = false;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('click', handleClick);
+    window.addEventListener('mousedown', startDrag);
+    window.addEventListener('mouseup', endDrag);
+
+    dynamicCanvas.width = width * dpr;
+    dynamicCanvas.height = height * dpr;
+    dynamicCanvas.style.width = `${width}px`;
+    dynamicCanvas.style.height = `${height}px`;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
 
     let animationId: number;
     let lastDraw = 0;
     const draw = (timestamp: number) => {
-      if (timestamp - lastDraw < 1000 / 30) {
+      if (timestamp - lastDraw < 1000 / 24) {
         animationId = requestAnimationFrame(draw);
         return;
       }
@@ -142,7 +158,13 @@ const CanvasGridBackground = () => {
       const col = Math.floor(mouseX / gridSize);
       const row = Math.floor(mouseY / gridSize);
 
-      if (row >= 0 && row < rows && col >= 0 && col < cols) {
+      if (
+        !isDraggingRef.current &&
+        row >= 0 &&
+        row < rows &&
+        col >= 0 &&
+        col < cols
+      ) {
         const cell = grid[row][col];
         cell.alpha = 1;
         if (!cell.color) cell.color = getRandomColor();
@@ -173,19 +195,14 @@ const CanvasGridBackground = () => {
       animationId = requestAnimationFrame(draw);
     };
 
-    dynamicCanvas.width = width * dpr;
-    dynamicCanvas.height = height * dpr;
-    dynamicCanvas.style.width = `${width}px`;
-    dynamicCanvas.style.height = `${height}px`;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-
     animationId = requestAnimationFrame(draw);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('click', handleClick);
+      window.removeEventListener('mousedown', startDrag);
+      window.removeEventListener('mouseup', endDrag);
     };
   }, []);
 
