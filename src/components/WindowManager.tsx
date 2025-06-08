@@ -31,7 +31,7 @@ const WindowManager: React.FC<WindowManagerProps> = ({
         const zIndex = 100 + zOrders.indexOf(win.id);
         return (
           <div
-            className="window-pj"
+            className="window-container"
             key={win.id}
             style={{ position: 'absolute', zIndex }}
             onMouseDown={() => bringToFront(win.id)}>

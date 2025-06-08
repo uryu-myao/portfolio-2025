@@ -14,7 +14,9 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   variant = 'personal',
 }) => {
   return (
-    <div className={`folder-icon folder-icon--${variant}`} onClick={onOpen}>
+    <div
+      className={`folder-icon-item folder-icon__${variant}`}
+      onClick={onOpen}>
       <img src={icon} alt={label} className="folder-icon__img" />
       <div className="folder-icon__label">{label}</div>
     </div>
