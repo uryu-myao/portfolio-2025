@@ -32,3 +32,10 @@ export interface FolderIconProps {
   variant?: 'nuskin' | 'stores' | 'personal';
   isLocked?: boolean;
 }
+
+export interface PasswordPopupProps {
+  folderId: string;
+  title: string;
+  onSuccess: () => void;
+  onClose: () => void;
+}

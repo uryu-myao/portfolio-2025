@@ -6,7 +6,7 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   icon,
   label,
   onOpen,
-  variant = 'personal',
+  variant = 'personal', // Default variant
   isLocked = false,
 }) => {
   return (

@@ -15,6 +15,7 @@ import PersonalIcon from '@/assets/folder-icon-nuskin.svg';
 import NuskinWindow from '@/components/windows/NuskinWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
 import PersonalWindow from '@/components/windows/PersonalWindowContent';
+import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
 const PASSWORD_PROTECTED_IDS = ['nuskin-1'];
@@ -24,15 +25,7 @@ const Home = () => {
     {
       id: 'welcome',
       title: 'Welcome',
-      content: (
-        <div>
-          <h2>Welcome 👋</h2>
-          <p>
-            This portfolio simulates a desktop OS to showcase selected projects.
-          </p>
-          <p>Click icons to open windows. Enjoy exploring!</p>
-        </div>
-      ),
+      content: <WelcomeWindow />,
       initialX: 20,
       initialY: 20,
     },
@@ -162,18 +155,7 @@ const Home = () => {
         <Footer />
         <InfoIcon
           onOpen={() =>
-            handleOpenWindow(
-              'welcome',
-              'Welcome',
-              <div>
-                <h2>Welcome 👋</h2>
-                <p>
-                  This portfolio simulates a desktop OS to showcase selected
-                  projects.
-                </p>
-              </div>,
-              true
-            )
+            handleOpenWindow('welcome', 'Welcome', <WelcomeWindow />, true)
           }
         />
       </div>

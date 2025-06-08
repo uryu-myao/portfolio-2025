@@ -1,15 +1,9 @@
 import { useEffect, useState } from 'react';
+import type { PasswordPopupProps } from '@/types';
 import '@/styles/components/password-popup.scss';
 
 import CloseIcon from '@/assets/icon-close.svg';
 import ArrowIcon from '@/assets/icon-arrow.svg';
-
-interface PasswordPopupProps {
-  folderId: string;
-  title: string;
-  onSuccess: () => void;
-  onClose: () => void;
-}
 
 const PASSWORD = 'lovedesign';
 
