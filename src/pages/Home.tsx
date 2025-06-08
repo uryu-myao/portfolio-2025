@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { WindowData } from '@/types';
-// import '@/styles/main.scss';
 
 import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
@@ -18,7 +17,7 @@ import StoresWindow from '@/components/windows/StoresWindowContent';
 import PersonalWindow from '@/components/windows/PersonalWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
-const PASSWORD_PROTECTED_IDS = ['personal-1'];
+const PASSWORD_PROTECTED_IDS = ['nuskin-1'];
 
 const Home = () => {
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
@@ -114,6 +113,7 @@ const Home = () => {
       : id.startsWith('stores')
       ? 'stores'
       : 'personal',
+    isLocked: PASSWORD_PROTECTED_IDS.includes(id),
     onOpen: () =>
       PASSWORD_PROTECTED_IDS.includes(id)
         ? handleProtectedOpenWindow(id)
