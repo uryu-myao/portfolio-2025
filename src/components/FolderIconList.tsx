@@ -1,4 +1,4 @@
-import FolderIcon from './FolderIcon';
+import FolderIcon from '@/components/FolderIcon';
 import '@/styles/components/folder.scss';
 
 interface IconItem {

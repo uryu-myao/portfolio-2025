@@ -38,7 +38,7 @@ const Window: React.FC<WindowProps> = ({
       }}>
       <div
         ref={nodeRef}
-        className={`window-wrapper ${isFullscreen ? 'fullscreen' : ''}`}
+        className={`window-inner ${isFullscreen ? 'fullscreen' : ''}`}
         style={isFullscreen ? { position: 'fixed' } : {}}>
         <header className="window-header">
           <h4 className="window-header__ttl">{title}</h4>

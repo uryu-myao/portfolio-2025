@@ -108,7 +108,7 @@ const Home = () => {
   const icons = Object.entries(iconMeta).map(([id, meta]) => ({
     id,
     icon: meta.icon,
-    label: `${meta.title}\nProject`,
+    label: `${meta.title}\nProject Project`,
     variant: id.startsWith('nuskin')
       ? 'nuskin'
       : id.startsWith('stores')
@@ -125,6 +125,8 @@ const Home = () => {
       <div className="home-inner">
         {/* remove password cache */}
         <button
+          className="temp-btn"
+          style={{ position: 'absolute', top: 10, right: 10 }}
           onClick={() => {
             Object.keys(localStorage)
               .filter((key) => key.startsWith('unlocked:'))
@@ -133,7 +135,7 @@ const Home = () => {
           }}>
           重置所有密码验证
         </button>
-        <Time />
+
         <FolderIconList icons={icons} />
         <WindowManager
           openWindows={openWindows}
@@ -156,6 +158,7 @@ const Home = () => {
             onClose={() => setShowPasswordFor(null)}
           />
         )}
+        <Time />
         <Footer />
         <InfoIcon
           onOpen={() =>
