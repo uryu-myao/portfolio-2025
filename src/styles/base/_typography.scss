@@ -1,2 +1,27 @@
-// Inconsolata & Micro 5
+@use '@/styles/abstracts/variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Micro+5&display=swap');
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+.text-sm {
+  font-size: $font-size-sm;
+}
+.text-md {
+  font-size: $font-size-md;
+}
+.text-lg {
+  font-size: $font-size-lg;
+}
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+.text-light {
+  font-weight: $font-weight-light;
+}
+.text-en {
+  font-family: $font-family-en;
+}
+.text-main {
+  font-family: $font-family-en;
+}
