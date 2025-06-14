@@ -20,7 +20,7 @@ const WindowManager: React.FC<WindowManagerProps> = ({
             className="window-container"
             key={win.id}
             style={{ position: 'absolute', zIndex }}
-            onMouseDown={() => bringToFront(win.id)}>
+            onMouseDownCapture={() => bringToFront(win.id)}>
             <Window
               title={win.title}
               onClose={() => onCloseWindow(win.id)}

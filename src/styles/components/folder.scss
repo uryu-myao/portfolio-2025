@@ -54,4 +54,14 @@
       color: var(--primary-color);
     }
   }
+
+  &__nuskin {
+    grid-area: desktop-1-b;
+  }
+  &__stores {
+    grid-area: desktop-2-b;
+  }
+  &__personal {
+    grid-area: desktop-4-a;
+  }
 }

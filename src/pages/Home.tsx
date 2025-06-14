@@ -5,7 +5,7 @@ import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
-import Footer from '@/components/Footer';
+import Nav from '@/components/Nav';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
 
 import NuskinIcon from '@/assets/folder-icon-nuskin.svg';
@@ -152,7 +152,7 @@ const Home = () => {
           />
         )}
         <Time />
-        <Footer />
+        <Nav />
         <InfoIcon
           onOpen={() =>
             handleOpenWindow('welcome', 'Welcome', <WelcomeWindow />, true)
