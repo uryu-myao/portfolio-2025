@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import type { WindowData } from '@/types';
-// import '@/styles/main.scss';
 
 import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
-import Footer from '@/components/Footer';
+import Nav from '@/components/Nav';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
 
 import NuskinIcon from '@/assets/folder-icon-nuskin.svg';
@@ -16,24 +15,17 @@ import PersonalIcon from '@/assets/folder-icon-nuskin.svg';
 import NuskinWindow from '@/components/windows/NuskinWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
 import PersonalWindow from '@/components/windows/PersonalWindowContent';
+import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
-const PASSWORD_PROTECTED_IDS = ['personal-1'];
+const PASSWORD_PROTECTED_IDS = ['nuskin-1'];
 
 const Home = () => {
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
     {
       id: 'welcome',
       title: 'Welcome',
-      content: (
-        <div>
-          <h2>Welcome 👋</h2>
-          <p>
-            This portfolio simulates a desktop OS to showcase selected projects.
-          </p>
-          <p>Click icons to open windows. Enjoy exploring!</p>
-        </div>
-      ),
+      content: <WelcomeWindow />,
       initialX: 20,
       initialY: 20,
     },
@@ -114,6 +106,7 @@ const Home = () => {
       : id.startsWith('stores')
       ? 'stores'
       : 'personal',
+    isLocked: PASSWORD_PROTECTED_IDS.includes(id),
     onOpen: () =>
       PASSWORD_PROTECTED_IDS.includes(id)
         ? handleProtectedOpenWindow(id)
@@ -159,21 +152,10 @@ const Home = () => {
           />
         )}
         <Time />
-        <Footer />
+        <Nav />
         <InfoIcon
           onOpen={() =>
-            handleOpenWindow(
-              'welcome',
-              'Welcome',
-              <div>
-                <h2>Welcome 👋</h2>
-                <p>
-                  This portfolio simulates a desktop OS to showcase selected
-                  projects.
-                </p>
-              </div>,
-              true
-            )
+            handleOpenWindow('welcome', 'Welcome', <WelcomeWindow />, true)
           }
         />
       </div>

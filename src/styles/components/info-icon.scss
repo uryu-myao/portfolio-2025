@@ -1,54 +1,37 @@
 .info-icon {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  left: 24px;
+  bottom: 46px;
   text-align: center;
   cursor: pointer;
   user-select: none;
 
   &__circle {
-    width: 48px;
-    height: 48px;
-    background: #4fc3f7;
+    width: 40px;
+    height: 40px;
+    background: $blue;
     border-radius: 50%;
-    font-size: 24px;
-    line-height: 48px;
+    font-size: 3rem;
+    border: 2px solid $black;
+    text-align: center;
+    line-height: 1.25;
     color: white;
+    font-family: 'Micro 5', sans-serif;
+    // font-feature-settings: 'tnum';
+    text-align: center;
     font-weight: bold;
+
+    span {
+      display: inline-block;
+      width: 3px;
+      margin: 0 auto;
+      line-height: 1.25;
+      vertical-align: middle;
+    }
   }
 
   &__label {
-    font-size: 12px;
-    margin-top: 4px;
-    color: white;
-    text-shadow: 0 0 3px #000;
-  }
-
-  &:hover &__circle {
-    background: #0288d1;
-  }
-}
-.info-icon {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-
-  &__circle {
-    width: 48px;
-    height: 48px;
-    background: #4fc3f7;
-    border-radius: 50%;
-    font-size: 24px;
-    line-height: 48px;
-    color: white;
-    font-weight: bold;
-  }
-
-  &__label {
-    font-size: 12px;
+    font-size: 1.2em;
     margin-top: 4px;
     color: white;
     text-shadow: 0 0 3px #000;

@@ -1,19 +1,5 @@
+import type { WindowManagerProps } from '@/types';
 import Window from '@/components/Window';
-
-interface WindowData {
-  id: string;
-  title: string;
-  content: React.ReactNode;
-  initialX: number;
-  initialY: number;
-}
-
-interface WindowManagerProps {
-  openWindows: WindowData[];
-  onCloseWindow: (id: string) => void;
-  zOrders: string[];
-  setZOrders: React.Dispatch<React.SetStateAction<string[]>>;
-}
 
 const WindowManager: React.FC<WindowManagerProps> = ({
   openWindows,
@@ -34,7 +20,7 @@ const WindowManager: React.FC<WindowManagerProps> = ({
             className="window-container"
             key={win.id}
             style={{ position: 'absolute', zIndex }}
-            onMouseDown={() => bringToFront(win.id)}>
+            onMouseDownCapture={() => bringToFront(win.id)}>
             <Window
               title={win.title}
               onClose={() => onCloseWindow(win.id)}
