@@ -1,8 +1,9 @@
-import '@/styles/components/folder.scss';
+import '@/styles/components/folder-icon.scss';
 import type { FolderIconProps } from '@/types';
 import LockIcon from '@/assets/icon-lock.svg';
 
 const FolderIcon: React.FC<FolderIconProps> = ({
+  id,
   icon,
   label,
   onOpen,
@@ -11,7 +12,7 @@ const FolderIcon: React.FC<FolderIconProps> = ({
 }) => {
   return (
     <div
-      className={`folder-icon-item folder-icon__${variant}`}
+      className={`folder-icon-item folder-icon__${variant} folder-icon__${id}`}
       onClick={onOpen}>
       <div className="folder-icon__container">
         <img src={icon} alt={label} className="folder-icon__img" />

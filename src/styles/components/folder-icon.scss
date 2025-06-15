@@ -1,0 +1,73 @@
+.folder-icon {
+  &-list {
+    width: clamp(500px, 53.33%, 768px);
+    height: 100%;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-areas:
+      'desktop-r1-c1 desktop-r1-c2'
+      'desktop-r2-c1 desktop-r2-c2'
+      'desktop-r3-c1 desktop-r3-c2'
+      'desktop-r4-c1 desktop-r4-c2'
+      'desktop-r5-c1 desktop-r5-c2'
+      'desktop-r6-c1 desktop-r6-c2';
+    grid-gap: 0;
+    padding: 100px 2.6vw;
+  }
+
+  &-item {
+    padding: 0 2em 1em 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__img {
+    width: clamp(60px, 6vw, 100px);
+  }
+
+  &__lock {
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: clamp(20px, 2vw, 40px);
+    height: clamp(20px, 2vw, 40px);
+  }
+
+  &__label {
+    font-family: 'inconsolata', monospace;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: $black;
+    margin-left: 1.4em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__nuskin--guideline {
+    grid-area: desktop-r1-c2;
+  }
+  &__stores {
+    grid-area: desktop-r4-c2;
+  }
+  &__personal--app {
+    grid-area: desktop-r5-c1;
+  }
+  &__legacy--2019 {
+    grid-area: desktop-r6-c1;
+  }
+  &__legacy--2017 {
+    grid-area: desktop-r6-c2;
+  }
+}
