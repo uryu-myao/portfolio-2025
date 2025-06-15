@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Draggable from 'react-draggable';
 
 import CloseIcon from '@/assets/icon-close.svg';
@@ -23,7 +23,19 @@ const Window: React.FC<WindowProps> = ({
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [position, setPosition] = useState({ x: initialX, y: initialY });
+  const [animateOut, setAnimateOut] = useState(false);
   const nodeRef = useRef<HTMLDivElement>(null!);
+
+  useEffect(() => {
+    const node = nodeRef.current;
+    const timer = setTimeout(() => node.classList.remove('animate-in'), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => {
+    setAnimateOut(true);
+    setTimeout(() => onClose(), 200); // 动画结束再真正关闭
+  };
 
   return (
     <Draggable
@@ -38,12 +50,14 @@ const Window: React.FC<WindowProps> = ({
       }}>
       <div
         ref={nodeRef}
-        className={`window-inner ${isFullscreen ? 'fullscreen' : ''}`}
+        className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
+          animateOut ? 'animate-out' : ''
+        }`}
         style={isFullscreen ? { position: 'fixed' } : {}}>
         <header className="window-header">
           <h4 className="window-header__ttl">{title}</h4>
           <div className="window-header__buttons">
-            <button className="window-header__close" onClick={onClose}>
+            <button className="window-header__close" onClick={handleClose}>
               <img src={CloseIcon} alt="Close" />
             </button>
             <button
