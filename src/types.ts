@@ -4,7 +4,7 @@ export interface IconItem {
   id: string;
   icon: string;
   label: string;
-  variant?: 'nuskin' | 'stores' | 'personal';
+  variant?: 'nuskin' | 'stores' | 'personal' | 'legacy';
   onOpen: () => void;
   requiresPassword?: boolean;
   isLocked?: boolean;
@@ -26,10 +26,11 @@ export interface WindowManagerProps {
 }
 
 export interface FolderIconProps {
+  id: string;
   icon: string;
   label: string;
   onOpen: () => void;
-  variant?: 'nuskin' | 'stores' | 'personal';
+  variant?: 'nuskin' | 'stores' | 'personal' | 'legacy';
   isLocked?: boolean;
 }
 

@@ -1,6 +1,6 @@
 import type { IconItem } from '@/types';
 import FolderIcon from '@/components/FolderIcon';
-import '@/styles/components/folder.scss';
+import '@/styles/components/folder-icon.scss';
 interface IconListProps {
   icons: IconItem[];
 }
@@ -10,6 +10,7 @@ const IconList: React.FC<IconListProps> = ({ icons }) => {
     <div className="folder-icon-list">
       {icons.map((icon) => (
         <FolderIcon
+          id={icon.id}
           key={icon.id}
           icon={icon.icon}
           label={icon.label}

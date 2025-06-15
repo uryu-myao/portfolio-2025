@@ -17,8 +17,11 @@ import StoresWindow from '@/components/windows/StoresWindowContent';
 import PersonalWindow from '@/components/windows/PersonalWindowContent';
 import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
+import Legacy2017Window from '@/components/windows/Legacy2017WindowContent';
+import Legacy2019Window from '@/components/windows/Legacy2019WindowContent';
+import LegacyIcon from '@/assets/folder-icon-nuskin.svg';
 
-const PASSWORD_PROTECTED_IDS = ['nuskin-1'];
+const PASSWORD_PROTECTED_IDS = ['nuskin--guideline'];
 
 const Home = () => {
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
@@ -34,20 +37,30 @@ const Home = () => {
   const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
 
   const iconMeta = {
-    'nuskin-1': {
+    'nuskin--guideline': {
       title: 'Nuskin',
       content: <NuskinWindow />,
       icon: NuskinIcon,
     },
-    'stores-1': {
+    'stores-all': {
       title: 'Stores.jp',
       content: <StoresWindow />,
       icon: StoresIcon,
     },
-    'personal-1': {
+    'personal--app': {
       title: 'Personal',
       content: <PersonalWindow />,
       icon: PersonalIcon,
+    },
+    'legacy--2019': {
+      title: 'legacy 2017-2019',
+      content: <Legacy2019Window />,
+      icon: LegacyIcon,
+    },
+    'legacy--2017': {
+      title: 'legacy 2013-2017',
+      content: <Legacy2017Window />,
+      icon: LegacyIcon,
     },
   } as Record<
     string,
@@ -66,7 +79,6 @@ const Home = () => {
       const baseX = 100;
       const baseY = 100;
       const newIndex = prev.length;
-
       const position = useFixedPosition
         ? { initialX: 20, initialY: 20 }
         : {
@@ -100,7 +112,7 @@ const Home = () => {
   const icons = Object.entries(iconMeta).map(([id, meta]) => ({
     id,
     icon: meta.icon,
-    label: `${meta.title}\nProject Project`,
+    label: `${meta.title}`,
     variant: id.startsWith('nuskin')
       ? 'nuskin'
       : id.startsWith('stores')
