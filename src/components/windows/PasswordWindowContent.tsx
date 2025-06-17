@@ -63,7 +63,9 @@ const PasswordPopup: React.FC<PasswordPopupProps> = ({
           </button>
         </div>
       </div>
-      {error && <p className="password-error">密码不正确请重试。</p>}
+      {error && (
+        <p className="password-error text-en">Hmm, that doesn’t look right.</p>
+      )}
     </div>
   );
 };

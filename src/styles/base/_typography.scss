@@ -22,6 +22,10 @@
 .text-en {
   font-family: $font-family-en;
 }
+.text-theme {
+  font-family: $font-family-theme;
+  font-feature-settings: 'tnum';
+}
 .text-main {
   font-family: $font-family-en;
 }

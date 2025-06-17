@@ -8,6 +8,9 @@ import NotFound from '@/pages/NotFound';
 import LoadingScreen from '@/components/Loading';
 
 const App = () => {
+  // test LoadingScreen
+  // return <LoadingScreen onComplete={() => {}} />;
+
   const [isLoading, setIsLoading] = useState(true);
 
   return isLoading ? (

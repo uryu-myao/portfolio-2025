@@ -29,32 +29,21 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="loading-wrapper">
-      <div className="loading-window">
-        <div className="loading-header">
-          <span className="loading-date">
-            &lt;date&gt; February–June, 2025 &lt;/date&gt;
-          </span>
-          <button className="close-btn">✕</button>
+    <div className="loading-container">
+      <div className="loading-content">
+        <p className="loading-text text-en">initializing...</p>
+        <div className="progress-bar">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="bar"
+              ref={(el) => {
+                if (el) barRefs.current[i] = el;
+              }}
+            />
+          ))}
         </div>
-        <div className="loading-content">
-          <div className="loading-box">
-            <div className="loading-icon">➡️</div>
-            <span className="loading-text">INITIALIZING...</span>
-            <span className="loading-percent">{progress}%</span>
-          </div>
-          <div className="progress-bar">
-            {[...Array(15)].map((_, i) => (
-              <div
-                key={i}
-                className="bar"
-                ref={(el) => {
-                  if (el) barRefs.current[i] = el;
-                }}
-              />
-            ))}
-          </div>
-        </div>
+        <p className="loading-percent text-theme">{progress}%</p>
       </div>
     </div>
   );
