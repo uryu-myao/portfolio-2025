@@ -4242,7 +4242,7 @@ p {
 @media screen and (max-width: 768px) {
   .entry {
     width: 22vw;
-    bottom: 140px;
+    bottom: 80px;
   }
 }
 .loading {
