@@ -10,17 +10,34 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   variant = 'personal', // Default variant
   isLocked = false,
 }) => {
+  const tagLabel =
+    variant === 'nuskin'
+      ? 'nuskin'
+      : variant === 'stores'
+      ? 'stores'
+      : id.startsWith('legacy')
+      ? 'legacy'
+      : '';
+
   return (
     <div
       className={`folder-icon-item folder-icon__${variant} folder-icon__${id}`}
       onClick={onOpen}>
-      <div className="folder-icon__container">
-        <img src={icon} alt={label} className="folder-icon__img" />
+      <div className="folder-icon__img">
+        <img src={icon} alt={label} />
         {isLocked && (
-          <img src={LockIcon} alt="Locked" className="folder-icon__lock" />
+          <img src={LockIcon} className="folder-icon__lock" alt="Locked" />
         )}
       </div>
-      <div className="folder-icon__label">{label}</div>
+      <div className="folder-icon__info">
+        {tagLabel && (
+          <p
+            className={`folder-icon__tag folder-icon__tag--${tagLabel} text-theme`}>
+            {tagLabel}
+          </p>
+        )}
+        <div className="folder-icon__label">{label}</div>
+      </div>
     </div>
   );
 };
