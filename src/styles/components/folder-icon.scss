@@ -18,18 +18,23 @@
   }
 
   &-item {
+    position: relative;
     padding: 0 2em 1em 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
 
-  &__container {
+  &__info {
     position: relative;
   }
 
   &__img {
-    width: clamp(60px, 6vw, 100px);
+    position: relative;
+
+    img:not(.folder-icon__lock) {
+      width: clamp(60px, 6vw, 100px);
+    }
   }
 
   &__lock {
@@ -40,13 +45,33 @@
     height: clamp(20px, 2vw, 40px);
   }
 
+  &__info {
+    color: $black;
+    margin-left: 1.4em;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 0.05em 0.2em 0.06em 0.3em;
+    margin-bottom: 0.4em;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1;
+
+    &--nuskin {
+      background-color: $yellow;
+    }
+    &--legacy {
+      background-color: $aqua;
+    }
+  }
+
   &__label {
     font-family: 'inconsolata', monospace;
     font-size: 1.4rem;
     line-height: 1.4;
     font-weight: 600;
-    color: $black;
-    margin-left: 1.4em;
     text-decoration: none;
     transition: color 0.3s ease;
 
