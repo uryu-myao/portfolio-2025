@@ -28,10 +28,13 @@ const Time = () => {
 
   return (
     <div className="time">
-      <p className="time-text">
-        {timeData.time}
-        <span className="time-text__ampm">{timeData.ampm}</span>
-      </p>
+      <div className="time-inner">
+        <p className="time-text">
+          {timeData.time}
+          <span className="time-text__ampm">{timeData.ampm}</span>
+        </p>
+      </div>
+      <p className="time-location text-en">Creating from Tokyo</p>
     </div>
   );
 };

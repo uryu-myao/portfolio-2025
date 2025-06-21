@@ -1,12 +1,42 @@
+import { useMemo } from 'react';
+import '@/styles/components/welcomeWindow.scss';
+
 const WelcomeWindowContent = () => {
+  const year = useMemo(() => new Date().getFullYear(), []);
+
   return (
-    <div className="welcome-window-content">
-      <h2 className="text-en text-lg text-bold">Welcome 👋</h2>
-      <p className="text-en text-sm">
-        This portfolio simulates a desktop OS to showcase selected projects.
-      </p>
-      <p className="text-en text-sm">
-        Click icons to open windows. Enjoy exploring!
+    <div className="welcome-body-inner">
+      <div className="welcome-portrait">
+        <div className="welcome-portrait-inner"></div>
+      </div>
+      <div className="welcome-title">
+        <h1 className="text-en">Uryu Myao</h1>
+        <p className="text-en text-sm">UI/UX Designer</p>
+      </div>
+      <article>
+        <p className="text-en text-sm">
+          I create interactive websites, digital visuals, and brand experiences.
+          I help growing teams bring ideas to life through thoughtful, modern
+          design.
+        </p>
+        <p className="text-en text-sm">
+          This interactive desktop is my portfolio. Click the icons to explore
+          my work and interests.
+        </p>
+        <p className="text-en text-sm">
+          Curious. Detail-driven. Always building.
+        </p>
+      </article>
+      <p className="welcome-sub text-en text-xs">
+        © {year} Uryu Myao. All rights reserved.
+        <br />
+        Developed by{' '}
+        <a
+          href="https://github.com/uryu-myao/portfolio-2025"
+          target="_blank"
+          rel="noreferrer">
+          Uryu Myao
+        </a>
       </p>
     </div>
   );
