@@ -17,7 +17,7 @@
     border: 2px solid $black;
     border-radius: 6px;
     filter: drop-shadow(10px 10px 0px rgba(6, 0, 52, 0.15));
-    transition: all 0.2s ease;
+    transition: all 0.05s ease;
     will-change: transform;
     opacity: 1;
     overflow: hidden;
@@ -32,6 +32,8 @@
     &.fullscreen {
       top: 0 !important;
       left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
       width: 100vw !important;
       height: 100vh !important;
       transform: none !important;
@@ -73,6 +75,8 @@
         border: none;
         background: transparent;
         cursor: pointer;
+        pointer-events: auto;
+        z-index: 10;
       }
     }
   }

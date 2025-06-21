@@ -1,4 +1,4 @@
-import type { ReactNode, Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
 export interface IconItem {
   id: string;
@@ -13,9 +13,11 @@ export interface IconItem {
 export interface WindowData {
   id: string;
   title: string;
-  content: ReactNode;
+  content: React.ReactNode;
   initialX: number;
   initialY: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 export interface WindowManagerProps {

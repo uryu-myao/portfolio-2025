@@ -92,38 +92,38 @@ const CanvasGridBackground = () => {
       mouseY = e.clientY;
     };
 
-    const handleClick = (e: MouseEvent) => {
-      if (isDraggingRef.current) return;
+    // const handleClick = (e: MouseEvent) => {
+    //   if (isDraggingRef.current) return;
 
-      const clickX = Math.floor(e.clientX / gridSize);
-      const clickY = Math.floor(e.clientY / gridSize);
-      const maxRadius = 2.5;
+    //   const clickX = Math.floor(e.clientX / gridSize);
+    //   const clickY = Math.floor(e.clientY / gridSize);
+    //   const maxRadius = 2.5;
 
-      for (
-        let y = Math.max(0, clickY - 2);
-        y <= Math.min(rows - 1, clickY + 2);
-        y++
-      ) {
-        for (
-          let x = Math.max(0, clickX - 2);
-          x <= Math.min(cols - 1, clickX + 2);
-          x++
-        ) {
-          const dx = x - clickX;
-          const dy = y - clickY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+    //   for (
+    //     let y = Math.max(0, clickY - 2);
+    //     y <= Math.min(rows - 1, clickY + 2);
+    //     y++
+    //   ) {
+    //     for (
+    //       let x = Math.max(0, clickX - 2);
+    //       x <= Math.min(cols - 1, clickX + 2);
+    //       x++
+    //     ) {
+    //       const dx = x - clickX;
+    //       const dy = y - clickY;
+    //       const distance = Math.sqrt(dx * dx + dy * dy);
 
-          const falloff = Math.max(
-            0,
-            Math.cos((distance / maxRadius) * (Math.PI / 2))
-          );
+    //       const falloff = Math.max(
+    //         0,
+    //         Math.cos((distance / maxRadius) * (Math.PI / 2))
+    //       );
 
-          const cell = grid[y][x];
-          cell.alpha = falloff;
-          if (!cell.color) cell.color = getRandomColor();
-        }
-      }
-    };
+    //       const cell = grid[y][x];
+    //       cell.alpha = falloff;
+    //       if (!cell.color) cell.color = getRandomColor();
+    //     }
+    //   }
+    // };
 
     const startDrag = () => {
       isDraggingRef.current = true;
@@ -133,7 +133,7 @@ const CanvasGridBackground = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('click', handleClick);
+    // window.addEventListener('click', handleClick);
     window.addEventListener('mousedown', startDrag);
     window.addEventListener('mouseup', endDrag);
 
@@ -200,9 +200,9 @@ const CanvasGridBackground = () => {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('click', handleClick);
       window.removeEventListener('mousedown', startDrag);
       window.removeEventListener('mouseup', endDrag);
+      // window.removeEventListener('click', handleClick);
     };
   }, []);
 

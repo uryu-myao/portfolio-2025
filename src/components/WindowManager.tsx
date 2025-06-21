@@ -25,7 +25,9 @@ const WindowManager: React.FC<WindowManagerProps> = ({
               title={win.title}
               onClose={() => onCloseWindow(win.id)}
               initialX={win.initialX}
-              initialY={win.initialY}>
+              initialY={win.initialY}
+              width={win.width}
+              height={win.height}>
               {win.content}
             </Window>
           </div>
