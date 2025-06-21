@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import Draggable from 'react-draggable';
-
+import { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import CloseIcon from '@/assets/icon-close.svg';
 import FullscreenIcon from '@/assets/icon-zoom.svg';
 
@@ -12,6 +10,8 @@ interface WindowProps {
   children: React.ReactNode;
   initialX: number;
   initialY: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 const Window: React.FC<WindowProps> = ({
@@ -20,56 +20,112 @@ const Window: React.FC<WindowProps> = ({
   children,
   initialX,
   initialY,
+  width,
+  height,
 }) => {
+  const windowRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [position, setPosition] = useState({ x: initialX, y: initialY });
   const [animateOut, setAnimateOut] = useState(false);
-  const nodeRef = useRef<HTMLDivElement>(null!);
+  const positionRef = useRef({ x: initialX, y: initialY });
 
+  // 初始定位
+  useLayoutEffect(() => {
+    if (windowRef.current) {
+      windowRef.current.style.transform = `translate(${initialX}px, ${initialY}px)`;
+    }
+  }, [initialX, initialY]);
+
+  // 拖拽行为
   useEffect(() => {
-    const node = nodeRef.current;
-    const timer = setTimeout(() => node.classList.remove('animate-in'), 300);
-    return () => clearTimeout(timer);
-  }, []);
+    const el = windowRef.current;
+    const header = headerRef.current;
+    if (!el || !header) return;
+
+    let startX = 0;
+    let startY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+    let isDragging = false;
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (isFullscreen) return;
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+
+      const transform = el.style.transform;
+      const match = /translate\(([^p]+)px,\s*([^p]+)px\)/.exec(transform);
+      if (match) {
+        startLeft = parseFloat(match[1]);
+        startTop = parseFloat(match[2]);
+      }
+
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', onPointerUp);
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      const newX = startLeft + dx;
+      const newY = startTop + dy;
+
+      el.style.transform = `translate(${newX}px, ${newY}px)`;
+      positionRef.current = { x: newX, y: newY };
+    };
+
+    const onPointerUp = () => {
+      isDragging = false;
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+    };
+
+    header.addEventListener('pointerdown', onPointerDown);
+
+    return () => {
+      header.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+    };
+  }, [isFullscreen]);
 
   const handleClose = () => {
     setAnimateOut(true);
-    setTimeout(() => onClose(), 200); // 动画结束再真正关闭
+    setTimeout(() => onClose(), 200);
   };
 
   return (
-    <Draggable
-      handle=".window-header"
-      nodeRef={nodeRef}
-      disabled={isFullscreen}
-      position={isFullscreen ? undefined : position}
-      onStop={(_, data) => {
-        if (!isFullscreen) {
-          setPosition({ x: data.x, y: data.y });
-        }
+    <div
+      ref={windowRef}
+      className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
+        animateOut ? 'animate-out' : ''
+      }`}
+      style={{
+        width: isFullscreen ? '100vw' : width,
+        height: isFullscreen ? '100vh' : height,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 999,
       }}>
-      <div
-        ref={nodeRef}
-        className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
-          animateOut ? 'animate-out' : ''
-        }`}
-        style={isFullscreen ? { position: 'fixed' } : {}}>
-        <header className="window-header">
-          <h4 className="window-header__ttl">{title}</h4>
-          <div className="window-header__buttons">
-            <button className="window-header__close" onClick={handleClose}>
-              <img src={CloseIcon} alt="Close" />
-            </button>
-            <button
-              className="window-header__full"
-              onClick={() => setIsFullscreen(!isFullscreen)}>
-              <img src={FullscreenIcon} alt="Toggle Fullscreen" />
-            </button>
-          </div>
-        </header>
-        <div className="window-body">{children}</div>
-      </div>
-    </Draggable>
+      <header className="window-header" ref={headerRef}>
+        <h4 className="window-header__ttl">{title}</h4>
+        <div className="window-header__buttons">
+          <button className="window-header__close" onClick={handleClose}>
+            <img src={CloseIcon} alt="Close" />
+          </button>
+          <button
+            className="window-header__full"
+            onClick={() => setIsFullscreen(!isFullscreen)}>
+            <img src={FullscreenIcon} alt="Toggle Fullscreen" />
+          </button>
+        </div>
+      </header>
+      <div className="window-body">{children}</div>
+    </div>
   );
 };
 

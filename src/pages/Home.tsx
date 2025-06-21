@@ -10,27 +10,36 @@ import CanvasGridBackground from '@/components/CanvasGridBackground';
 
 import NuskinIcon from '@/assets/folder-icon-nuskin.svg';
 import StoresIcon from '@/assets/folder-icon-nuskin.svg';
-import PersonalIcon from '@/assets/folder-icon-nuskin.svg';
+// import PersonalIcon from '@/assets/folder-icon-nuskin.svg';
 
 import NuskinWindow from '@/components/windows/NuskinWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
-import PersonalWindow from '@/components/windows/PersonalWindowContent';
+// import PersonalWindow from '@/components/windows/PersonalWindowContent';
 import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 import Legacy2017Window from '@/components/windows/Legacy2017WindowContent';
 import Legacy2019Window from '@/components/windows/Legacy2019WindowContent';
 import LegacyIcon from '@/assets/folder-icon-nuskin.svg';
 
-const PASSWORD_PROTECTED_IDS = ['nuskin--guideline'];
+const PASSWORD_PROTECTED_IDS = [
+  'nuskin--guideline',
+  'nuskin--branding',
+  'nuskin--products',
+];
 
 const Home = () => {
+  const widthWelcome = 400;
+  const heightWelcome = '70vh';
+
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
     {
       id: 'welcome',
       title: 'Welcome',
       content: <WelcomeWindow />,
-      initialX: 20,
-      initialY: 20,
+      initialX: window.innerWidth - widthWelcome - 50,
+      initialY: 100,
+      width: widthWelcome,
+      height: heightWelcome,
     },
   ]);
   const [zOrders, setZOrders] = useState<string[]>(['welcome']);
@@ -38,7 +47,17 @@ const Home = () => {
 
   const iconMeta = {
     'nuskin--guideline': {
-      title: 'Nuskin',
+      title: 'Web Guideline',
+      content: <NuskinWindow />,
+      icon: NuskinIcon,
+    },
+    'nuskin--branding': {
+      title: 'Global Branding renewal optimization / New Design tool / CSR',
+      content: <NuskinWindow />,
+      icon: NuskinIcon,
+    },
+    'nuskin--products': {
+      title: ' Main products comunication',
       content: <NuskinWindow />,
       icon: NuskinIcon,
     },
@@ -47,11 +66,11 @@ const Home = () => {
       content: <StoresWindow />,
       icon: StoresIcon,
     },
-    'personal--app': {
-      title: 'Personal',
-      content: <PersonalWindow />,
-      icon: PersonalIcon,
-    },
+    // 'personal--app': {
+    //   title: 'Personal',
+    //   content: <PersonalWindow />,
+    //   icon: PersonalIcon,
+    // },
     'legacy--2019': {
       title: 'legacy 2017-2019',
       content: <Legacy2019Window />,

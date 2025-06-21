@@ -1,19 +1,18 @@
 .info-icon {
   position: absolute;
-  left: 24px;
+  right: 24px;
   bottom: 46px;
   text-align: center;
   cursor: pointer;
   user-select: none;
 
   &__circle {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     background: $blue;
     border-radius: 50%;
-    font-size: 3rem;
-    border: 2px solid $black;
-    text-align: center;
+    font-size: 2.6rem;
+    border: 1px solid $black;
     line-height: 1.25;
     color: white;
     font-family: 'Micro 5', sans-serif;
@@ -23,9 +22,9 @@
 
     span {
       display: inline-block;
-      width: 3px;
+      width: 2px;
       margin: 0 auto;
-      line-height: 1.25;
+      line-height: 1;
       vertical-align: middle;
     }
   }
