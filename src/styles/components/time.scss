@@ -1,29 +1,44 @@
+@use 'sass:color';
+
 .time {
   position: absolute;
-  color: #e3e3e3;
   top: 24px;
   left: 24px;
-  font-family: 'Micro 5', sans-serif;
-  font-size: 4rem;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  cursor: default;
-  user-select: none;
-  background-color: $black;
+
+  &-inner {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    background-color: $black;
+  }
 
   &-text {
+    color: $white;
+    opacity: 0.9;
     font-feature-settings: 'tnum'; // 'tabular numbers'
-    padding: 0.1em 0;
+    padding: 0.1em 0 0.1em 0.2em;
     display: inline-block;
     width: 4.2em;
     white-space: nowrap;
 
     &__ampm {
       padding-left: 0.2em;
-      opacity: 0.4;
+      color: color.adjust($black, $whiteness: 65%);
       font-size: 0.8em;
       text-transform: uppercase;
     }
+  }
+
+  &-location {
+    background-color: color.adjust($black, $whiteness: 20%);
+    text-align: center;
+    color: color.adjust($black, $whiteness: 65%);
+    font-size: 1.2em;
+    padding: 0.2em 0 0.4em;
+    font-weight: 600;
   }
 }

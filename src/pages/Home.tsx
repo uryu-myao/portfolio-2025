@@ -29,7 +29,7 @@ const PASSWORD_PROTECTED_IDS = [
 
 const Home = () => {
   const widthWelcome = 400;
-  const heightWelcome = '70vh';
+  const heightWelcome = '75vh';
 
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
     {
@@ -37,7 +37,7 @@ const Home = () => {
       title: 'Welcome',
       content: <WelcomeWindow />,
       initialX: window.innerWidth - widthWelcome - 50,
-      initialY: 100,
+      initialY: 80,
       width: widthWelcome,
       height: heightWelcome,
     },
@@ -145,7 +145,7 @@ const Home = () => {
   }));
 
   return (
-    <main className="home">
+    <main className="home container">
       <div className="home-inner">
         {/* remove password cache */}
         <button
