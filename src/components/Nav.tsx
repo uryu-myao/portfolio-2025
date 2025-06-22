@@ -1,3 +1,7 @@
+'use client';
+import { useEffect } from 'react';
+import type { NavProps } from '@/types';
+
 import '@/styles/components/nav.scss';
 import NavIconHome from '@/assets/nav-icon-home.svg';
 import NavIconPhoto from '@/assets/nav-icon-photo.svg';
@@ -5,7 +9,12 @@ import NavIconGithub from '@/assets/nav-icon-github.svg';
 import NavIconMail from '@/assets/nav-icon-mail.svg';
 import NavIconTheme from '@/assets/nav-icon-theme.svg';
 
-const Nav = () => {
+const Nav: React.FC<NavProps> = ({ onToggleTheme }) => {
+  useEffect(() => {
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+  }, []);
+
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -31,7 +40,7 @@ const Nav = () => {
           </div>
           <div className="nav-item">
             <a
-              href="mailto:myao.jpn@gmail.com?subject=Hi%2C%20I%27m%20interested%20in%20your%20portfodivo"
+              href="mailto:myao.jpn@gmail.com?subject=Hi%2C%20I%27m%20interested%20in%20your%20portfolio"
               target="_blank"
               rel="noopener noreferrer">
               <img src={NavIconMail} alt="Mail" />
@@ -39,9 +48,9 @@ const Nav = () => {
           </div>
           <hr />
           <div className="nav-item">
-            <a href="">
-              <img src={NavIconTheme} alt="Theme" />
-            </a>
+            <button onClick={onToggleTheme}>
+              <img src={NavIconTheme} alt="Toggle Theme" />
+            </button>
           </div>
         </div>
       </div>

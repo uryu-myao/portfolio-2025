@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction, ReactNode } from 'react';
 
 export interface IconItem {
   id: string;
@@ -13,7 +13,18 @@ export interface IconItem {
 export interface WindowData {
   id: string;
   title: string;
-  content: React.ReactNode;
+  content: ReactNode;
+  initialX: number;
+  initialY: number;
+  width?: number | string;
+  height?: number | string;
+}
+
+export interface WindowProps {
+  id: string;
+  title: string;
+  onClose: () => void;
+  children: ReactNode;
   initialX: number;
   initialY: number;
   width?: number | string;
@@ -21,7 +32,7 @@ export interface WindowData {
 }
 
 export interface WindowManagerProps {
-  openWindows: WindowData[];
+  openWindows: WindowProps[];
   onCloseWindow: (id: string) => void;
   zOrders: string[];
   setZOrders: Dispatch<SetStateAction<string[]>>;
@@ -41,4 +52,12 @@ export interface PasswordPopupProps {
   title: string;
   onSuccess: () => void;
   onClose: () => void;
+}
+
+export interface HomeProps {
+  toggleTheme: () => void;
+}
+
+export interface NavProps {
+  onToggleTheme: () => void;
 }

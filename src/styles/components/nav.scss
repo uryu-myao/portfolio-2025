@@ -13,23 +13,6 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
 
-    &::before {
-      opacity: 0;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.8),
-        transparent
-      );
-      transition: all 0.2s ease-in-out;
-    }
-
     &::after {
       opacity: 0;
       content: '';
@@ -99,26 +82,6 @@
     overflow: hidden;
     background: transparent;
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      // background: conic-gradient(
-      //   from 180deg,
-      //   rgba(255, 0, 128, 0.4),
-      //   rgba(0, 200, 255, 0.4),
-      //   rgba(128, 0, 255, 0.4),
-      //   rgba(255, 255, 128, 0.4),
-      //   rgba(255, 0, 128, 0.4)
-      // );
-      background-size: 200% 200%;
-      animation: fluidMove 10s ease-in-out infinite;
-      z-index: 0;
-      filter: blur(12px);
-      transform: scale(2);
-    }
-
     &__divider {
       margin-right: 20px;
     }
@@ -142,5 +105,9 @@
       height: 24px;
       z-index: 2;
     }
+  }
+
+  & button {
+    background: transparent;
   }
 }

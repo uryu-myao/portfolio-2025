@@ -13,9 +13,9 @@
     min-height: 350px;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border: 2px solid $black;
-    border-radius: 6px;
+    background-color: var(--window-bg-clr);
+    border: 2px solid var(--border-clr);
+    border-radius: 16px;
     filter: drop-shadow(10px 10px 0px rgba(6, 0, 52, 0.15));
     transition: all 0.05s ease;
     will-change: transform;
@@ -51,7 +51,7 @@
     font-variation-settings: 'wdth' 130;
     font-size: 1.8rem;
     font-weight: 600;
-    background-color: $blue-light;
+    background-color: var(--window-header-clr);
     padding: 0.6em;
     cursor: move;
     user-select: none;
@@ -61,6 +61,7 @@
     }
 
     &__ttl {
+      color: var(--text-primary-clr);
       text-align: center;
       font-weight: bold;
     }

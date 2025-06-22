@@ -60,13 +60,16 @@
     line-height: 1;
 
     &--nuskin {
-      background-color: $yellow;
-    }
-    &--legacy {
-      background-color: $aqua;
+      background-color: var(--tag-bg-nuskin-clr);
     }
     &--stores {
       background-color: $green;
+    }
+    &--personal {
+      background-color: $aqua;
+    }
+    &--legacy {
+      background-color: $aqua;
     }
   }
 
