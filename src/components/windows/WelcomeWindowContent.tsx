@@ -11,19 +11,19 @@ const WelcomeWindowContent = () => {
       </div>
       <div className="welcome-title">
         <h1 className="text-en">Uryu Myao</h1>
-        <p className="text-en text-sm">UI/UX Designer</p>
+        <p className="text-en text-primary">UI/UX Designer</p>
       </div>
       <article>
-        <p className="text-en text-sm">
+        <p className="text-en text-primary">
           I create interactive websites, digital visuals, and brand experiences.
           I help growing teams bring ideas to life through thoughtful, modern
           design.
         </p>
-        <p className="text-en text-sm">
+        <p className="text-en text-primary">
           This interactive desktop is my portfolio. Click the icons to explore
           my work and interests.
         </p>
-        <p className="text-en text-sm">
+        <p className="text-en text-primary">
           Curious. Detail-driven. Always building.
         </p>
       </article>

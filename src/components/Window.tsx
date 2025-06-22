@@ -1,18 +1,10 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react';
+import type { WindowProps } from '@/types';
+
 import CloseIcon from '@/assets/icon-close.svg';
 import FullscreenIcon from '@/assets/icon-zoom.svg';
 
 import '@/styles/components/window.scss';
-
-interface WindowProps {
-  title: string;
-  onClose: () => void;
-  children: React.ReactNode;
-  initialX: number;
-  initialY: number;
-  width?: number | string;
-  height?: number | string;
-}
 
 const Window: React.FC<WindowProps> = ({
   title,

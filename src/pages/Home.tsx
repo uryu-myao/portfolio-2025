@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { HomeProps } from '@/types';
 import type { WindowData } from '@/types';
 
 import Time from '@/components/Time';
@@ -27,7 +28,7 @@ const PASSWORD_PROTECTED_IDS = [
   'nuskin--products',
 ];
 
-const Home = () => {
+const Home: React.FC<HomeProps> = ({ toggleTheme }) => {
   const widthWelcome = 400;
   const heightWelcome = '75vh';
 
@@ -183,7 +184,7 @@ const Home = () => {
           />
         )}
         <Time />
-        <Nav />
+        <Nav onToggleTheme={toggleTheme} />
         <InfoIcon
           onOpen={() =>
             handleOpenWindow('welcome', 'Welcome', <WelcomeWindow />, true)
