@@ -74,16 +74,13 @@
   }
 
   &__label {
+    color: var(--text-primary-clr);
     font-family: 'inconsolata', monospace;
     font-size: 1.4rem;
     line-height: 1.4;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
-
-    &:hover {
-      color: var(--primary-color);
-    }
   }
 
   &__nuskin--guideline {

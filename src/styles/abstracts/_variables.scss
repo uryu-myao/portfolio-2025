@@ -5,7 +5,7 @@ $blackDark: #1b2123;
 $red: #ee6352;
 $blue: #4da2ff;
 $lightBlue: #f2f5ff;
-$lightBlueDark: #f2f5ff;
+$lightBlueDark: #272f32;
 $aqua: #34f6f2;
 $aquaDark: #26bcd0;
 $yellow: #ffd639;
@@ -19,14 +19,18 @@ $greenDark: #5ed3a5;
   --text-primary-clr: #{$black};
   --border-clr: #{$black};
   --tag-bg-nuskin-clr: #{$yellow};
+  --input-bg-clr: #{$white};
+  --blur-clr: #{$white};
 }
 
 [data-theme='dark'] {
   --window-bg-clr: #{$blackDark};
-  --window-header-clr: #{lightBlueDark};
+  --window-header-clr: #{$lightBlueDark};
   --text-primary-clr: #{$whiteDark};
   --border-clr: #{$blackDark};
   --tag-bg-nuskin-clr: #{$yellowDark};
+  --input-bg-clr: #364349;
+  --blur-clr: #{$blackDark};
 }
 
 $font-family-en: 'inconsolata', monospace, Helvetica, Arial, sans-serif;
