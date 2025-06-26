@@ -36,7 +36,9 @@ const FolderIcon: React.FC<FolderIconProps> = ({
             {tagLabel}
           </p>
         )}
-        <div className="folder-icon__label">{label}</div>
+        <p className="folder-icon__label">
+          <span>{label}</span>
+        </p>
       </div>
     </div>
   );

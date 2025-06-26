@@ -23,6 +23,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
   }
 
   &__info {
@@ -74,6 +75,7 @@
   }
 
   &__label {
+    color: var(--text-primary-clr);
     font-family: 'inconsolata', monospace;
     font-size: 1.4rem;
     line-height: 1.4;
@@ -81,8 +83,10 @@
     text-decoration: none;
     transition: color 0.3s ease;
 
-    &:hover {
-      color: var(--primary-color);
+    span {
+      background-color: var(--text-bg-clr);
+      padding: 0.3em 0.2em;
+      box-decoration-break: clone;
     }
   }
 

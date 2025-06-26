@@ -56,6 +56,7 @@ export interface PasswordPopupProps {
 
 export interface HomeProps {
   toggleTheme: () => void;
+  theme: 'light' | 'dark';
 }
 
 export interface NavProps {
