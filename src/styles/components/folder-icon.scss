@@ -23,6 +23,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
   }
 
   &__info {
@@ -81,6 +82,12 @@
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease;
+
+    span {
+      background-color: var(--text-bg-clr);
+      padding: 0.3em 0.2em;
+      box-decoration-break: clone;
+    }
   }
 
   &__nuskin--guideline {

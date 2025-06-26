@@ -21,6 +21,7 @@ $greenDark: #5ed3a5;
   --tag-bg-nuskin-clr: #{$yellow};
   --input-bg-clr: #{$white};
   --blur-clr: #{$white};
+  --text-bg-clr: #{$lightBlue};
 }
 
 [data-theme='dark'] {
@@ -31,6 +32,7 @@ $greenDark: #5ed3a5;
   --tag-bg-nuskin-clr: #{$yellowDark};
   --input-bg-clr: #364349;
   --blur-clr: #{$blackDark};
+  --text-bg-clr: #{$blackDark};
 }
 
 $font-family-en: 'inconsolata', monospace, Helvetica, Arial, sans-serif;

@@ -220,7 +220,7 @@ const CanvasGridBackground = () => {
           width: '100vw',
           height: '100vh',
           pointerEvents: 'none',
-          backgroundColor: '#272F32',
+          backgroundColor: '#394246',
           zIndex: -3,
         }}
       />
