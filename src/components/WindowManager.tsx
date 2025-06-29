@@ -27,7 +27,8 @@ const WindowManager: React.FC<WindowManagerProps> = ({
               initialX={win.initialX}
               initialY={win.initialY}
               width={win.width}
-              height={win.height}>
+              height={win.height}
+              isFocused={zOrders[zOrders.length - 1] === win.id}>
               {win.content}
             </Window>
           </div>

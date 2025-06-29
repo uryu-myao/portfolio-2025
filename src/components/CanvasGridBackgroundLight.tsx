@@ -7,8 +7,6 @@ const CanvasGridBackground = () => {
   const isDraggingRef = useRef(false);
 
   useEffect(() => {
-    console.log('Light mode mounted');
-
     const staticCanvas = staticCanvasRef.current;
     const dynamicCanvas = dynamicCanvasRef.current;
     const dpr = window.devicePixelRatio || 1;
