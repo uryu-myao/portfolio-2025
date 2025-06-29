@@ -1,11 +1,8 @@
 // src/components/LoadingScreen.tsx
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import type { LoadingScreenProps } from '@/types';
 import '@/styles/components/loading.scss';
-
-interface LoadingScreenProps {
-  onComplete: () => void;
-}
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const barRefs = useRef<HTMLDivElement[]>([]);

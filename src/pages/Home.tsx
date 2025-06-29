@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import type { HomeProps } from '@/types';
 import type { WindowData } from '@/types';
+import { useTheme } from '@/hooks/useTheme';
 
 import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
@@ -28,9 +28,11 @@ const PASSWORD_PROTECTED_IDS = [
   'nuskin--products',
 ];
 
-const Home: React.FC<HomeProps> = ({ toggleTheme }) => {
+const Home: React.FC = () => {
   const widthWelcome = 400;
   const heightWelcome = '75vh';
+
+  const { toggleTheme } = useTheme();
 
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
     {

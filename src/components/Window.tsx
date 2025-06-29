@@ -14,6 +14,7 @@ const Window: React.FC<WindowProps> = ({
   initialY,
   width,
   height,
+  isFocused = false,
 }) => {
   const windowRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -94,7 +95,7 @@ const Window: React.FC<WindowProps> = ({
       ref={windowRef}
       className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
         animateOut ? 'animate-out' : ''
-      }`}
+      } ${isFocused ? 'foused' : ''}`}
       style={{
         width: isFullscreen ? '100vw' : width,
         height: isFullscreen ? '100vh' : height,

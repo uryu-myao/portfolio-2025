@@ -29,10 +29,11 @@ export interface WindowProps {
   initialY: number;
   width?: number | string;
   height?: number | string;
+  isFocused?: boolean;
 }
 
 export interface WindowManagerProps {
-  openWindows: WindowProps[];
+  openWindows: WindowData[];
   onCloseWindow: (id: string) => void;
   zOrders: string[];
   setZOrders: Dispatch<SetStateAction<string[]>>;
@@ -54,11 +55,10 @@ export interface PasswordPopupProps {
   onClose: () => void;
 }
 
-export interface HomeProps {
-  toggleTheme: () => void;
-  theme: 'light' | 'dark';
-}
-
 export interface NavProps {
   onToggleTheme: () => void;
+}
+
+export interface LoadingScreenProps {
+  onComplete: () => void;
 }
