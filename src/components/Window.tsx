@@ -16,20 +16,21 @@ const Window: React.FC<WindowProps> = ({
   height,
   isFocused = false,
 }) => {
+  const defaultWidth = 700;
+  const defaultHeight = 500;
+
   const windowRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [animateOut, setAnimateOut] = useState(false);
   const positionRef = useRef({ x: initialX, y: initialY });
 
-  // 初始定位
   useLayoutEffect(() => {
     if (windowRef.current) {
       windowRef.current.style.transform = `translate(${initialX}px, ${initialY}px)`;
     }
   }, [initialX, initialY]);
 
-  // 拖拽行为
   useEffect(() => {
     const el = windowRef.current;
     const header = headerRef.current;
@@ -95,10 +96,10 @@ const Window: React.FC<WindowProps> = ({
       ref={windowRef}
       className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
         animateOut ? 'animate-out' : ''
-      } ${isFocused ? 'foused' : ''}`}
+      } ${isFocused ? 'focused' : ''}`}
       style={{
-        width: isFullscreen ? '100vw' : width,
-        height: isFullscreen ? '100vh' : height,
+        width: isFullscreen ? '100vw' : width || defaultWidth,
+        height: isFullscreen ? '100vh' : height || defaultHeight,
         position: 'fixed',
         top: 0,
         left: 0,

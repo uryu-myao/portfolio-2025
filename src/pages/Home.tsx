@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import type { WindowData } from '@/types';
 import { useTheme } from '@/hooks/useTheme';
+import type { WindowData } from '@/types';
 
 import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
@@ -78,11 +78,15 @@ const Home: React.FC = () => {
       title: 'legacy 2017-2019',
       content: <Legacy2019Window />,
       icon: LegacyIcon,
+      width: '80vw',
+      height: '80vh',
     },
     'legacy--2017': {
       title: 'legacy 2013-2017',
       content: <Legacy2017Window />,
       icon: LegacyIcon,
+      width: '80vw',
+      height: '80vh',
     },
   } as Record<
     string,
@@ -95,6 +99,7 @@ const Home: React.FC = () => {
     content: React.ReactNode,
     useFixedPosition = false
   ) => {
+    const meta = iconMeta[id];
     setOpenWindows((prev) => {
       if (prev.some((w) => w.id === id)) return prev;
       const offset = 20;
@@ -108,7 +113,17 @@ const Home: React.FC = () => {
             initialY: baseY + newIndex * offset,
           };
 
-      return [...prev, { id, title, content, ...position }];
+      return [
+        ...prev,
+        {
+          id,
+          title,
+          content,
+          ...position,
+          width: meta?.width,
+          height: meta?.height,
+        },
+      ];
     });
 
     setZOrders((prev) => [...prev.filter((z) => z !== id), id]);
