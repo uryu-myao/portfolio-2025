@@ -22,7 +22,7 @@ const Nav: React.FC<NavProps> = () => {
             </a>
           </div>
           <div className="nav-item">
-            <a href="">
+            <a href="/photos">
               <img src={NavIconPhoto} alt="Photo" />
             </a>
           </div>
