@@ -29,26 +29,38 @@ const PASSWORD_PROTECTED_IDS = [
 ];
 
 const Home: React.FC = () => {
+  const isMobile = window.innerWidth <= 768;
+
   const widthWelcome = 400;
   const heightWelcome = '75vh';
 
   const { toggleTheme } = useTheme();
 
-  const [openWindows, setOpenWindows] = useState<WindowData[]>([
-    {
-      id: 'welcome',
+  // Initial window data for the welcome window
+  const welcomeMeta = {
+    id: 'welcome',
+    title: 'Welcome',
+    content: <WelcomeWindow />,
+    initialX: isMobile ? 20 : window.innerWidth - 400 - 50,
+    initialY: isMobile ? 60 : 80,
+    width: isMobile ? '90vw' : 400,
+    height: isMobile ? '50vh' : '75vh',
+  } satisfies WindowData;
+  const [openWindows, setOpenWindows] = useState<WindowData[]>([welcomeMeta]);
+  const [zOrders, setZOrders] = useState<string[]>(['welcome']);
+
+  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
+
+  const iconMeta = {
+    welcome: {
       title: 'Welcome',
       content: <WelcomeWindow />,
+      icon: '', // No icon for welcome
       initialX: window.innerWidth - widthWelcome - 50,
       initialY: 80,
       width: widthWelcome,
       height: heightWelcome,
     },
-  ]);
-  const [zOrders, setZOrders] = useState<string[]>(['welcome']);
-  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
-
-  const iconMeta = {
     'nuskin--guideline': {
       title: 'Web Guideline',
       content: <NuskinWindow />,
@@ -90,38 +102,48 @@ const Home: React.FC = () => {
     },
   } as Record<
     string,
-    { title: string; content: React.ReactNode; icon: string }
+    {
+      title: string;
+      content: React.ReactNode;
+      icon: string;
+      width?: number | string;
+      height?: number | string;
+      initialX?: number;
+      initialY?: number;
+    }
   >;
-
   const handleOpenWindow = (
     id: string,
-    title: string,
-    content: React.ReactNode,
+    title?: string,
+    content?: React.ReactNode,
     useFixedPosition = false
   ) => {
     const meta = iconMeta[id];
+    if (!meta) return;
+
     setOpenWindows((prev) => {
       if (prev.some((w) => w.id === id)) return prev;
+
       const offset = 20;
       const baseX = 100;
       const baseY = 100;
       const newIndex = prev.length;
-      const position = useFixedPosition
-        ? { initialX: 20, initialY: 20 }
-        : {
-            initialX: baseX + newIndex * offset,
-            initialY: baseY + newIndex * offset,
-          };
+
+      const initialX =
+        meta.initialX ?? (useFixedPosition ? 20 : baseX + newIndex * offset);
+      const initialY =
+        meta.initialY ?? (useFixedPosition ? 20 : baseY + newIndex * offset);
 
       return [
         ...prev,
         {
           id,
-          title,
-          content,
-          ...position,
-          width: meta?.width,
-          height: meta?.height,
+          title: meta.title,
+          content: meta.content,
+          initialX,
+          initialY,
+          width: meta.width,
+          height: meta.height,
         },
       ];
     });
@@ -146,21 +168,23 @@ const Home: React.FC = () => {
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
-  const icons = Object.entries(iconMeta).map(([id, meta]) => ({
-    id,
-    icon: meta.icon,
-    label: `${meta.title}`,
-    variant: id.startsWith('nuskin')
-      ? 'nuskin'
-      : id.startsWith('stores')
-      ? 'stores'
-      : 'personal',
-    isLocked: PASSWORD_PROTECTED_IDS.includes(id),
-    onOpen: () =>
-      PASSWORD_PROTECTED_IDS.includes(id)
-        ? handleProtectedOpenWindow(id)
-        : handleOpenWindow(id, meta.title, meta.content),
-  }));
+  const icons = Object.entries(iconMeta)
+    .filter(([id]) => id !== 'welcome')
+    .map(([id, meta]) => ({
+      id,
+      icon: meta.icon,
+      label: `${meta.title}`,
+      variant: id.startsWith('nuskin')
+        ? 'nuskin'
+        : id.startsWith('stores')
+        ? 'stores'
+        : 'personal',
+      isLocked: PASSWORD_PROTECTED_IDS.includes(id),
+      onOpen: () =>
+        PASSWORD_PROTECTED_IDS.includes(id)
+          ? handleProtectedOpenWindow(id)
+          : handleOpenWindow(id, meta.title, meta.content),
+    }));
 
   return (
     <main className="home container">
@@ -202,11 +226,7 @@ const Home: React.FC = () => {
         )}
         <Time />
         <Nav onToggleTheme={toggleTheme} />
-        <InfoIcon
-          onOpen={() =>
-            handleOpenWindow('welcome', 'Welcome', <WelcomeWindow />, true)
-          }
-        />
+        <InfoIcon onOpen={() => handleOpenWindow('welcome')} />
       </div>
       <CanvasGridBackground />
     </main>
