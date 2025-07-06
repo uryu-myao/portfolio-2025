@@ -10,10 +10,10 @@ const NotFound: React.FC = () => {
     <main className="notfound">
       <Nav onToggleTheme={toggleTheme} />
       <div className="notfound-inner">
-        <div>
-          <h1 className="notfound-ttl text-en">
-            <ScrambleText text="404 Page Not Found" />
-          </h1>
+        <h1 className="notfound-ttl text-theme">
+          <ScrambleText text="404 Page Not Found" />
+        </h1>
+        <div className="notfonnd-paragraph">
           <p className="text-en">
             Oops! The page you're looking for doesn't exist.
           </p>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import type { WindowData } from '@/types';
 
-import Time from '@/components/Time';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
@@ -224,7 +223,6 @@ const Home: React.FC = () => {
             onClose={() => setShowPasswordFor(null)}
           />
         )}
-        <Time />
         <Nav onToggleTheme={toggleTheme} />
         <InfoIcon onOpen={() => handleOpenWindow('welcome')} />
       </div>

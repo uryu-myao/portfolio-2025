@@ -34,7 +34,7 @@ const Time = () => {
           <span className="time-text__ampm">{timeData.ampm}</span>
         </p>
       </div>
-      <p className="time-location text-en">Creating from Tokyo</p>
+      {/* <p className="time-location text-en">Creating from Tokyo</p> */}
     </div>
   );
 };
