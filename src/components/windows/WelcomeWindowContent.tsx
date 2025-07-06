@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import ScrambleText from '@/components/ScrambleText';
 import '@/styles/components/welcomeWindow.scss';
 
 const WelcomeWindowContent = () => {
@@ -30,7 +31,7 @@ const WelcomeWindowContent = () => {
       <p className="welcome-sub text-en text-xs">
         © {year} Uryu Myao. All rights reserved.
         <br />
-        Developed by{' '}
+        Developed by
         <a
           href="https://github.com/uryu-myao/portfolio-2025"
           target="_blank"

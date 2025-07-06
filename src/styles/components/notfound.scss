@@ -14,9 +14,16 @@
   }
 
   &-ttl {
-    color: var();
-    font-size: 2rem;
+    font-size: 8rem;
+    font-weight: 300;
+    text-transform: uppercase;
     margin-bottom: 1rem;
+  }
+
+  &-paragraph {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   p {

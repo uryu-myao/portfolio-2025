@@ -87,7 +87,7 @@ const ScrambleText = ({ text, className = '' }: ScrambleTextProps) => {
     const loop = () => {
       if (!active) return;
       scrambler.setText(text).then(() => {
-        setTimeout(loop, (Math.floor(Math.random() * 3) + 2) * 1000);
+        setTimeout(loop, (Math.floor(Math.random() * 3) + 2) * 1200);
       });
     };
 
