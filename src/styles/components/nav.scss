@@ -33,6 +33,7 @@
   &-logo {
     font-size: 3rem;
     text-transform: uppercase;
+    margin-right: 0.5em;
   }
 
   &-menu {
@@ -41,7 +42,7 @@
     &-link {
       display: block;
       color: var(--text-primary-clr);
-      padding: 0.4em;
+      padding: 0.4em 0.8em;
       font-size: 1.6rem;
       font-weight: 600;
       text-transform: capitalize;
@@ -63,6 +64,14 @@
       z-index: 100;
       background-color: white;
       border-radius: 10px;
+      transition: all 0.2s ease;
+      opacity: 1;
+      visibility: visible;
+
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
 
       &-inner {
         padding: 0.4em;
@@ -106,17 +115,28 @@
   }
 
   &-icons {
+    display: flex;
+    gap: 1em;
     justify-self: end;
 
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0.4em;
       border-radius: 4px;
+
       &:hover {
         background-color: var(--hover-bg-clr);
       }
     }
 
     &-theme {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &-fullscreen {
       width: 2rem;
       height: 2rem;
     }

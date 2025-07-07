@@ -1,8 +1,7 @@
+import { useState } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import type { NavProps } from '@/types';
-
 import Time from '@/components/Time';
-
 import '@/styles/components/nav.scss';
 
 // import NavIconHome from '@/assets/nav-icon-home.svg';
@@ -13,6 +12,20 @@ import NavIconTheme from '@/assets/nav-icon-theme.svg';
 
 const Nav: React.FC<NavProps> = () => {
   const { toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenEnabled) {
+      console.warn('Fullscreen mode is not supported by this browser.');
+      return;
+    }
+    const doc = document.documentElement;
+    if (!document.fullscreenElement) {
+      doc.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  };
 
   return (
     <nav className="nav">
@@ -22,10 +35,16 @@ const Nav: React.FC<NavProps> = () => {
             uryu myao
           </a>
         </div>
-
         <div className="nav-menu">
-          <button className="nav-menu-link text-en">menu</button>
-          <section className="nav-menu-pulldown">
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="nav-menu-link text-en">
+            menu
+          </button>
+          <section
+            className={
+              isMenuOpen ? 'nav-menu-pulldown' : 'nav-menu-pulldown hidden'
+            }>
             <div className="nav-menu-pulldown-inner">
               <div className="text-en">
                 <h3 className="nav-menu-pulldown-ttl text-en">project log</h3>
@@ -55,7 +74,6 @@ const Nav: React.FC<NavProps> = () => {
             </div>
           </section>
         </div>
-
         <div className="nav-icons">
           <button onClick={toggleTheme}>
             <img
@@ -64,9 +82,32 @@ const Nav: React.FC<NavProps> = () => {
               alt="Toggle Theme"
             />
           </button>
-          <button>{/* <img src={} alt="Toggle Fullscreen" /> */}</button>
+          <button onClick={toggleFullscreen}>
+            <svg
+              className="nav-icons-fullscreen"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none">
+              <path d="M5.66667 1H1V5.66667" stroke="black" stroke-width="2" />
+              <path
+                d="M15 5.66667L15 1L10.3333 1"
+                stroke="black"
+                stroke-width="2"
+              />
+              <path
+                d="M10.3333 15L15 15L15 10.3333"
+                stroke="black"
+                stroke-width="2"
+              />
+              <path
+                d="M5.66667 15L1 15L1 10.3333"
+                stroke="black"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
         </div>
-
         <Time />
       </div>
     </nav>
