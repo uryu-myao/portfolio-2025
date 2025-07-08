@@ -7,36 +7,21 @@ import FolderIconList from '@/components/FolderIconList';
 import InfoIcon from '@/components/InfoIcon';
 import Nav from '@/components/Nav';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
-
-import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
-import { iconMeta, getIcons, IconID } from '@/data/icons';
+import { iconMeta, getIcons, getWelcomeMeta, IconID } from '@/data/icons';
 
 const Home: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
   const { toggleTheme } = useTheme();
 
-  const welcomeMeta = {
-    id: 'welcome',
-    title: 'Welcome',
-    content: <WelcomeWindow />,
-    initialX: isMobile ? 20 : window.innerWidth - 400 - 50,
-    initialY: isMobile ? 60 : 80,
-    width: isMobile ? '90vw' : 400,
-    height: isMobile ? '50vh' : '75vh',
-  } satisfies WindowData;
-
-  const [openWindows, setOpenWindows] = useState<WindowData[]>([welcomeMeta]);
+  const [openWindows, setOpenWindows] = useState<WindowData[]>([
+    getWelcomeMeta(isMobile),
+  ]);
   const [zOrders, setZOrders] = useState<string[]>(['welcome']);
   const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
 
-  const handleOpenWindow = (
-    id: IconID,
-    title?: string,
-    content?: React.ReactNode,
-    useFixedPosition = false
-  ) => {
+  const handleOpenWindow = (id: IconID) => {
     const meta = iconMeta[id];
     if (!meta) return;
 
@@ -48,10 +33,8 @@ const Home: React.FC = () => {
       const baseY = 100;
       const newIndex = prev.length;
 
-      const initialX =
-        meta.initialX ?? (useFixedPosition ? 20 : baseX + newIndex * offset);
-      const initialY =
-        meta.initialY ?? (useFixedPosition ? 20 : baseY + newIndex * offset);
+      const initialX = meta.initialX ?? baseX + newIndex * offset;
+      const initialY = meta.initialY ?? baseY + newIndex * offset;
 
       return [
         ...prev,
@@ -76,7 +59,7 @@ const Home: React.FC = () => {
     if (!meta) return;
 
     if (unlocked) {
-      handleOpenWindow(id, meta.title, meta.content);
+      handleOpenWindow(id);
     } else {
       setShowPasswordFor(id);
     }
@@ -87,19 +70,15 @@ const Home: React.FC = () => {
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
-  const safeHandleOpenWindow = (id: string) => {
-    if (id in iconMeta) {
-      handleOpenWindow(id as IconID);
-    }
-  };
-
-  const safeHandleProtectedOpenWindow = (id: string) => {
-    if (id in iconMeta) {
-      handleProtectedOpenWindow(id as IconID);
-    }
-  };
-
   const icons = getIcons(handleOpenWindow, handleProtectedOpenWindow);
+
+  // 用于 Nav props
+  const safeHandleOpenWindow = (id: string) => {
+    if (id in iconMeta) handleOpenWindow(id as IconID);
+  };
+  const safeHandleProtectedOpenWindow = (id: string) => {
+    if (id in iconMeta) handleProtectedOpenWindow(id as IconID);
+  };
 
   return (
     <main className="home container">
@@ -129,11 +108,7 @@ const Home: React.FC = () => {
             folderId={showPasswordFor}
             title={iconMeta[showPasswordFor as IconID].title}
             onSuccess={() => {
-              handleOpenWindow(
-                showPasswordFor as IconID,
-                iconMeta[showPasswordFor as IconID].title,
-                iconMeta[showPasswordFor as IconID].content
-              );
+              handleOpenWindow(showPasswordFor as IconID);
               setShowPasswordFor(null);
             }}
             onClose={() => setShowPasswordFor(null)}
