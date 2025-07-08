@@ -57,6 +57,8 @@ export interface PasswordPopupProps {
 
 export interface NavProps {
   onToggleTheme: () => void;
+  onOpenWindow: (id: string) => void;
+  onProtectedOpenWindow: (id: string) => void;
 }
 
 export interface LoadingScreenProps {
