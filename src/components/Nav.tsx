@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { useTheme } from '@/hooks/useTheme';
+import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import Time from '@/components/Time';
 import '@/styles/components/nav.scss';
 
-// import NavIconHome from '@/assets/nav-icon-home.svg';
-// import NavIconPhoto from '@/assets/nav-icon-photo.svg';
 import NavIconGithub from '@/assets/nav-icon-github.svg';
 import NavIconMail from '@/assets/nav-icon-mail.svg';
 import NavIconTheme from '@/assets/nav-icon-theme.svg';
 
-const Nav: React.FC<NavProps> = () => {
-  const { toggleTheme } = useTheme();
+const Nav: React.FC<NavProps> = ({
+  onToggleTheme,
+  onOpenWindow,
+  onProtectedOpenWindow,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleFullscreen = () => {
@@ -26,6 +27,8 @@ const Nav: React.FC<NavProps> = () => {
       document.exitFullscreen?.();
     }
   };
+
+  const icons = getIcons(onOpenWindow, onProtectedOpenWindow);
 
   return (
     <nav className="nav">
@@ -46,10 +49,20 @@ const Nav: React.FC<NavProps> = () => {
               isMenuOpen ? 'nav-menu-pulldown' : 'nav-menu-pulldown hidden'
             }>
             <div className="nav-menu-pulldown-inner">
-              <div className="text-en">
+              <div>
                 <h3 className="nav-menu-pulldown-ttl text-en">project log</h3>
-                <ul className="nav-menu-pulldown-list"></ul>
+                <ul className="nav-menu-pulldown-list">
+                  {icons.map((icon) => (
+                    <li
+                      key={icon.id}
+                      className="nav-menu-pulldown-item text-en"
+                      onClick={icon.onOpen}>
+                      {icon.label}
+                    </li>
+                  ))}
+                </ul>
               </div>
+              <hr />
               <div>
                 <h3 className="nav-menu-pulldown-ttl text-en">contact</h3>
                 <div className="nav-menu-pulldown-list">
@@ -75,7 +88,7 @@ const Nav: React.FC<NavProps> = () => {
           </section>
         </div>
         <div className="nav-icons">
-          <button onClick={toggleTheme}>
+          <button onClick={onToggleTheme}>
             <img
               className="nav-icons-theme"
               src={NavIconTheme}
@@ -89,21 +102,21 @@ const Nav: React.FC<NavProps> = () => {
               height="16"
               viewBox="0 0 16 16"
               fill="none">
-              <path d="M5.66667 1H1V5.66667" stroke="black" stroke-width="2" />
+              <path d="M5.66667 1H1V5.66667" stroke="black" strokeWidth="2" />
               <path
                 d="M15 5.66667L15 1L10.3333 1"
                 stroke="black"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <path
                 d="M10.3333 15L15 15L15 10.3333"
                 stroke="black"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <path
                 d="M5.66667 15L1 15L1 10.3333"
                 stroke="black"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </svg>
           </button>
