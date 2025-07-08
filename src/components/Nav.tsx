@@ -55,9 +55,13 @@ const Nav: React.FC<NavProps> = ({
                   {icons.map((icon) => (
                     <li
                       key={icon.id}
-                      className="nav-menu-pulldown-item text-en"
+                      className="nav-menu-pulldown-item"
                       onClick={icon.onOpen}>
-                      {icon.label}
+                      <span
+                        className={`folder-icon__tag folder-icon__tag--${icon.variant} text-theme`}>
+                        {icon.tagLabel}
+                      </span>{' '}
+                      <span className="text-en">{icon.label}</span>
                     </li>
                   ))}
                 </ul>
