@@ -40,10 +40,10 @@
 
   &__lock {
     position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: clamp(20px, 2vw, 40px);
-    height: clamp(20px, 2vw, 40px);
+    left: -3px;
+    bottom: -3px;
+    width: 26px;
+    height: 26px;
   }
 
   &__info {
@@ -53,8 +53,12 @@
 
   &__tag {
     color: $blackDark;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
     display: inline-block;
     padding: 0.05em 0.02em 0.06em 0.08em;
+    border: 2px solid $blackDark;
     width: 50px;
     text-align: center;
     text-transform: uppercase;

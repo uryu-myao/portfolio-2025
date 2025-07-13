@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import Time from '@/components/Time';
@@ -28,6 +28,25 @@ const Nav: React.FC<NavProps> = ({
     }
   };
 
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   const icons = getIcons(onOpenWindow, onProtectedOpenWindow);
 
   return (
@@ -38,7 +57,7 @@ const Nav: React.FC<NavProps> = ({
             uryu myao
           </a>
         </div>
-        <div className="nav-menu">
+        <div className="nav-menu" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="nav-menu-link text-en">
