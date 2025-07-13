@@ -164,4 +164,9 @@
     background: transparent;
     cursor: pointer;
   }
+
+  & .folder-icon__tag {
+    position: relative;
+    border: 0;
+  }
 }

@@ -1,6 +1,4 @@
-import NuskinIcon from '@/assets/folder-icon-nuskin.svg';
-import StoresIcon from '@/assets/folder-icon-nuskin.svg';
-import LegacyIcon from '@/assets/folder-icon-nuskin.svg';
+import FolderIconSVG from '@/components/svg/FolderIconSVG';
 
 import NuskinWindow from '@/components/windows/NuskinWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
@@ -22,7 +20,7 @@ export const iconMeta = {
   welcome: {
     title: 'Welcome',
     content: <WelcomeWindow />,
-    icon: '',
+    icon: '', // welcome 无图标
     width: 400,
     height: '75vh',
     initialX: window.innerWidth - 400 - 50,
@@ -31,34 +29,34 @@ export const iconMeta = {
   'nuskin--guideline': {
     title: 'Web Guideline',
     content: <NuskinWindow />,
-    icon: NuskinIcon,
+    icon: <FolderIconSVG />,
   },
   'nuskin--branding': {
     title: 'Global Branding renewal optimization / New Design tool / CSR',
     content: <NuskinWindow />,
-    icon: NuskinIcon,
+    icon: <FolderIconSVG />,
   },
   'nuskin--products': {
     title: 'Main products communication',
     content: <NuskinWindow />,
-    icon: NuskinIcon,
+    icon: <FolderIconSVG />,
   },
   'stores-all': {
     title: 'Stores.jp',
     content: <StoresWindow />,
-    icon: StoresIcon,
+    icon: <FolderIconSVG />,
   },
   'legacy--2019': {
     title: 'legacy 2017-2019',
     content: <Legacy2019Window />,
-    icon: LegacyIcon,
+    icon: <FolderIconSVG />,
     width: '80vw',
     height: '80vh',
   },
   'legacy--2017': {
     title: 'legacy 2013-2017',
     content: <Legacy2017Window />,
-    icon: LegacyIcon,
+    icon: <FolderIconSVG />,
     width: '80vw',
     height: '80vh',
   },
@@ -102,7 +100,7 @@ export const getIcons = (
       };
     });
 
-// 用于 welcome 窗口初始化
+// welcome 初始窗口
 export const getWelcomeMeta = (isMobile: boolean): WindowData => {
   const meta = iconMeta['welcome'];
   return {
