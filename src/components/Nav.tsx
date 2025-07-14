@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
-import Time from '@/components/Time';
 import '@/styles/components/nav.scss';
 
 import NavIconGithub from '@/assets/nav-icon-github.svg';
 import NavIconMail from '@/assets/nav-icon-mail.svg';
-import NavIconTheme from '@/assets/nav-icon-theme.svg';
+
+import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
+import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
+import Time from '@/components/Time';
 
 const Nav: React.FC<NavProps> = ({
   onToggleTheme,
@@ -14,12 +16,11 @@ const Nav: React.FC<NavProps> = ({
   onProtectedOpenWindow,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleFullscreen = () => {
-    if (!document.fullscreenEnabled) {
-      console.warn('Fullscreen mode is not supported by this browser.');
-      return;
-    }
+    if (!document.fullscreenEnabled) return;
     const doc = document.documentElement;
     if (!document.fullscreenElement) {
       doc.requestFullscreen?.();
@@ -28,8 +29,16 @@ const Nav: React.FC<NavProps> = ({
     }
   };
 
-  const menuRef = useRef<HTMLDivElement>(null);
+  // ✅ 监听 fullscreen 状态变化
+  useEffect(() => {
+    const handleChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleChange);
+    return () => document.removeEventListener('fullscreenchange', handleChange);
+  }, []);
 
+  // ✅ 点击非 menu 区域关闭菜单
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -40,7 +49,6 @@ const Nav: React.FC<NavProps> = ({
         setIsMenuOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -57,6 +65,7 @@ const Nav: React.FC<NavProps> = ({
             uryu myao
           </a>
         </div>
+
         <div className="nav-menu" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -110,38 +119,16 @@ const Nav: React.FC<NavProps> = ({
             </div>
           </section>
         </div>
+
         <div className="nav-icons">
           <button onClick={onToggleTheme}>
-            <img
-              className="nav-icons-theme"
-              src={NavIconTheme}
-              alt="Toggle Theme"
-            />
+            <ThemeIconSVG className="nav-icons-theme" />
           </button>
           <button onClick={toggleFullscreen}>
-            <svg
+            <FullscreenIconSVG
               className="nav-icons-fullscreen"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none">
-              <path d="M5.66667 1H1V5.66667" stroke="black" strokeWidth="2" />
-              <path
-                d="M15 5.66667L15 1L10.3333 1"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <path
-                d="M10.3333 15L15 15L15 10.3333"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <path
-                d="M5.66667 15L1 15L1 10.3333"
-                stroke="black"
-                strokeWidth="2"
-              />
-            </svg>
+              isFullscreen={isFullscreen}
+            />
           </button>
         </div>
         <Time />

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
 import Home from '@/pages/Home';
-import Photos from '@/pages/Photos';
+// import Photos from '@/pages/Photos';
 import NotFound from '@/pages/NotFound';
 import LoadingScreen from '@/components/LoadingScreen';
 
@@ -18,7 +18,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/photos" element={<Photos />} />
+          {/* <Route path="/photos" element={<Photos />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
