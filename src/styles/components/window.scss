@@ -45,7 +45,7 @@
     }
 
     &.focused {
-      border-color: var(--focued-clr);
+      border-color: var(--focued-border-clr);
     }
   }
 
@@ -83,6 +83,11 @@
         cursor: pointer;
         pointer-events: auto;
         z-index: 10;
+        transition: all 0.1s ease;
+
+        &:active {
+          transform: translateY(2px);
+        }
       }
     }
   }

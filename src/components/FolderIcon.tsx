@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '@/styles/components/folder-icon.scss';
 import type { FolderIconProps } from '@/types';
 import FolderIconSVG from '@/components/svg/FolderIconSVG';
@@ -10,6 +11,8 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   variant = 'personal', // Default variant
   isLocked = false,
 }) => {
+  const [hovered, setHovered] = useState(false);
+
   const tagLabel =
     variant === 'nuskin'
       ? 'nuskin'
@@ -43,11 +46,14 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   return (
     <div
       className={`folder-icon-item folder-icon__${variant} folder-icon__${id}`}
-      onClick={onOpen}>
+      onClick={onOpen}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}>
       <div className="folder-icon__img">
         <FolderIconSVG
           folderColor={folderColor}
           paperColor={paperColor}
+          isOpen={hovered}
           width={88}
           height={63}
         />

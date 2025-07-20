@@ -3,11 +3,10 @@ import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
 
-import NavIconGithub from '@/assets/nav-icon-github.svg';
-import NavIconMail from '@/assets/nav-icon-mail.svg';
-
-import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
 import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
+import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
+import GithubIconSVG from '@/components/svg/GithubIconSVG';
+import MailIconSVG from '@/components/svg/MailIconSVG';
 import Time from '@/components/Time';
 
 const Nav: React.FC<NavProps> = ({
@@ -103,7 +102,9 @@ const Nav: React.FC<NavProps> = ({
                     href="https://github.com/uryu-myao"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <img src={NavIconGithub} alt="" />
+                    <span className="nav-menu-pulldown-item-icon">
+                      <GithubIconSVG />
+                    </span>
                     github
                   </a>
                   <a
@@ -111,7 +112,9 @@ const Nav: React.FC<NavProps> = ({
                     href="mailto:myao.jpn@gmail.com?subject=Hi%2C%20I%27m%20interested%20in%20your%20portfolio"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <img src={NavIconMail} alt="" />
+                    <span className="nav-menu-pulldown-item-icon">
+                      <MailIconSVG />
+                    </span>
                     e-mail
                   </a>
                 </div>

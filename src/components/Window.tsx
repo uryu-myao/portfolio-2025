@@ -43,6 +43,7 @@ const Window: React.FC<WindowProps> = ({
     let isDragging = false;
 
     const onPointerDown = (e: PointerEvent) => {
+      if ((e.target as HTMLElement).closest('button')) return;
       if (isFullscreen) return;
       isDragging = true;
       startX = e.clientX;

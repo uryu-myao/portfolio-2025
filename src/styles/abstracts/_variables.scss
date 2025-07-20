@@ -22,7 +22,7 @@ $greenDark: #5ed3a5;
   --input-bg-clr: #{$white};
   --blur-clr: #{$white};
   --text-bg-clr: #{$lightBlue};
-  --focued-clr: #{#6898cb};
+  --focued-border-clr: #{#68a1dd};
 }
 [data-theme='dark'] {
   --window-bg-clr: #{$blackDark};
@@ -32,7 +32,7 @@ $greenDark: #5ed3a5;
   --input-bg-clr: #364349;
   --blur-clr: #{$blackDark};
   --text-bg-clr: #{$blackDark};
-  --focued-clr: #{#34809c};
+  --focued-border-clr: #{#34809c};
 }
 
 /* Font */
