@@ -3,7 +3,7 @@
 # $ git rm -r --cached .
 
 #####################################
-.env
+/.env
 /.bash_history
 /.ssh/
 /error_docs/
