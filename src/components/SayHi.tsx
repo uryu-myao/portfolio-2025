@@ -5,7 +5,7 @@ import '@/styles/components/sayhi.scss';
 import SayHiIconSVG from '@/components/svg/SayHiIconSVG';
 
 const SayHi = () => {
-  const { likeCount, handleLike, hasReachedLimit } = useLike();
+  const { likeCount, handleLike, hasReachedLimit, lastVisitor } = useLike();
   const [showPlusOne, setShowPlusOne] = useState(false);
 
   const handleClickLike = async () => {
@@ -28,6 +28,12 @@ const SayHi = () => {
         <p className="text-theme sayhi-number">{likeCount}</p>
         {showPlusOne && <span className="plus-one text-theme">+1</span>}
       </button>
+
+      <p className="text-en sayhi-location">
+        {lastVisitor
+          ? `Last visit from ${lastVisitor.city}, ${lastVisitor.country}`
+          : 'Welcome!'}
+      </p>
     </div>
   );
 };

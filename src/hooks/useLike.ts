@@ -2,18 +2,16 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
-interface LocationInfo {
-  ip: string;
-  location: string;
-  count: number;
-}
-
 export const useLike = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [userLikes, setUserLikes] = useState(0);
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const MAX_LIKES = 5;
+  const [lastVisitor, setLastVisitor] = useState<{
+    city: string;
+    country: string;
+  } | null>(null);
 
   // 获取访客 IP 和位置
   useEffect(() => {
@@ -52,6 +50,20 @@ export const useLike = () => {
       if (userData) {
         setUserLikes(userData.count);
       }
+
+      // 获取上一个访问者（排除自己），按时间倒序取一条
+      const { data: recentVisitors } = await supabase
+        .from('likes')
+        .select('location, updated_at')
+        .neq('ip', ip) // ❗ 排除当前访客
+        .order('updated_at', { ascending: false })
+        .limit(1);
+
+      if (recentVisitors && recentVisitors.length > 0) {
+        const loc = recentVisitors[0].location;
+        const [city, country] = loc.split(', ');
+        setLastVisitor({ city, country });
+      }
     };
 
     fetchData();
@@ -79,5 +91,6 @@ export const useLike = () => {
     userLikes,
     handleLike,
     hasReachedLimit: userLikes >= MAX_LIKES,
+    lastVisitor,
   };
 };
