@@ -30,6 +30,7 @@ const FolderIconSVG = ({
     <m.svg xmlns="http://www.w3.org/2000/svg" {...props}>
       <m.path
         fill="#00171F"
+        initial={false}
         animate={{ d: isOpen ? openedBackPath : closedBackPath }}
         transition={{ duration: 0.15, ease: 'easeInOut' }}
       />
@@ -37,6 +38,7 @@ const FolderIconSVG = ({
         fill={paperColor}
         stroke="#00171F"
         strokeWidth={2}
+        initial={false}
         animate={{ d: isOpen ? openedPaperPath : closedPaperPath }}
         transition={{ duration: 0.15, ease: 'easeInOut' }}
       />
@@ -44,6 +46,7 @@ const FolderIconSVG = ({
         fill={folderColor}
         stroke="#00171F"
         strokeWidth={2}
+        initial={false}
         animate={{ d: isOpen ? openedFrontPath : closedFrontPath }}
         initial={false}
         transition={{ duration: 0.15, ease: 'easeInOut' }}

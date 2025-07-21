@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import ScrambleText from '@/components/ScrambleText';
 import '@/styles/components/welcomeWindow.scss';
 
 const WelcomeWindowContent = () => {

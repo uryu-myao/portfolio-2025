@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import type { WindowData } from '@/types';
 
+import Nav from '@/components/Nav';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
-import InfoIcon from '@/components/InfoIcon';
-import Nav from '@/components/Nav';
+import SayHi from '@/components/SayHi';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
 import PasswordPopup from '@/components/windows/PasswordWindowContent';
 
@@ -121,7 +121,7 @@ const Home: React.FC = () => {
           onProtectedOpenWindow={safeHandleProtectedOpenWindow}
         />
 
-        <InfoIcon onOpen={() => handleOpenWindow('welcome')} />
+        <SayHi />
       </div>
 
       <CanvasGridBackground />

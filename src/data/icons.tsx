@@ -23,7 +23,7 @@ export const iconMeta = {
     icon: '', // welcome 无图标
     width: 400,
     height: '75vh',
-    initialX: window.innerWidth - 400 - 50,
+    initialX: 24,
     initialY: 80,
   },
   'nuskin--guideline': {

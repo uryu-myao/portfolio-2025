@@ -15,7 +15,7 @@ const ThemeIconSVG = (props: SVGMotionProps<SVGSVGElement>) => {
     <m.svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...props}>
       <m.g animate={{ rotate: isDark ? 360 : 0 }}>
         <m.path
-          d={moonPath}
+          d={moonPath || ''}
           fill="#4DA2FF"
           initial={{ opacity: 0 }}
           animate={{ opacity: isDark ? 1 : 0 }}
@@ -34,7 +34,7 @@ const ThemeIconSVG = (props: SVGMotionProps<SVGSVGElement>) => {
       <m.g>
         {isDark ? (
           <m.path
-            d={starPath}
+            d={starPath || ''}
             fill="#fff"
             initial={{ opacity: 0, scale: 0.1, rotate: 0 }}
             animate={{ opacity: 1, scale: 1, rotate: 360 }}

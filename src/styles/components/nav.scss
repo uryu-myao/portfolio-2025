@@ -1,16 +1,16 @@
 .nav {
   position: absolute;
-  width: 96vw;
-  top: 20px;
+  width: 100vw;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 
   &-inner {
     position: relative;
-    padding: 0.5em 0 0.5em 3em;
+    padding: 0.5em 0 0.5em 1.5em;
     background-color: var(--window-bg-clr);
-    border-radius: 50px;
-    border: 2px solid var(--border-clr);
+    // border-radius: 50px;
+    border-bottom: 2px solid var(--border-clr);
     display: grid;
     grid-template-columns: auto 1fr 1fr auto;
     gap: 1em;
@@ -28,12 +28,25 @@
   &-logo {
     margin-right: 1.6em;
 
-    a {
-      padding-top: 0.06em;
+    button {
+      padding: 0.06em 0.4em 0;
+      border-radius: 4px;
       display: inline-block;
       color: var(--text-primary-clr);
       font-size: 3rem;
       text-transform: uppercase;
+      transition: all 0.1s ease;
+
+      &:hover {
+        background-color: var(--window-header-clr);
+      }
+      &:active {
+        transform: translateY(2px);
+      }
+      &:focus {
+        outline: 2px solid var(--focued-border-clr);
+        outline-offset: 2px;
+      }
     }
   }
 
@@ -144,9 +157,10 @@
   &-icons {
     display: flex;
     gap: 1em;
+    align-items: center;
     justify-self: end;
 
-    button {
+    &-theme {
       width: 3.2rem;
       height: 3.2rem;
       display: flex;
@@ -168,7 +182,7 @@
       }
     }
 
-    &-theme {
+    svg {
       width: 2rem;
       height: 2rem;
     }

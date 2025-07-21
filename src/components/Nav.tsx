@@ -3,10 +3,10 @@ import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
 
-import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
-import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
+// import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
 import GithubIconSVG from '@/components/svg/GithubIconSVG';
 import MailIconSVG from '@/components/svg/MailIconSVG';
+import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
 import Time from '@/components/Time';
 
 const Nav: React.FC<NavProps> = ({
@@ -15,27 +15,27 @@ const Nav: React.FC<NavProps> = ({
   onProtectedOpenWindow,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  // const [isFullscreen, setIsFullscreen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenEnabled) return;
-    const doc = document.documentElement;
-    if (!document.fullscreenElement) {
-      doc.requestFullscreen?.();
-    } else {
-      document.exitFullscreen?.();
-    }
-  };
+  // const toggleFullscreen = () => {
+  //   if (!document.fullscreenEnabled) return;
+  //   const doc = document.documentElement;
+  //   if (!document.fullscreenElement) {
+  //     doc.requestFullscreen?.();
+  //   } else {
+  //     document.exitFullscreen?.();
+  //   }
+  // };
 
   // ✅ 监听 fullscreen 状态变化
-  useEffect(() => {
-    const handleChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
-    document.addEventListener('fullscreenchange', handleChange);
-    return () => document.removeEventListener('fullscreenchange', handleChange);
-  }, []);
+  // useEffect(() => {
+  //   const handleChange = () => {
+  //     setIsFullscreen(!!document.fullscreenElement);
+  //   };
+  //   document.addEventListener('fullscreenchange', handleChange);
+  //   return () => document.removeEventListener('fullscreenchange', handleChange);
+  // }, []);
 
   // ✅ 点击非 menu 区域关闭菜单
   useEffect(() => {
@@ -60,9 +60,11 @@ const Nav: React.FC<NavProps> = ({
     <nav className="nav">
       <div className="nav-inner">
         <div className="nav-logo">
-          <a className="text-theme" href="/">
+          <button
+            className="text-theme"
+            onClick={() => onOpenWindow('welcome')}>
             uryu myao
-          </a>
+          </button>
         </div>
 
         <div className="nav-menu" ref={menuRef}>
@@ -124,15 +126,15 @@ const Nav: React.FC<NavProps> = ({
         </div>
 
         <div className="nav-icons">
-          <button onClick={onToggleTheme}>
-            <ThemeIconSVG className="nav-icons-theme" />
+          <button onClick={onToggleTheme} className="nav-icons-theme">
+            <ThemeIconSVG />
           </button>
-          <button onClick={toggleFullscreen}>
+          {/* <button onClick={toggleFullscreen}>
             <FullscreenIconSVG
               className="nav-icons-fullscreen"
               isFullscreen={isFullscreen}
             />
-          </button>
+          </button> */}
         </div>
         <Time />
       </div>
