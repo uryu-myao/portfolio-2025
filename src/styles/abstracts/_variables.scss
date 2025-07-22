@@ -2,10 +2,10 @@
 $white: #ffffff;
 $whiteDark: #d5e1e7;
 $black: #00171f;
-$blackDark: #1b2123;
+$blackDark: #232b2d;
 $red: #ee6352;
 $blue: #4da2ff;
-$lightBlue: #f0f3ff;
+$lightBlue: #eef2f9;
 $lightBlueDark: #2d373b;
 $aqua: #34f6f2;
 $aquaDark: #26bcd0;
@@ -22,7 +22,9 @@ $greenDark: #5ed3a5;
   --input-bg-clr: #{$white};
   --blur-clr: #{$white};
   --text-bg-clr: #{$lightBlue};
-  --focued-border-clr: #{#68a1dd};
+  --focused-border-clr: #{#68a1dd};
+  --text-link-clr: #{#2756c9};
+  --hover-bg-clr: #{#fbfcff};
 }
 [data-theme='dark'] {
   --window-bg-clr: #{$blackDark};
@@ -32,7 +34,9 @@ $greenDark: #5ed3a5;
   --input-bg-clr: #364349;
   --blur-clr: #{$blackDark};
   --text-bg-clr: #{$blackDark};
-  --focued-border-clr: #{#34809c};
+  --focused-border-clr: #{#34809c};
+  --text-link-clr: #{#aec6f6};
+  --hover-bg-clr: #{#2756c9};
 }
 
 /* Font */

@@ -25,7 +25,9 @@ const SayHi = () => {
         <span className="sayhi-icon">
           <SayHiIconSVG />
         </span>
-        <p className="text-theme sayhi-number">{likeCount}</p>
+        <p className="text-theme sayhi-number">
+          {likeCount === null ? '-' : likeCount}
+        </p>
         {showPlusOne && <span className="plus-one text-theme">+1</span>}
       </button>
 

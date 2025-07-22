@@ -1,12 +1,12 @@
-// src/hooks/useLike.ts
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
 export const useLike = () => {
-  const [likeCount, setLikeCount] = useState(0);
-  const [userLikes, setUserLikes] = useState(0);
+  const [likeCount, setLikeCount] = useState<number | null>(null);
+  const [userLikes, setUserLikes] = useState<number | null>(null);
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const MAX_LIKES = 5;
   const [lastVisitor, setLastVisitor] = useState<{
     city: string;
@@ -30,32 +30,33 @@ export const useLike = () => {
     if (!ip) return;
 
     const fetchData = async () => {
-      // 获取总数
-      const { data: allData, error: allError } = await supabase
-        .from('likes')
-        .select('count');
+      setIsLoading(true);
 
+      // 获取总点赞数
+      const { data: allData } = await supabase.from('likes').select('count');
       if (allData) {
         const total = allData.reduce((sum, item) => sum + item.count, 0);
         setLikeCount(total);
       }
 
-      // 获取当前 IP 的点赞记录
+      // 当前 IP 的点赞记录
       const { data: userData } = await supabase
         .from('likes')
         .select('*')
-        .eq('ip', ip)
+        .eq('ip', ip.trim())
         .single();
 
       if (userData) {
         setUserLikes(userData.count);
+      } else {
+        setUserLikes(0);
       }
 
-      // 获取上一个访问者（排除自己），按时间倒序取一条
+      // 获取上一位访客（排除自己）
       const { data: recentVisitors } = await supabase
         .from('likes')
         .select('location, updated_at')
-        .neq('ip', ip) // ❗ 排除当前访客
+        .neq('ip', ip)
         .order('updated_at', { ascending: false })
         .limit(1);
 
@@ -64,13 +65,15 @@ export const useLike = () => {
         const [city, country] = loc.split(', ');
         setLastVisitor({ city, country });
       }
+
+      setIsLoading(false);
     };
 
     fetchData();
   }, [ip]);
 
   const handleLike = async () => {
-    if (!ip || userLikes >= MAX_LIKES) return;
+    if (!ip || userLikes === null || userLikes >= MAX_LIKES) return;
 
     const newCount = userLikes + 1;
     const { error } = await supabase.from('likes').upsert({
@@ -82,7 +85,7 @@ export const useLike = () => {
 
     if (!error) {
       setUserLikes(newCount);
-      setLikeCount((prev) => prev + 1);
+      setLikeCount((prev) => (prev !== null ? prev + 1 : newCount));
     }
   };
 
@@ -90,7 +93,8 @@ export const useLike = () => {
     likeCount,
     userLikes,
     handleLike,
-    hasReachedLimit: userLikes >= MAX_LIKES,
+    hasReachedLimit: userLikes !== null && userLikes >= MAX_LIKES,
     lastVisitor,
+    isLoading,
   };
 };

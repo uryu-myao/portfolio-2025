@@ -208,7 +208,7 @@ const CanvasGridBackground = () => {
 
   return (
     <>
-      <div className="home-blur"></div>
+      {/* <div className="home-blur"></div> */}
       <canvas
         ref={staticCanvasRef}
         style={{
