@@ -27,7 +27,7 @@ const CanvasGridBackground = () => {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
 
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.strokeStyle = '#eef2f9ab';
         ctx.lineWidth = 1;
         for (let x = 0; x <= width; x += gridSize) {
           ctx.beginPath();
@@ -42,7 +42,7 @@ const CanvasGridBackground = () => {
           ctx.stroke();
         }
 
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.06)';
+        ctx.strokeStyle = '#e4e9f0';
         ctx.lineWidth = 1;
         const crossSize = 8;
 

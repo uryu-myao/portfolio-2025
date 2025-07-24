@@ -76,15 +76,15 @@
     }
 
     &-pulldown {
-      border: 2px solid var(--focused-border-clr);
       position: absolute;
       top: 50px;
       left: 0;
-      width: 100%;
+      width: clamp(300px, 25vw, 500px);
       height: auto;
+      background-color: var(--window-header-clr);
+      border: 2px solid var(--focused-border-clr);
       cursor: pointer;
       z-index: 100;
-      background-color: var(--window-bg-clr);
       border-radius: 10px;
       transition: all 0.1s ease;
       opacity: 1;
@@ -120,6 +120,7 @@
       }
 
       &-item {
+        max-width: 100%;
         width: 100%;
         display: block;
         padding: 0.5em 1em;
@@ -142,7 +143,7 @@
         }
 
         &:hover {
-          background-color: var(--window-header-clr);
+          background-color: var(--hover-bg-clr);
         }
 
         &-icon {
