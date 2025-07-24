@@ -1,3 +1,8 @@
+html,
+body {
+  overscroll-behavior: none;
+}
+
 .container {
   overflow: hidden;
 }
