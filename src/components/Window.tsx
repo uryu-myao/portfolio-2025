@@ -100,9 +100,9 @@ const Window: React.FC<WindowProps> = ({
       } ${isFocused ? 'focused' : ''}`}
       style={{
         width: isFullscreen ? '100vw' : width || defaultWidth,
-        height: isFullscreen ? '100vh' : height || defaultHeight,
+        height: isFullscreen ? 'calc(100vh - 50px)' : height || defaultHeight,
         position: 'fixed',
-        top: 0,
+        top: isFullscreen ? '50px' : 0,
         left: 0,
         zIndex: 999,
       }}>

@@ -30,12 +30,10 @@
 
     /* Simulate maximize */
     &.fullscreen {
-      top: 0 !important;
       left: 0 !important;
       right: 0 !important;
       bottom: 0 !important;
       width: 100vw !important;
-      height: 100vh !important;
       transform: none !important;
       position: fixed;
       max-width: none;
@@ -65,6 +63,7 @@
     }
 
     &__ttl {
+      font-size: 1.65rem;
       color: var(--text-primary-clr);
       text-align: center;
       font-weight: bold;

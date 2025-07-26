@@ -7,14 +7,16 @@
   z-index: 200;
 
   &-inner {
+    width: 100%;
+    height: 50px;
     position: relative;
-    padding: 0.5em 0 0.5em 1.5em;
+    padding: 0.5em 0 0.4em 1.5em;
     background-color: var(--window-header-clr);
-    border-bottom: 2px solid var(--border-clr);
+    // border-bottom: 2px solid var(--border-clr);
     display: grid;
     grid-template-columns: auto 1fr 1fr auto;
-    gap: 1em;
     align-items: center;
+    gap: 1em;
   }
 
   &-left {
