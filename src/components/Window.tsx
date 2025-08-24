@@ -95,7 +95,7 @@ const Window: React.FC<WindowProps> = ({
   return (
     <div
       ref={windowRef}
-      className={`window-inner ${isFullscreen ? 'fullscreen' : ''} ${
+      className={`window-dialog ${isFullscreen ? 'fullscreen' : ''} ${
         animateOut ? 'animate-out' : ''
       } ${isFocused ? 'focused' : ''}`}
       style={{

@@ -32,9 +32,49 @@ body {
   }
 }
 
-.hover-interaction-layer {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: auto;
+// .hover-interaction-layer {
+//   position: fixed;
+//   inset: 0;
+//   z-index: -1;
+//   pointer-events: auto;
+// }
+
+.mb-large {
+  margin-bottom: 4rem;
+}
+
+.mb-medium {
+  margin-bottom: 2rem;
+}
+
+.mb-small {
+  margin-bottom: 0.5rem;
+}
+
+.m-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid var(--border-clr);
+}
+
+.button-primary {
+  background-color: var(--button-primary-bg-clr);
+  border: 2px solid var(--text-primary-clr);
+  border-radius: 20px;
+  padding: 2em 2.4em;
+
+  a {
+    color: var(--text-primary-clr);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background-color: var(--button-primary-bg-hover-clr);
+  }
 }

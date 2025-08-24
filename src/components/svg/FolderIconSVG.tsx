@@ -48,7 +48,6 @@ const FolderIconSVG = ({
         strokeWidth={2}
         initial={false}
         animate={{ d: isOpen ? openedFrontPath : closedFrontPath }}
-        initial={false}
         transition={{ duration: 0.15, ease: 'easeInOut' }}
       />
     </m.svg>
