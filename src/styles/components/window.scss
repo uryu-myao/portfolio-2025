@@ -4,7 +4,7 @@
     left: 0;
   }
 
-  &-inner {
+  &-dialog {
     position: absolute;
     top: 100px;
     left: 100px;
@@ -16,9 +16,10 @@
     background-color: var(--window-bg-clr);
     border: 2px solid var(--border-clr);
     border-radius: 16px;
-    filter: drop-shadow(10px 10px 0px rgba(28, 25, 51, 0.15));
+    // filter: drop-shadow(10px 10px 0px rgba(28, 25, 51, 0.15));
     transition: all 0.05s ease;
     will-change: transform;
+    backdrop-filter: blur(1.1em);
     opacity: 1;
     overflow: hidden;
     z-index: 100;
@@ -92,8 +93,69 @@
   }
 
   &-body {
-    padding: 16px;
     overflow-y: auto;
     flex: 1;
+  }
+
+  &-content {
+    width: clamp(600px, 70%, 1200px);
+    margin: 0 auto;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4em 0 2em 0;
+
+      .text-date {
+        font-size: 1.6rem;
+        color: var(--text-primary-clr);
+      }
+    }
+
+    &__big-small {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    &__small-big {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      flex-direction: row-reverse;
+    }
+
+    &__single {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__ttl {
+      font-size: 2.4rem;
+      color: var(--text-primary-clr);
+      text-align: center;
+    }
+
+    .text-primary {
+      column-count: 2;
+      column-gap: 20px;
+    }
+  }
+}
+
+.content {
+  &-video {
+    width: 100%;
+    border: 2px solid var(--border-clr);
+    border-radius: 8px;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
   }
 }
