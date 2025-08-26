@@ -1,0 +1,31 @@
+.btn-cta {
+  background-color: var(--cta-bg-clr);
+  border: 2px solid var(--text-primary-clr);
+  border-radius: 12px;
+  padding: 1.2em 1.4em 1em;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  box-shadow: 0 4px var(--cta-shadow-clr);
+
+  &-icon {
+    margin-right: 0.6em;
+  }
+  span {
+    display: inline-block;
+    color: var(--text-primary-clr);
+    margin-bottom: 0.2em;
+  }
+
+  &:hover {
+    background-color: var(--cta-hover-bg-clr);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 0;
+  }
+}

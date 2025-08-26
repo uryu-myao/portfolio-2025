@@ -1,3 +1,4 @@
+import CTAButton from '@/components/CTAButton';
 import StoresLogo from '@/assets/logo-stores.svg';
 import StoresVideoWg from '@/assets/video-stores-wg.mp4';
 import StoresVideoRuby from '@/assets/video-stores-ruby.mp4';
@@ -57,11 +58,10 @@ const StoresWindowContent = () => {
               preload="auto"></video>
           </div>
           <div className="m-center">
-            <button className="button-primary">
-              <a className="text-en" href="">
-                Go to website
-              </a>
-            </button>
+            <CTAButton
+              href="https://github.com/?locale=ja"
+              label="Go to site"
+            />
           </div>
         </div>
       </div>
