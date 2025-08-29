@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { useMagneticHover } from '@/hooks/useMagneticHover';
 import ExternalLinkIcon from '@/assets/icon-external-link.svg';
 import '@/styles/components/CTAButton.scss';
 
@@ -7,8 +9,12 @@ interface CTAButtonProps {
 }
 
 const CTAButton: React.FC<CTAButtonProps> = ({ href, label }) => {
+  const btnRef = useRef<HTMLAnchorElement>(null);
+  useMagneticHover(btnRef, 0.3);
+
   return (
     <a
+      ref={btnRef}
       className="btn-cta text-en"
       href={href}
       target="_blank"

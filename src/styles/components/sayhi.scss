@@ -17,7 +17,9 @@
     gap: 1.2rem;
     border-radius: 20px;
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: all 0.1s ease-out;
+    vertical-align: middle;
+    will-change: transform;
 
     &:hover {
       background-color: var(--hover-bg-clr);
