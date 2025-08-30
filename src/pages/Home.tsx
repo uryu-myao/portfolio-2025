@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks/useTheme';
 import type { WindowData } from '@/types';
 
@@ -12,6 +13,7 @@ import PasswordPopup from '@/components/windows/PasswordWindowContent';
 import { iconMeta, getIcons, getWelcomeMeta, IconID } from '@/data/icons';
 
 const Home: React.FC = () => {
+  const { t } = useTranslation();
   const isMobile = window.innerWidth <= 768;
   const { toggleTheme } = useTheme();
 
@@ -70,7 +72,7 @@ const Home: React.FC = () => {
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
-  const icons = getIcons(handleOpenWindow, handleProtectedOpenWindow);
+  const icons = getIcons(handleOpenWindow, handleProtectedOpenWindow, t as any);
 
   // 用于 Nav props
   const safeHandleOpenWindow = (id: string) => {

@@ -49,13 +49,14 @@ $greenDark: #5ed3a5;
 }
 
 /* Font */
-$font-family-en: 'inconsolata', monospace, Helvetica, Arial, sans-serif;
-$font-family-theme: 'Micro 5', monospace, Helvetica, Arial, sans-serif;
-$font-family-jp: 'inconsolata', monospace, Helvetica, Arial, sans-serif;
+$font-family-en: 'inconsolata';
+$font-family-theme: 'Micro 5';
+$font-family-jp: 'Noto Sans JP';
+$font-family-fallback: monospace, Helvetica, Arial, sans-serif;
 
 $font-size-xs: 1.2rem;
 $font-size-sm: 1.4rem;
-$font-size-md: 1.6rem;
+$font-size-md: 1.45rem;
 $font-size-lg: 2rem;
 $font-size-xl: 2.4rem;
 $font-size-xxl: 3.2rem;

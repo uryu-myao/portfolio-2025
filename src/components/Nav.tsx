@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
 
-// import FullscreenIconSVG from '@/components/svg/FullscreenIconSVG';
 import GithubIconSVG from '@/components/svg/GithubIconSVG';
 import MailIconSVG from '@/components/svg/MailIconSVG';
 import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
@@ -18,24 +18,12 @@ const Nav: React.FC<NavProps> = ({
   // const [isFullscreen, setIsFullscreen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // const toggleFullscreen = () => {
-  //   if (!document.fullscreenEnabled) return;
-  //   const doc = document.documentElement;
-  //   if (!document.fullscreenElement) {
-  //     doc.requestFullscreen?.();
-  //   } else {
-  //     document.exitFullscreen?.();
-  //   }
-  // };
-
-  // ✅ 监听 fullscreen 状态变化
-  // useEffect(() => {
-  //   const handleChange = () => {
-  //     setIsFullscreen(!!document.fullscreenElement);
-  //   };
-  //   document.addEventListener('fullscreenchange', handleChange);
-  //   return () => document.removeEventListener('fullscreenchange', handleChange);
-  // }, []);
+  const { i18n, t } = useTranslation();
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ja' ? 'en' : 'ja';
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('preferred-lang', newLang);
+  };
 
   // ✅ 点击非 menu 区域关闭菜单
   useEffect(() => {
@@ -54,7 +42,7 @@ const Nav: React.FC<NavProps> = ({
     };
   }, [isMenuOpen]);
 
-  const icons = getIcons(onOpenWindow, onProtectedOpenWindow);
+  const icons = getIcons(onOpenWindow, onProtectedOpenWindow, t);
 
   return (
     <nav className="nav">
@@ -90,7 +78,9 @@ const Nav: React.FC<NavProps> = ({
                         className={`folder-icon__tag folder-icon__tag--${icon.variant} text-theme`}>
                         {icon.tagLabel}
                       </span>{' '}
-                      <span className="text-en">{icon.label}</span>
+                      <span className="nav-menu-pulldown__title">
+                        {icon.label}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -126,15 +116,12 @@ const Nav: React.FC<NavProps> = ({
         </div>
 
         <div className="nav-icons">
-          <button onClick={onToggleTheme} className="nav-icons-theme">
+          <button onClick={toggleLanguage} className="nav-icon nav-icons-lang">
+            {i18n.language === 'ja' ? 'EN' : 'JA'}
+          </button>
+          <button onClick={onToggleTheme} className="nav-icon nav-icons-theme">
             <ThemeIconSVG />
           </button>
-          {/* <button onClick={toggleFullscreen}>
-            <FullscreenIconSVG
-              className="nav-icons-fullscreen"
-              isFullscreen={isFullscreen}
-            />
-          </button> */}
         </div>
         <Time />
       </div>

@@ -12,11 +12,10 @@
     position: relative;
     padding: 0.5em 0 0.4em 1.5em;
     background-color: var(--window-header-clr);
-    // border-bottom: 2px solid var(--border-clr);
     display: grid;
     grid-template-columns: auto 1fr 1fr auto;
     align-items: center;
-    gap: 1em;
+    gap: 2.4em;
   }
 
   &-left {
@@ -28,8 +27,6 @@
   }
 
   &-logo {
-    margin-right: 1.6em;
-
     button {
       padding: 0.06em 0.4em 0;
       border-radius: 4px;
@@ -157,6 +154,24 @@
     }
   }
 
+  &-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 4px;
+    transition: all 0.1s ease;
+
+    &:hover {
+      background-color: var(--hover-bg-clr);
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+    &:focus {
+      outline: 2px solid var(--focused-border-clr);
+      outline-offset: 2px;
+    }
+  }
+
   &-icons {
     display: flex;
     gap: 1em;
@@ -164,25 +179,10 @@
     justify-self: end;
 
     &-theme {
-      width: 3.2rem;
-      height: 3.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0.6em;
-      border-radius: 4px;
-      transition: all 0.1s ease;
-
-      &:hover {
-        background-color: var(--hover-bg-clr);
-      }
-      &:active {
-        transform: translateY(2px);
-      }
-      &:focus {
-        outline: 2px solid var(--focused-border-clr);
-        outline-offset: 2px;
-      }
     }
 
     svg {
@@ -190,9 +190,11 @@
       height: 2rem;
     }
 
-    &-fullscreen {
-      width: 1.6rem;
-      height: 1.6rem;
+    &-lang {
+      color: var(--text-primary-clr);
+      font-family: 'inconsolata', monospace, Helvetica, Arial, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
     }
   }
 
