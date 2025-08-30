@@ -63,7 +63,7 @@
       margin-left: 8px;
     }
 
-    &__ttl {
+    &__title {
       font-size: 1.65rem;
       color: var(--text-primary-clr);
       text-align: center;
@@ -131,9 +131,7 @@
       flex-direction: column;
     }
 
-    &__ttl {
-      font-size: 2.4rem;
-      color: var(--text-primary-clr);
+    &__title {
       text-align: center;
     }
 

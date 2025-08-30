@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import CTAButton from '@/components/CTAButton';
 import StoresLogo from '@/assets/logo-stores.svg';
 import StoresVideoWg from '@/assets/video-stores-wg.mp4';
 import StoresVideoRuby from '@/assets/video-stores-ruby.mp4';
 
 const StoresWindowContent = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="window-content">
       <div className="window-content-inner">
@@ -16,14 +19,11 @@ const StoresWindowContent = () => {
         <hr className="mb-large" />
         <div className="window-content__single mb-large">
           <div>
-            <h3 className="text-en window-content__ttl mb-medium">
-              White Gallery Project
+            <h3 className="window-content__title mb-medium">
+              {t('stores.whiteGallery.title')}
             </h3>
-            <p className="text-en text-primary mb-medium">
-              Hey, I‘m Uryu. I have a passion for helping build branding and
-              design systems for companies. I integrate into company operations
-              to advance digital transformation and enhance user engagement
-              through forward-thinking digital experiences.
+            <p className="text-primary mb-medium">
+              {t('stores.whiteGallery.description')}
             </p>
           </div>
           <div className="content-video">
@@ -38,14 +38,11 @@ const StoresWindowContent = () => {
         </div>
         <div className="window-content__single mb-large">
           <div>
-            <h3 className="text-en window-content__ttl mb-medium">
-              Rubykaigi Landing Page
+            <h3 className="window-content__title mb-medium">
+              {t('stores.rubykaigi.title')}
             </h3>
-            <p className="text-en text-primary mb-medium">
-              Hey, I‘m Uryu. I have a passion for helping build branding and
-              design systems for companies. I integrate into company operations
-              to advance digital transformation and enhance user engagement
-              through forward-thinking digital experiences.
+            <p className="text-primary mb-medium">
+              {t('stores.rubykaigi.description')}
             </p>
           </div>
           <div className="content-video mb-medium">
@@ -60,7 +57,7 @@ const StoresWindowContent = () => {
           <div className="m-center">
             <CTAButton
               href="https://github.com/?locale=ja"
-              label="Go to site"
+              label={t('stores.cta')}
             />
           </div>
         </div>

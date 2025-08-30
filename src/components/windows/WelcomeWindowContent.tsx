@@ -16,7 +16,7 @@ const WelcomeWindowContent = () => {
         <div className="welcome-portrait-inner"></div>
       </div>
       <div className="welcome-title">
-        <h1 className="text-en">{t('welcome.name')}</h1>
+        <h1 className="welcome-title__name">{t('welcome.name')}</h1>
         <p className="text-en text-primary">{t('welcome.role')}</p>
       </div>
       <article>

@@ -7,6 +7,7 @@ import Legacy2017Window from '@/components/windows/Legacy2017WindowContent';
 import Legacy2019Window from '@/components/windows/Legacy2019WindowContent';
 
 import type { WindowData } from '@/types';
+import type { TFunction } from 'i18next';
 
 // 密码保护 ID
 export const PASSWORD_PROTECTED_IDS = [
@@ -18,7 +19,7 @@ export const PASSWORD_PROTECTED_IDS = [
 // 所有窗口配置
 export const iconMeta = {
   welcome: {
-    title: 'Welcome',
+    title: 'iconName.welcome',
     content: <WelcomeWindow />,
     icon: '', // welcome 无图标
     width: 400,
@@ -27,34 +28,34 @@ export const iconMeta = {
     initialY: 80,
   },
   'nuskin--guideline': {
-    title: 'Web Guideline',
+    title: 'iconName.nuskinGuideline',
     content: <NuskinWindow />,
     icon: <FolderIconSVG />,
   },
   'nuskin--branding': {
-    title: 'Global Branding renewal optimization / New Design tool / CSR',
+    title: 'iconName.nuskinBranding',
     content: <NuskinWindow />,
     icon: <FolderIconSVG />,
   },
   'nuskin--products': {
-    title: 'Main products communication',
+    title: 'iconName.nuskinProducts',
     content: <NuskinWindow />,
     icon: <FolderIconSVG />,
   },
   'stores-all': {
-    title: 'Stores.jp',
+    title: 'iconName.stores',
     content: <StoresWindow />,
     icon: <FolderIconSVG />,
   },
   'legacy--2019': {
-    title: 'legacy 2017-2019',
+    title: 'iconName.legacy2019',
     content: <Legacy2019Window />,
     icon: <FolderIconSVG />,
     width: '80vw',
     height: '80vh',
   },
   'legacy--2017': {
-    title: 'legacy 2013-2017',
+    title: 'iconName.legacy2017',
     content: <Legacy2017Window />,
     icon: <FolderIconSVG />,
     width: '80vw',
@@ -67,7 +68,8 @@ export type IconID = keyof typeof iconMeta;
 // 用于初始化桌面图标点击逻辑
 export const getIcons = (
   handleOpen: (id: IconID) => void,
-  handleProtectedOpen: (id: IconID) => void
+  handleProtectedOpen: (id: IconID) => void,
+  t: TFunction
 ) =>
   Object.entries(iconMeta)
     .filter(([id]) => id !== 'welcome')
@@ -90,7 +92,7 @@ export const getIcons = (
       return {
         id,
         icon: meta.icon,
-        label: meta.title,
+        label: t(meta.title),
         variant,
         tagLabel,
         isLocked: PASSWORD_PROTECTED_IDS.includes(id as IconID),
