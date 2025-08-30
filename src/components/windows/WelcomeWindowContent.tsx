@@ -1,8 +1,14 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import '@/styles/components/welcomeWindow.scss';
 
 const WelcomeWindowContent = () => {
   const year = useMemo(() => new Date().getFullYear(), []);
+  const { t } = useTranslation();
+
+  const description = t('welcome.description', {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <div className="welcome-body-inner">
@@ -10,22 +16,19 @@ const WelcomeWindowContent = () => {
         <div className="welcome-portrait-inner"></div>
       </div>
       <div className="welcome-title">
-        <h1 className="text-en">Uryu Myao</h1>
-        <p className="text-en text-primary">UI/UX Designer</p>
+        <h1 className="text-en">{t('welcome.name')}</h1>
+        <p className="text-en text-primary">{t('welcome.role')}</p>
       </div>
       <article>
-        <p className="text-en text-primary">
-          I create interactive websites, digital visuals, and brand experiences.
-          I help growing teams bring ideas to life through thoughtful, modern
-          design.
-        </p>
-        <p className="text-en text-primary">
-          This interactive desktop is my portfolio. Click the icons to explore
-          my work and interests.
-        </p>
-        <p className="text-en text-primary">
-          Curious. Detail-driven. Always building.
-        </p>
+        {Array.isArray(description) ? (
+          description.map((line, i) => (
+            <p key={i} className="text-primary">
+              {line}
+            </p>
+          ))
+        ) : (
+          <p className="text-primary">{description}</p>
+        )}
       </article>
       <p className="welcome-sub text-en text-xs">
         © {year} Uryu Myao. All rights reserved.

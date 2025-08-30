@@ -1,0 +1,16 @@
+{
+  "welcome": {
+    "name": "Uryu Myao",
+    "role": "UI/UX Designer",
+    "description": [
+      "I create interactive websites, digital visuals, and brand experiences. I help growing teams bring ideas to life through thoughtful, modern design.",
+      "This interactive desktop is my portfolio. Click the icons to explore my work and interests.",
+      "Curious. Detail-driven. Always building."
+    ]
+  },
+
+  "sayhi": {
+    "welcome": "Welcome!",
+    "lastVisit": "Last visit from {{city}}, {{country}}"
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
@@ -17,6 +18,13 @@ const Nav: React.FC<NavProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [isFullscreen, setIsFullscreen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const { i18n } = useTranslation();
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ja' ? 'en' : 'ja';
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('preferred-lang', newLang);
+  };
 
   // const toggleFullscreen = () => {
   //   if (!document.fullscreenEnabled) return;
@@ -126,7 +134,10 @@ const Nav: React.FC<NavProps> = ({
         </div>
 
         <div className="nav-icons">
-          <button onClick={onToggleTheme} className="nav-icons-theme">
+          <button onClick={toggleLanguage} className="nav-icon nav-icons-lang">
+            {i18n.language === 'ja' ? 'EN' : 'JA'}
+          </button>
+          <button onClick={onToggleTheme} className="nav-icon nav-icons-theme">
             <ThemeIconSVG />
           </button>
           {/* <button onClick={toggleFullscreen}>
