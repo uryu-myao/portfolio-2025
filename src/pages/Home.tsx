@@ -27,6 +27,8 @@ const Home: React.FC = () => {
     const meta = iconMeta[id];
     if (!meta) return;
 
+    const isMobile = window.innerWidth <= 768;
+
     setOpenWindows((prev) => {
       if (prev.some((w) => w.id === id)) return prev;
 
@@ -44,10 +46,10 @@ const Home: React.FC = () => {
           id,
           title: meta.title,
           content: meta.content,
-          initialX,
-          initialY,
-          width: meta.width,
-          height: meta.height,
+          initialX: isMobile ? 20 : initialX,
+          initialY: isMobile ? 60 : initialY,
+          width: isMobile ? '90vw' : meta.width,
+          height: isMobile ? 'calc(100dvh - 50px - 20px)' : meta.height,
         },
       ];
     });
