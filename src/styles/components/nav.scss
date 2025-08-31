@@ -16,6 +16,9 @@
     grid-template-columns: auto 1fr 1fr auto;
     align-items: center;
     gap: 2.4em;
+    @media (max-width: 768px) {
+      gap: 1.2em;
+    }
   }
 
   &-left {
@@ -45,6 +48,21 @@
       &:focus {
         outline: 2px solid var(--focused-border-clr);
         outline-offset: 2px;
+      }
+    }
+
+    .__sp {
+      display: none;
+    }
+    .__pc {
+      display: inline;
+    }
+    @media (max-width: 768px) {
+      .__pc {
+        display: none;
+      }
+      .__sp {
+        display: inline;
       }
     }
   }

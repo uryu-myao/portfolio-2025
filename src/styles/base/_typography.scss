@@ -14,7 +14,9 @@ html[lang='en'] {
     font-family: $font-family-en, $font-family-fallback;
     font-size: $font-size-md;
     line-height: 1.5;
-    letter-spacing: 0。01em;
+    @media screen and (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
   .welcome-title__name {
     font-family: $font-family-en, $font-family-fallback;
@@ -23,12 +25,18 @@ html[lang='en'] {
   .window-content__title {
     font-family: $font-family-en, $font-family-fallback;
     font-size: 2rem;
+    @media screen and (max-width: 768px) {
+      font-size: 2.8rem;
+    }
   }
   .folder-icon__label {
     font-family: $font-family-en, $font-family-fallback;
     font-size: 1.4rem;
     line-height: 1.4;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
   .nav-menu-pulldown__title {
     font-family: $font-family-en, $font-family-fallback;
@@ -36,12 +44,16 @@ html[lang='en'] {
     font-weight: 600;
   }
 }
+
 html[lang='ja'] {
   .text-primary {
     font-family: $font-family-jp, $font-family-fallback;
     font-size: $font-size-sm;
     line-height: 1.75;
     letter-spacing: 0.05em;
+    @media screen and (max-width: 768px) {
+      font-size: 1.65rem;
+    }
   }
   .welcome-title h1 {
     font-family: $font-family-jp, $font-family-fallback;
@@ -51,6 +63,9 @@ html[lang='ja'] {
   .window-content__title {
     font-family: $font-family-jp, $font-family-fallback;
     font-size: 1.8rem;
+    @media screen and (max-width: 768px) {
+      font-size: 2.2rem;
+    }
   }
   .folder-icon__label {
     font-family: $font-family-jp, $font-family-fallback;
@@ -69,9 +84,7 @@ html[lang='ja'] {
   font-size: $font-size-xs;
   line-height: 1.4;
 }
-.text-md {
-  font-size: $font-size-md;
-}
+
 .text-lg {
   font-size: $font-size-lg;
 }
@@ -80,6 +93,7 @@ html[lang='ja'] {
   font-family: $font-family-en;
 }
 .text-theme {
-  font-family: $font-family-theme;
+  font-family: $font-family-theme, $font-family-fallback;
+  text-transform: uppercase;
   font-feature-settings: 'tnum';
 }

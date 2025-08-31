@@ -112,6 +112,6 @@ export const getWelcomeMeta = (isMobile: boolean): WindowData => {
     initialX: isMobile ? 20 : meta.initialX!,
     initialY: isMobile ? 60 : meta.initialY!,
     width: isMobile ? '90vw' : meta.width!,
-    height: isMobile ? '50vh' : meta.height!,
+    height: isMobile ? '65vh' : meta.height!,
   };
 };

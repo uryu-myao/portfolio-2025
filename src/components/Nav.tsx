@@ -51,7 +51,8 @@ const Nav: React.FC<NavProps> = ({
           <button
             className="text-theme"
             onClick={() => onOpenWindow('welcome')}>
-            uryu myao
+            <span className="__pc">uryu myao</span>
+            <span className="__sp">u.m</span>
           </button>
         </div>
 
@@ -73,7 +74,10 @@ const Nav: React.FC<NavProps> = ({
                     <li
                       key={icon.id}
                       className="nav-menu-pulldown-item"
-                      onClick={icon.onOpen}>
+                      onClick={() => {
+                        icon.onOpen();
+                        setIsMenuOpen(false);
+                      }}>
                       <span
                         className={`folder-icon__tag folder-icon__tag--${icon.variant} text-theme`}>
                         {icon.tagLabel}

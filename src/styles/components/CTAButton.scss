@@ -11,6 +11,9 @@
   transition: all 0.1s ease-out;
   vertical-align: middle;
   will-change: transform;
+  @media screen and (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 
   &-icon {
     margin-right: 0.6em;

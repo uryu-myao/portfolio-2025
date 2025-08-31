@@ -13,13 +13,19 @@
       'desktop-r4-c1 desktop-r4-c2'
       'desktop-r5-c1 desktop-r5-c2'
       'desktop-r6-c1 desktop-r6-c2';
-    grid-gap: 0;
+    gap: 0 2vw;
     padding: 80px 2.6vw 100px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
   }
 
   &-item {
     position: relative;
-    padding: 0 2em 1em 0;
+    // padding: 0 2em 1em 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -101,9 +107,15 @@
   }
   &__nuskin--products {
     grid-area: desktop-r2-c2;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r2-c1;
+    }
   }
   &__stores {
     grid-area: desktop-r4-c2;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r4-c1;
+    }
   }
   &__personal--app {
     grid-area: desktop-r5-c1;
