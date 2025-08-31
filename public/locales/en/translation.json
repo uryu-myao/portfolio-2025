@@ -15,13 +15,25 @@
   },
 
   "stores": {
+    "date": "Feb 2019 – Dec 2019",
+    "intro": [
+      "During my tenure, I participated in the rebranding project, taking charge of visual proposals and web design associated with the brand refresh. Through tone-and-manner design and creative production, I contributed to enhancing brand recognition, while on the product side I was responsible for designing the shop management interface, working closely with the development team to drive functional improvements.",
+      "In addition, as the lead designer for the permanent “WhiteGallery” project at Laforet Harajuku 2F, I directed the design and operation of the promotional website, creating an expression that seamlessly integrated the store’s atmosphere with its online presence.",
+      "Furthermore, I served as the lead designer for the sponsor-backed RubyKaigi event, where I handled the planning and design of the landing page, strengthening event visibility and contributing to smooth collaboration with external stakeholders."
+    ],
     "whiteGallery": {
-      "title": "White Gallery Project",
-      "description": "Hey, I‘m Uryu. I have a passion for helping build branding and design systems for companies. I integrate into company operations to advance digital transformation and enhance user engagement through forward-thinking digital experiences."
+      "title": "WhiteGallery Project (Permanent Store at Laforet Harajuku)",
+      "description": [
+        "Led the design and operation of the promotional website as the lead designer",
+        "Created an expression that seamlessly integrated the store’s atmosphere with its online presence"
+      ]
     },
     "rubykaigi": {
-      "title": "Rubykaigi Landing Page",
-      "description": "Hey, I‘m Uryu. I have a passion for helping build branding and design systems for companies. I integrate into company operations to advance digital transformation and enhance user engagement through forward-thinking digital experiences."
+      "title": "RubyKaigi Sponsorship and Promotion Planning",
+      "description": [
+        "Served as the lead designer,responsible for planning and designing the landing page",
+        "Enhanced event visibility and strengthened STORES’ sponsorship promotion, contributing to smooth collaboration with external stakeholders"
+      ]
     },
     "cta": "Go to site"
   },

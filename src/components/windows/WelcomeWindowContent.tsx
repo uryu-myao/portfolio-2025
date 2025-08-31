@@ -1,9 +1,11 @@
-import { useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import '@/styles/components/welcomeWindow.scss';
+import PortraitVideo from '@/assets/video-protrait.mp4';
 
 const WelcomeWindowContent = () => {
   const year = useMemo(() => new Date().getFullYear(), []);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { t } = useTranslation();
 
   const description = t('welcome.description', {
@@ -11,9 +13,21 @@ const WelcomeWindowContent = () => {
   }) as string[];
 
   return (
-    <div className="welcome-body-inner">
+    <div
+      className="welcome-body-inner"
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => videoRef.current?.pause()}>
       <div className="welcome-portrait">
-        <div className="welcome-portrait-inner"></div>
+        <div className="welcome-portrait-inner">
+          <video
+            ref={videoRef}
+            className="welcome-portrait-video"
+            src={PortraitVideo}
+            loop
+            muted
+            playsInline
+          />
+        </div>
       </div>
       <div className="welcome-title">
         <h1 className="welcome-title__name">{t('welcome.name')}</h1>

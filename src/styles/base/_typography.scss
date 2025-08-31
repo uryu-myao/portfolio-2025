@@ -93,6 +93,7 @@ html[lang='ja'] {
   font-family: $font-family-en;
 }
 .text-theme {
-  font-family: $font-family-theme;
+  font-family: $font-family-theme, $font-family-fallback;
+  text-transform: uppercase;
   font-feature-settings: 'tnum';
 }
