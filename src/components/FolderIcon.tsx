@@ -57,7 +57,7 @@ const FolderIcon: React.FC<FolderIconProps> = ({
           width={88}
           height={63}
         />
-        {isLocked && (
+        {!localStorage.getItem(`unlocked:${id}`) && isLocked && (
           <img src={LockIcon} className="folder-icon__lock" alt="Locked" />
         )}
         {tagLabel && (

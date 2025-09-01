@@ -17,17 +17,9 @@ const Home: React.FC = () => {
   const isMobile = window.innerWidth <= 768;
   const { toggleTheme } = useTheme();
 
-  const [openWindows, setOpenWindows] = useState<WindowData[]>([
-    getWelcomeMeta(isMobile),
-  ]);
-  const [zOrders, setZOrders] = useState<string[]>(['welcome']);
-  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
-
   const handleOpenWindow = (id: IconID) => {
     const meta = iconMeta[id];
     if (!meta) return;
-
-    const isMobile = window.innerWidth <= 768;
 
     setOpenWindows((prev) => {
       if (prev.some((w) => w.id === id)) return prev;
@@ -69,12 +61,16 @@ const Home: React.FC = () => {
     }
   };
 
+  const [openWindows, setOpenWindows] = useState<WindowData[]>([
+    getWelcomeMeta(isMobile),
+  ]);
+  const [zOrders, setZOrders] = useState<string[]>(['welcome']);
+  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
+
   const handleCloseWindow = (id: string) => {
     setOpenWindows((prev) => prev.filter((w) => w.id !== id));
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
-
-  const icons = getIcons(handleOpenWindow, handleProtectedOpenWindow, t as any);
 
   // 用于 Nav props
   const safeHandleOpenWindow = (id: string) => {
@@ -89,7 +85,7 @@ const Home: React.FC = () => {
       <div className="home-inner">
         <button
           className="temp-btn"
-          style={{ position: 'absolute', top: 10, right: 10 }}
+          style={{ position: 'absolute', bottom: 10, right: 10 }}
           onClick={() => {
             Object.keys(localStorage)
               .filter((key) => key.startsWith('unlocked:'))
@@ -99,7 +95,9 @@ const Home: React.FC = () => {
           重置所有密码验证
         </button>
 
-        <FolderIconList icons={icons} />
+        <FolderIconList
+          icons={getIcons(handleOpenWindow, handleProtectedOpenWindow, t)}
+        />
         <WindowManager
           openWindows={openWindows}
           onCloseWindow={handleCloseWindow}
