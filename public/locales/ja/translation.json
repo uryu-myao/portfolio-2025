@@ -11,7 +11,7 @@
 
   "sayhi": {
     "welcome": "ようこそ！",
-    "lastVisit": "前回の訪問者：{{country}}・{{city}}"
+    "lastVisit": "最後のアクセス： {{country}}･{{city}}"
   },
 
   "stores": {
