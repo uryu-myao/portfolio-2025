@@ -35,7 +35,7 @@ html[lang='en'] {
     line-height: 1.4;
     font-weight: 600;
     @media screen and (max-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
   .nav-menu-pulldown__title {
@@ -52,7 +52,7 @@ html[lang='ja'] {
     line-height: 1.75;
     letter-spacing: 0.05em;
     @media screen and (max-width: 768px) {
-      font-size: 1.65rem;
+      font-size: 1.8rem;
     }
   }
   .welcome-title h1 {
@@ -63,6 +63,7 @@ html[lang='ja'] {
   .window-content__title {
     font-family: $font-family-jp, $font-family-fallback;
     font-size: 1.8rem;
+    line-height: 1.5;
     @media screen and (max-width: 768px) {
       font-size: 2.2rem;
     }
@@ -72,6 +73,9 @@ html[lang='ja'] {
     font-size: 1.2rem;
     line-height: 1.5;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+      font-size: 1.65rem;
+    }
   }
   .nav-menu-pulldown__title {
     font-family: $font-family-jp, $font-family-fallback;

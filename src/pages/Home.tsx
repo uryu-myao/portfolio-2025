@@ -41,7 +41,7 @@ const Home: React.FC = () => {
           initialX: isMobile ? 20 : initialX,
           initialY: isMobile ? 60 : initialY,
           width: isMobile ? '90vw' : meta.width,
-          height: isMobile ? 'calc(100dvh - 50px - 20px)' : meta.height,
+          height: isMobile ? 'calc(100dvh - 50px - 30px)' : meta.height,
         },
       ];
     });
