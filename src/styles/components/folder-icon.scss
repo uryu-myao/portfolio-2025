@@ -18,8 +18,17 @@
 
     @media (max-width: 768px) {
       width: 100%;
+      grid-template-columns: 1fr;
       padding-left: 5vw;
       padding-right: 5vw;
+      grid-template-areas:
+        'desktop-r1'
+        'desktop-r2'
+        'desktop-r3'
+        'desktop-r4'
+        'desktop-r5'
+        'desktop-r6'
+        'desktop-r7';
     }
   }
 
@@ -93,37 +102,52 @@
     transition: color 0.3s ease;
 
     span {
-      background-color: var(--window-bg-clr);
       padding: 0.3em 0.2em;
       box-decoration-break: clone;
+      text-shadow: 0 2px 4px var(--window-bg-clr);
     }
   }
 
   &__nuskin--guideline {
     grid-area: desktop-r1-c1;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r1;
+    }
   }
   &__nuskin--branding {
     grid-area: desktop-r1-c2;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r2;
+    }
   }
   &__nuskin--products {
     grid-area: desktop-r2-c2;
     @media screen and (max-width: 768px) {
-      grid-area: desktop-r2-c1;
+      grid-area: desktop-r3;
     }
   }
   &__stores {
     grid-area: desktop-r4-c2;
     @media screen and (max-width: 768px) {
-      grid-area: desktop-r4-c1;
+      grid-area: desktop-r4;
     }
   }
-  &__personal--app {
-    grid-area: desktop-r5-c1;
-  }
+  // &__personal--app {
+  //   grid-area: desktop-r5-c1;
+  //   @media screen and (max-width: 768px) {
+  //     grid-area: desktop-r5;
+  //   }
+  // }
   &__legacy--2019 {
     grid-area: desktop-r6-c1;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r6;
+    }
   }
   &__legacy--2017 {
     grid-area: desktop-r6-c2;
+    @media screen and (max-width: 768px) {
+      grid-area: desktop-r7;
+    }
   }
 }
