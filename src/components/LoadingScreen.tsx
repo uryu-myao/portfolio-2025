@@ -15,7 +15,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         setProgress(p > 100 ? 100 : p);
       },
       onComplete: () => {
-        onComplete(); // ⬅️ 通知父组件加载完成
+        onComplete();
       },
     });
 

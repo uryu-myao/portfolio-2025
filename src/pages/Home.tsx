@@ -83,7 +83,8 @@ const Home: React.FC = () => {
   return (
     <main className="home container">
       <div className="home-inner">
-        <button
+        {/* for password test */}
+        {/* <button
           className="temp-btn"
           style={{ position: 'absolute', bottom: 10, right: 10 }}
           onClick={() => {
@@ -93,7 +94,7 @@ const Home: React.FC = () => {
             alert('所有密码验证缓存已清除');
           }}>
           重置所有密码验证
-        </button>
+        </button> */}
 
         <FolderIconList
           icons={getIcons(handleOpenWindow, handleProtectedOpenWindow, t)}
