@@ -10,7 +10,7 @@ const SayHi = () => {
   const [showPlusOne, setShowPlusOne] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement>(null);
-  useMagneticHover(btnRef, 0.25); // 调整 strength 参数以匹配你的视觉喜好
+  useMagneticHover(btnRef, 0.25); //the intensity
 
   const handleClickLike = async () => {
     if (hasReachedLimit) return;
