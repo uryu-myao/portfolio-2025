@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react';
-import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 import type { WindowProps } from '@/types';
-
 import CloseIcon from '@/assets/icon-close.svg';
 import FullscreenIcon from '@/assets/icon-zoom.svg';
-
 import '@/styles/components/window.scss';
 
 const Window: React.FC<WindowProps> = ({
@@ -17,7 +15,7 @@ const Window: React.FC<WindowProps> = ({
   height,
   isFocused = false,
 }) => {
-  const tEn = i18next.getFixedT('en');
+  const { t } = useTranslation();
 
   const defaultWidth = 700;
   const defaultHeight = 500;
@@ -110,7 +108,7 @@ const Window: React.FC<WindowProps> = ({
         zIndex: 999,
       }}>
       <header className="window-header" ref={headerRef}>
-        <h4 className="window-header__title">{tEn(title)}</h4>
+        <h4 className="window-header__title">{t(title)}</h4>
         <div className="window-header__buttons">
           <button className="window-header__close" onClick={handleClose}>
             <img src={CloseIcon} alt="Close" />
