@@ -1,0 +1,65 @@
+.hover-video {
+  &-item {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      max-width: 100vw;
+    }
+  }
+
+  &-item {
+    margin-bottom: 4px;
+  }
+
+  &-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.4em 3em;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--border-clr);
+    border-radius: 8px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    &:hover {
+      background-color: var(--hover-bg-clr);
+    }
+  }
+
+  &-text {
+    color: var(--text-primary-clr);
+    font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-tag {
+    color: var(--text-primary-clr);
+  }
+
+  &-cont {
+    width: 40%;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+
+    &.visible {
+      visibility: visible;
+      opacity: 0.85;
+    }
+
+    video {
+      width: 100%;
+    }
+  }
+}
