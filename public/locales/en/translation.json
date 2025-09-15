@@ -14,6 +14,91 @@
     "lastVisit": "Last visit from {{city}}, {{country}}"
   },
 
+  "iconName": {
+    "welcome": "Welcome",
+    "nuskinGuideline": "UI/UX Improvement and Implementation of Digital Channels and Tools",
+    "nuskinBranding": "Branding Localization and CSR Projects",
+    "nuskinProducts": "Main Products Communication",
+    "stores": "Responsibilities at STORES",
+    "legacy2019": "Legacy 2017–2019",
+    "legacy2017": "Legacy 2013–2017"
+  },
+
+  "nuskin": {
+    "date": "2019.12 - Present",
+    "web": {
+      "title": "Renewal of Corporate and Member-only Pages within the Official Website",
+      "bg-title": "Background",
+      "bg-text": [
+        "Joined the team as a UI/UX designer, taking charge of the overall renewal and UI improvements of the official website. For the corporate pages and member-only pages, I was involved in a wide range of tasks from redesigning the information architecture to refining the UI and coding, streamlining and refreshing the content.",
+        "The project team consisted of the digital marketing team (my manager and myself), two members from the project owner’s team, and one external consultant. Through weekly working sessions, we identified target pages, organized information, created wireframes, designed layouts, and coordinated with other departments."
+      ],
+      "purpose-title": "Objectives",
+      "purpose-text": [
+        "Communicate corporate information clearly and comprehensively to both internal and external audiences",
+        "Organize frequently inquired information such as auto-delivery (ADP) and discontinued products to reduce customer service (CCM) inquiries",
+        "Enhance information visibility and improve usability through UI renewal"
+      ],
+      "position-title": "Role",
+      "position-text": [
+        "Wireframing, UI design, and implementation (design adjustments and coding within AEM)",
+        "Creation of guidelines accompanying the page renewal (design parts and modular library)",
+        "Coordination with other departments and project management"
+      ],
+      "solution-title": "Challenges and Solutions",
+      "solution-text": [
+        "Limitations and quirks of CMS (AEM): Existing components had constraints on design and layout. By leveraging script and rich text components, I implemented flexible design solutions through custom CSS/HTML.",
+        "Consistency and maintainability of code: As customizations increased, maintaining consistency became a challenge. I created a reusable markup-based module library, enabling the team to implement efficiently.",
+        "Limited human resources: To reduce operational burden, customizations were limited to essential features (pop-ups, tab switching, carousel, etc.), ensuring sustainable management."
+      ],
+      "achievement-title": "Key Achievements",
+      "achievement-text": [
+        "Developed a module library optimized for AEM operations: Provided design parts as HTML modules, enabling even non-engineers to implement by simply replacing information.",
+        "Successfully renewed the corporate website: Earned high satisfaction from request departments, enhancing brand recognition and usability within the company.",
+        "Contributed to customer support (CCM) efficiency: Information reorganization reduced inquiry volume, earning positive feedback for making customer responses easier."
+      ],
+      "video-caption": [
+        "Typography",
+        "Components",
+        "UI Guidelines for Member-only Pages"
+      ],
+      "achievement-case-title": "Key Renewed Pages",
+      "achievement-case": [
+        "About Nu Skin",
+        "Nu Skin Research & Development",
+        "Official Content List",
+        "Auto-Delivery Program (ADP)"
+      ],
+      "achievement-tag": "Nu Skin Official Website"
+    },
+
+    "tool": {
+      "title": "(TBD) Implementation and Operation of Global-led Systems and Digital Tools (Content Stack & Bynder)",
+      "bg-title": "Background",
+      "bg-text": [
+        "Content Stack: The previously used AEM was heavily dependent on a web-centric structure, which created challenges in technical flexibility and multi-channel deployment. To address this, a project is underway to achieve integrated management of digital platforms on Content Stack, including the Nuskin Japan official EC site’s product system—our main customer touchpoint—as well as Vera and Stela apps.",
+        "Bynder: To further streamline global management of brand assets and digital media images, and to enhance searchability, distribution efficiency, and brand governance, we are promoting the migration from AEM Assets to Bynder."
+      ],
+      "position-title": "Role",
+      "position-text": [
+        "Global Coordination: Acted as the liaison with the US headquarters’ digital marketing department, consolidating and addressing questions and issues from the Japan side",
+        "Content Stack: Defined the necessary web components based on the needs of the Japanese market, provided feedback to global development, and contributed to localization",
+        "Bynder: Established digital asset operation guidelines, promoted their sharing and adoption within the team, and facilitated smooth utilization of assets across internal and external stakeholders"
+      ],
+      "solution-title": "Challenges and Solutions",
+      "solution-text": [
+        "Content Stack: Due to business requirements unique to the Japanese market, components different from the global standard were needed. The Japan team organized these requirements and provided detailed component definitions to the global development team. Additionally, adjustments were made in close collaboration with the global team to optimize CSS settings for Japanese typography.",
+        "Bynder: To efficiently manage the vast amount of digital assets, we defined upload procedures, usage rules, and display methods for each digital channel (Web, email, etc.). Furthermore, guidelines were established to support consistent handling of assets by the team and related departments. As a result, the project contributed to greater operational efficiency and standardization of asset utilization across the organization."
+      ],
+      "achievement-title": "Achievements (In Progress / TBD)",
+      "achievement-text": [
+        "Building an integrated management environment for EC and app platforms through the global implementation of Content Stack",
+        "Strengthening centralized management and governance of brand and digital assets using Bynder",
+        "Improving overall production and operational efficiency across the team"
+      ]
+    }
+  },
+
   "stores": {
     "date": "Feb 2019 – Dec 2019",
     "intro": [
@@ -36,15 +121,5 @@
       ]
     },
     "cta": "Go to site"
-  },
-
-  "iconName": {
-    "welcome": "Welcome",
-    "nuskinGuideline": "Implementation and Improvement of Digital Tools",
-    "nuskinBranding": "Branding Localization and CSR Projects",
-    "nuskinProducts": "Main Products Communication",
-    "stores": "Responsibilities at STORES",
-    "legacy2019": "Legacy 2017–2019",
-    "legacy2017": "Legacy 2013–2017"
   }
 }

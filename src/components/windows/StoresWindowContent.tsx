@@ -12,6 +12,7 @@ const StoresWindowContent = () => {
   return (
     <div className="window-content">
       <div className="window-content-inner">
+        {/* header */}
         <div className="window-content__header">
           <h2>
             <img src={StoresLogo} alt="stores logo" />
@@ -28,8 +29,9 @@ const StoresWindowContent = () => {
           </div>
         </div>
         <hr className="mb-large" />
-        <div className="window-content__body">
-          <div className="window-content__single mb-large">
+        {/* contents */}
+        <article className="window-content__body">
+          <section className="window-content__single mb-large">
             <div className="mb-large">
               {(t('stores.intro', { returnObjects: true }) as string[]).map(
                 (line, i) => (
@@ -65,8 +67,8 @@ const StoresWindowContent = () => {
                 playsInline
                 preload="auto"></video>
             </div>
-          </div>
-          <div className="window-content__single mb-large">
+          </section>
+          <section className="window-content__single mb-large">
             <div className="mb-small">
               <h3 className="window-content__title mb-medium">
                 {t('stores.rubykaigi.title')}
@@ -99,8 +101,8 @@ const StoresWindowContent = () => {
                 label={t('stores.cta')}
               />
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       </div>
     </div>
   );

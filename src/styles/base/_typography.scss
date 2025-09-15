@@ -9,6 +9,7 @@
   font-optical-sizing: auto;
 }
 
+// ================================== EN
 html[lang='en'] {
   .text-primary {
     font-family: $font-family-en, $font-family-fallback;
@@ -24,9 +25,37 @@ html[lang='en'] {
   }
   .window-content__title {
     font-family: $font-family-en, $font-family-fallback;
-    font-size: 2rem;
+    font-size: 2.2rem;
     @media screen and (max-width: 768px) {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
+    }
+  }
+  .window-content__subtitle {
+    font-family: $font-family-en, $font-family-fallback;
+    font-size: 1.8rem;
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  .content-video-caption {
+    font-family: $font-family-en, $font-family-fallback;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    @media screen and (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+  }
+  .hover-video-text {
+    font-family: $font-family-en, $font-family-fallback;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  .hover-video-tag {
+    font-family: $font-family-en, $font-family-fallback;
+    font-size: 1.4rem;
+    line-height: 1;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
     }
   }
   .folder-icon__label {
@@ -35,16 +64,20 @@ html[lang='en'] {
     line-height: 1.4;
     font-weight: 600;
     @media screen and (max-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
   .nav-menu-pulldown__title {
     font-family: $font-family-en, $font-family-fallback;
     font-size: 1.3rem;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 }
 
+// ================================== JA
 html[lang='ja'] {
   .text-primary {
     font-family: $font-family-jp, $font-family-fallback;
@@ -62,9 +95,39 @@ html[lang='ja'] {
   }
   .window-content__title {
     font-family: $font-family-jp, $font-family-fallback;
-    font-size: 1.8rem;
+    font-size: 2rem;
     @media screen and (max-width: 768px) {
       font-size: 2.2rem;
+    }
+  }
+  .window-content__subtitle {
+    font-family: $font-family-jp, $font-family-fallback;
+    font-size: 1.6rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+  .content-video-caption {
+    font-family: $font-family-jp, $font-family-fallback;
+    font-size: 1.3rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+  }
+  .hover-video-text {
+    font-family: $font-family-jp, $font-family-fallback;
+    font-size: 1.4rem;
+    line-height: 1;
+    @media screen and (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+  }
+  .hover-video-tag {
+    font-family: $font-family-jp, $font-family-fallback;
+    font-size: 1.2rem;
+    line-height: 1;
+    @media screen and (max-width: 768px) {
+      font-size: 1.35rem;
     }
   }
   .folder-icon__label {
@@ -72,11 +135,17 @@ html[lang='ja'] {
     font-size: 1.2rem;
     line-height: 1.5;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+      font-size: 1.6rem;
+    }
   }
   .nav-menu-pulldown__title {
     font-family: $font-family-jp, $font-family-fallback;
     font-size: 1.2rem;
     font-weight: 600;
+    @media screen and (max-width: 768px) {
+      font-size: 1.35rem;
+    }
   }
 }
 
