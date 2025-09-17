@@ -1,6 +1,8 @@
 import FolderIconSVG from '@/components/svg/FolderIconSVG';
 
-import NuskinWindow from '@/components/windows/NuskinWindowContent';
+import NuskinWebWindow from '@/components/windows/NuskinWebWindowContent';
+import NuskinProdWindow from '@/components/windows/NuskinProdWindowContent';
+import NuskinBrandWindow from '@/components/windows/NuskinBrandWindowContent';
 import StoresWindow from '@/components/windows/StoresWindowContent';
 import WelcomeWindow from '@/components/windows/WelcomeWindowContent';
 import Legacy2017Window from '@/components/windows/Legacy2017WindowContent';
@@ -29,17 +31,17 @@ export const iconMeta = {
   },
   'nuskin--guideline': {
     title: 'iconName.nuskinGuideline',
-    content: <NuskinWindow />,
+    content: <NuskinWebWindow />,
     icon: <FolderIconSVG />,
   },
   'nuskin--branding': {
     title: 'iconName.nuskinBranding',
-    content: <NuskinWindow />,
+    content: <NuskinProdWindow />,
     icon: <FolderIconSVG />,
   },
   'nuskin--products': {
     title: 'iconName.nuskinProducts',
-    content: <NuskinWindow />,
+    content: <NuskinBrandWindow />,
     icon: <FolderIconSVG />,
   },
   'stores-all': {

@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-// import { useState, useRef } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import HoverVideo from '@/components/HoverVideo';
 import NuskinLogoWhite from '@/assets/logo-nuskin-white.svg';
@@ -15,18 +14,9 @@ import NuskinVideoAchieve03 from '@/assets/video-nuskin-achieve03.mp4';
 import NuskinVideoAchieve04 from '@/assets/video-nuskin-achieve04.mp4';
 import '@/styles/components/HoverVideo.scss';
 
-const NuskinWindowContent = () => {
+const NuskinWebWindowContent = () => {
   const { t } = useTranslation();
   const { theme } = useTheme();
-
-  // const [hovered, setHovered] = useState(false);
-  // const [position, setPosition] = useState({ x: 0, y: 0 });
-  // const videoRef = useRef<HTMLDivElement>(null);
-
-  // const handleMouseMove = (e: React.MouseEvent) => {
-  //   const { clientX, clientY } = e;
-  //   setPosition({ x: clientX, y: clientY });
-  // };
 
   return (
     <div className="window-content nuskin-content">
@@ -294,4 +284,4 @@ const NuskinWindowContent = () => {
   );
 };
 
-export default NuskinWindowContent;
+export default NuskinWebWindowContent;
