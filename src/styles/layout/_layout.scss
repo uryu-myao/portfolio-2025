@@ -32,13 +32,6 @@ body {
   }
 }
 
-// .hover-interaction-layer {
-//   position: fixed;
-//   inset: 0;
-//   z-index: -1;
-//   pointer-events: auto;
-// }
-
 .mb-large {
   margin-bottom: 6rem;
 }
@@ -46,7 +39,7 @@ body {
   margin-bottom: 3rem;
 }
 .mb-small {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .m-center {
@@ -56,6 +49,11 @@ body {
 
 .t-center {
   text-align: center;
+}
+
+mark {
+  color: inherit;
+  background-color: var(--bg-hightlight);
 }
 
 hr {

@@ -1,7 +1,7 @@
 {
   "welcome": {
     "name": "Uryu Myao",
-    "role": "UI/UX Designer",
+    "role": ["UI/UX Designer", "Digtal Contents Creator"],
     "description": [
       "I create interactive websites, digital visuals, and brand experiences. I help growing teams bring ideas to life through thoughtful, modern design.",
       "This interactive desktop is my portfolio. Click the icons to explore my work and interests.",
@@ -18,8 +18,8 @@
     "welcome": "Welcome",
     "nuskinGuideline": "UI/UX Improvement and Implementation of Digital Channels and Tools",
     "nuskinBranding": "Branding Localization and CSR Projects",
-    "nuskinProducts": "Main Products Communication",
-    "stores": "Responsibilities at STORES",
+    "nuskinProducts": "Product Launch Promotions",
+    "stores": "Responsibilities at Former Employer STORES",
     "legacy2019": "Legacy 2017–2019",
     "legacy2017": "Legacy 2013–2017"
   },
@@ -28,16 +28,10 @@
     "date": "2019.12 - Present",
     "web": {
       "title": "Renewal of Corporate and Member-only Pages within the Official Website",
-      "bg-title": "Background",
+      "bg-title": "Background & Objectives",
       "bg-text": [
-        "Joined the team as a UI/UX designer, taking charge of the overall renewal and UI improvements of the official website. For the corporate pages and member-only pages, I was involved in a wide range of tasks from redesigning the information architecture to refining the UI and coding, streamlining and refreshing the content.",
-        "The project team consisted of the digital marketing team (my manager and myself), two members from the project owner’s team, and one external consultant. Through weekly working sessions, we identified target pages, organized information, created wireframes, designed layouts, and coordinated with other departments."
-      ],
-      "purpose-title": "Objectives",
-      "purpose-text": [
-        "Communicate corporate information clearly and comprehensively to both internal and external audiences",
-        "Organize frequently inquired information such as auto-delivery (ADP) and discontinued products to reduce customer service (CCM) inquiries",
-        "Enhance information visibility and improve usability through UI renewal"
+        "<strong>Content Stack: </strong><br/>The previously used AEM was dependent on a web-centric structure, which created challenges in technical flexibility and multi-channel deployment. To address this, a project is underway to <mark>integrate the management of digital platforms within Content Stack, including the Nuskin Japan official EC site’s product system—our main customer touchpoint—as well as the Vera and Stela apps</mark>.",
+        "<strong>Bynder: </strong><br/>To achieve centralized management of brand assets and digital media across the global organization—and to strengthen searchability, distribution efficiency, and brand governance—we are promoting the <mark>migration from AEM Assets to Bynder</mark>."
       ],
       "position-title": "Role",
       "position-text": [
@@ -47,15 +41,15 @@
       ],
       "solution-title": "Challenges and Solutions",
       "solution-text": [
-        "Limitations and quirks of CMS (AEM): Existing components had constraints on design and layout. By leveraging script and rich text components, I implemented flexible design solutions through custom CSS/HTML.",
-        "Consistency and maintainability of code: As customizations increased, maintaining consistency became a challenge. I created a reusable markup-based module library, enabling the team to implement efficiently.",
-        "Limited human resources: To reduce operational burden, customizations were limited to essential features (pop-ups, tab switching, carousel, etc.), ensuring sustainable management."
+        "<strong>Limitations and quirks of CMS (AEM): </strong><br/>Existing components had restrictions on expression and layout, but by leveraging script and rich text components and <mark>combining custom JS / CSS / HTML</mark>, we achieved flexible design implementations.",
+        "<strong>Consistency and maintainability of code: </strong><br/>As customizations increased, maintaining version control and consistency became a challenge. To address this, we created a <mark>markup-based module library</mark> that enabled the team to implement efficiently.",
+        "<strong>Limited human resources: </strong><br/>To reduce operational burden, customizations were limited to essential features (pop-ups, tab switching, carousels, etc.), ensuring sustainable implementation and management."
       ],
       "achievement-title": "Key Achievements",
       "achievement-text": [
-        "Developed a module library optimized for AEM operations: Provided design parts as HTML modules, enabling even non-engineers to implement by simply replacing information.",
-        "Successfully renewed the corporate website: Earned high satisfaction from request departments, enhancing brand recognition and usability within the company.",
-        "Contributed to customer support (CCM) efficiency: Information reorganization reduced inquiry volume, earning positive feedback for making customer responses easier."
+        "<strong>Developed a module library optimized for AEM operations: </strong><br/>Provided design components as <mark>HTML modules, enabling even non-engineers to implement by simply replacing information</mark>. In addition, <mark>features once thought impossible on AEM—such as pop-ups—were successfully implemented, greatly enhancing the delivery and clarity of information</mark>.",
+        "<strong>Successfully renewed the corporate website: </strong><br/>Received high satisfaction from the requesting departments, <mark>enhancing brand recognition and usability both internally and externally.</mark>",
+        "<strong>Contributed to greater efficiency in customer support (CCM): </strong><br/>By reorganizing information, <mark>reduced the number of inquiries and was recognized for making customer response easier.</mark>"
       ],
       "video-caption": [
         "Typography",
@@ -74,28 +68,48 @@
 
     "tool": {
       "title": "(TBD) Implementation and Operation of Global-led Systems and Digital Tools (Content Stack & Bynder)",
-      "bg-title": "Background",
+      "bg-title": "Background & Objectives",
       "bg-text": [
-        "Content Stack: The previously used AEM was heavily dependent on a web-centric structure, which created challenges in technical flexibility and multi-channel deployment. To address this, a project is underway to achieve integrated management of digital platforms on Content Stack, including the Nuskin Japan official EC site’s product system—our main customer touchpoint—as well as Vera and Stela apps.",
-        "Bynder: To further streamline global management of brand assets and digital media images, and to enhance searchability, distribution efficiency, and brand governance, we are promoting the migration from AEM Assets to Bynder."
+        "Content Stack: The previously used AEM was heavily reliant on a web-centric structure, which limited technical flexibility and posed challenges for multi-channel deployment. To resolve this, a project is underway to integrate the management of digital platforms within Content Stack, including the Nuskin Japan official EC site’s product system—our primary customer touchpoint—as well as the Vera and Stela apps.",
+        "Bynder: To streamline global management of brand assets and digital media, and to strengthen searchability, distribution efficiency, and brand governance, we are driving the migration from AEM Assets to Bynder."
       ],
       "position-title": "Role",
       "position-text": [
-        "Global Coordination: Acted as the liaison with the US headquarters’ digital marketing department, consolidating and addressing questions and issues from the Japan side",
-        "Content Stack: Defined the necessary web components based on the needs of the Japanese market, provided feedback to global development, and contributed to localization",
-        "Bynder: Established digital asset operation guidelines, promoted their sharing and adoption within the team, and facilitated smooth utilization of assets across internal and external stakeholders"
+        "<strong>Global Coordination: </strong><br/>Collaborated with the US headquarters’ digital marketing department and served as the point of contact in Japan, consolidating and addressing questions and issues.",
+        "<strong>Content Stack: </strong><br/>Defined the necessary web components based on the needs of the Japanese market, provided feedback to the global development team, and contributed to localization.",
+        "<strong>Bynder: </strong><br/>Established digital asset operation guidelines, promoted their sharing and adoption within the team, and facilitated smooth utilization of assets across internal and external stakeholders."
       ],
       "solution-title": "Challenges and Solutions",
       "solution-text": [
-        "Content Stack: Due to business requirements unique to the Japanese market, components different from the global standard were needed. The Japan team organized these requirements and provided detailed component definitions to the global development team. Additionally, adjustments were made in close collaboration with the global team to optimize CSS settings for Japanese typography.",
-        "Bynder: To efficiently manage the vast amount of digital assets, we defined upload procedures, usage rules, and display methods for each digital channel (Web, email, etc.). Furthermore, guidelines were established to support consistent handling of assets by the team and related departments. As a result, the project contributed to greater operational efficiency and standardization of asset utilization across the organization."
-      ],
-      "achievement-title": "Achievements (In Progress / TBD)",
-      "achievement-text": [
-        "Building an integrated management environment for EC and app platforms through the global implementation of Content Stack",
-        "Strengthening centralized management and governance of brand and digital assets using Bynder",
-        "Improving overall production and operational efficiency across the team"
+        "<strong>Content Stack: </strong><br/>Due to business requirements unique to the Japanese market, components different from the global standard were necessary. <mark>The Japan team organized the requirements and provided detailed component definitions to the global development team</mark>. In addition, <mark>CSS settings optimized for Japanese typography</mark> were adjusted in close collaboration with the global team.",
+        "<strong>Bynder: </strong><br/>To efficiently manage the vast amount of digital assets, we defined upload procedures, usage rules, and display methods for each digital channel (Web, email, etc.). <mark>Bynder operation guidelines were created to support the team and related departments in handling assets consistently</mark>. As a result, <mark>we contributed to greater operational efficiency and standardization of asset usage within the organization</mark>."
       ]
+    },
+
+    "products": {
+      "bg-title": "Background and Objectives",
+      "bg-text": [
+        "The launch of a new product is a major event for the company. For key flagship products, preparations begin approximately six months in advance, anticipating pre-launch sales. Teams such as product marketing, supply chain, IT systems, and my own content creative team collaborate and share information to advance the project in a well-planned manner.",
+        "Among these efforts, the highest priority was placed on <mark>delivering launch information to customers and members in a timely and appropriate manner</mark>. Promotional activities were implemented in phases from two months before the official launch, starting with pre-sales. Specifically, the campaign began with email distributions and the regular newsletter “Nu Express,” followed by a plan to <mark>deliver optimal content tailored to each member’s hierarchy</mark>. In addition, landing pages and SNS were leveraged to expand reach to general customers and loyal users."
+      ],
+      "position-title": "Role and Responsibilities",
+      "position-text": [
+        "Design and production of various product landing pages (LPs)",
+        "Planning and creation of visual content for communication channels such as email and SNS",
+        "Direction of temporary staff involved in project progress"
+      ],
+      "solution-title": "Production Challenges and Solutions (Common to All Promotions)",
+      "solution-text": [
+        "<strong>Establishing an Efficient Production System During Peak Periods: </strong><br/>During peak seasons when major product launches coincide with regular campaigns, I provided <mark>precise direction to temporary staff</mark>. By working closely with departments to <mark>accurately understand the background and true intent of their requests</mark>, we successfully achieved smooth and efficient project execution across the team.",
+        "<strong>Creative Proposals Based on Market Research: </strong><br/>To maximize the appeal of each product, I continually conducted <mark>benchmark studies and research on design trends</mark>, proposing creative solutions that express the essence of Nu Skin—real, relatable, warm, diverse, youthful, and friendly.",
+        "<strong>LP Production Considering System Constraints: </strong><br/>While keeping in mind the limitations of AEM and the transition to Content Stack, I designed pages while coordinating with the global team on component development progress. <mark>Despite technical constraints, I created LPs that maintained content value by reflecting feedback from pre-sales and Team Elite meetings</mark>. (*For more on the transition to Content Stack, see “UI/UX Improvements and Digital Tool Implementation for Digital Channels.”)"
+      ],
+      "achievement-title": "Key Achievements",
+      "achievement-text": [
+        "<strong>TRME Series (Launched in Dec 2024)</strong><br/>TRME, a product expected to become a long-seller, achieved strong results from its launch month, reaching 2.6738 billion JPY in closed sales and achieving 144% of the forecast—significantly surpassing expectations. As an ORS product, it contributed greatly to FY2024 sales even beyond the official launch.",
+        "<strong>Wellspa iO (Launched in Nov 2024)</strong><br/>The LP, which was the main communication content for the launch, recorded the best performance among all campaign LPs released that year. It demonstrated that UI/UX improvements and consistent design directly impact user behavior metrics. <mark>With 87,052 sessions and 78,915 active users (as of Sep 2025), it ranked top among all corporate LPs</mark>, <mark>achieving the largest user inflow</mark>. Moreover, it recorded 192,343 pageviews (as of Sep 2025), significantly <mark>contributing to brand awareness and product understanding</mark> via organic search and direct traffic."
+      ],
+      "cta": "View LP Page"
     }
   },
 

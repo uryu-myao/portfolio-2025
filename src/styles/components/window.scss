@@ -238,8 +238,8 @@
         position: absolute;
         display: block;
         top: 50%;
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
         background: var(--focused-border-clr);
         transform: translateY(-50%) rotate(45deg);
       }
@@ -295,7 +295,7 @@
       content: '•';
       position: absolute;
       left: 0;
-      top: 2px;
+      top: 3px;
       color: var(--text-primary-clr);
       font-size: 1.1em;
       line-height: 1;

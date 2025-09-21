@@ -14,6 +14,8 @@ $lightBlueDark: #2d373b;
 $aqua: #34f6f2;
 $aquaDark: #26bcd0;
 $yellow: #ffd639;
+$yellowLight: #ffefad;
+$yellowDark: #524100;
 $green: #a1e8cc;
 $greenDark: #5ed3a5;
 
@@ -31,6 +33,7 @@ $greenDark: #5ed3a5;
   --cta-bg-clr: #{$blue};
   --cta-hover-bg-clr: #{$blueOpacity};
   --cta-shadow-clr: #{$aqua};
+  --bg-hightlight: #{$yellowLight};
 }
 [data-theme='dark'] {
   --window-bg-clr: #{$blackDarkOpacity};
@@ -44,6 +47,7 @@ $greenDark: #5ed3a5;
   --hover-bg-clr: #{$royalBlue};
   --cta-hover-bg-clr: #{$royalBlue};
   --cta-shadow-clr: #{$whiteOpacity};
+  --bg-hightlight: #{$yellowDark};
 }
 
 /* Font */
