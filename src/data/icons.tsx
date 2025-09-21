@@ -36,12 +36,12 @@ export const iconMeta = {
   },
   'nuskin--branding': {
     title: 'iconName.nuskinBranding',
-    content: <NuskinProdWindow />,
+    content: <NuskinBrandWindow />,
     icon: <FolderIconSVG />,
   },
   'nuskin--products': {
     title: 'iconName.nuskinProducts',
-    content: <NuskinBrandWindow />,
+    content: <NuskinProdWindow />,
     icon: <FolderIconSVG />,
   },
   'stores-all': {

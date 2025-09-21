@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '@/hooks/useTheme';
 import HoverVideo from '@/components/HoverVideo';
 import NuskinLogoWhite from '@/assets/logo-nuskin-white.svg';
@@ -36,7 +36,11 @@ const NuskinWebWindowContent = () => {
             </div>
             <div>
               <span className="text-theme">position</span>
-              <p className="text-primary">UI/UX Designer</p>
+              <p className="text-primary">
+                UI/UX Designer
+                <br />
+                Digital Contents Creater
+              </p>
             </div>
           </div>
         </div>
@@ -59,33 +63,21 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.web.bg-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.web.bg-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                      mark: <mark />,
+                    }}
+                  />
                 </p>
               ))}
             </div>
             <div className="content-image mb-medium">
               <img src={NuskinImageWeb01} alt="Nuskin Guideline Sprint01" />
               <img src={NuskinImageWeb02} alt="Nuskin Guideline Sprint02" />
-            </div>
-
-            {/* 1 目的 */}
-            <div className="m-center mb-small">
-              <h4 className="window-content__subtitle">
-                {t('nuskin.web.purpose-title')}
-              </h4>
-            </div>
-            <div className="mb-medium">
-              {(
-                t('nuskin.web.purpose-text', {
-                  returnObjects: true,
-                }) as string[]
-              ).map((line, i) => (
-                <p key={i} className="text-primary content-list mb-small">
-                  {line}
-                </p>
-              ))}
             </div>
 
             {/* 1 担当役割 */}
@@ -100,7 +92,7 @@ const NuskinWebWindowContent = () => {
                   returnObjects: true,
                 }) as string[]
               ).map((line, i) => (
-                <p key={i} className="text-primary content-list mb-small">
+                <p key={i} className="text-primary content-list">
                   {line}
                 </p>
               ))}
@@ -117,9 +109,15 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.web.solution-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.web.solution-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                      mark: <mark />,
+                    }}
+                  />
                 </p>
               ))}
             </div>
@@ -135,9 +133,15 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.web.achievement-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.web.achievement-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                      mark: <mark />,
+                    }}
+                  />
                 </p>
               ))}
               <div className="mb-medium">
@@ -235,9 +239,15 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.tool.bg-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.tool.bg-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                      mark: <mark />,
+                    }}
+                  />
                 </p>
               ))}
             </div>
@@ -253,9 +263,14 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.tool.position-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.tool.position-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                    }}
+                  />
                 </p>
               ))}
             </div>
@@ -271,9 +286,15 @@ const NuskinWebWindowContent = () => {
                 t('nuskin.tool.solution-text', {
                   returnObjects: true,
                 }) as string[]
-              ).map((line, i) => (
+              ).map((_, i) => (
                 <p key={i} className="text-primary content-list mb-small">
-                  {line}
+                  <Trans
+                    i18nKey={`nuskin.tool.solution-text.${i}`}
+                    components={{
+                      strong: <strong />,
+                      mark: <mark />,
+                    }}
+                  />
                 </p>
               ))}
             </div>

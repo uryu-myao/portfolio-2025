@@ -31,7 +31,15 @@ const WelcomeWindowContent = () => {
       </div>
       <div className="welcome-title">
         <h1 className="welcome-title__name">{t('welcome.name')}</h1>
-        <p className="text-en text-primary">{t('welcome.role')}</p>
+        {(
+          t('welcome.role', {
+            returnObjects: true,
+          }) as string[]
+        ).map((line, i) => (
+          <p key={i} className="text-primary">
+            <strong>{line}</strong>
+          </p>
+        ))}
       </div>
       <article>
         {Array.isArray(description) ? (
