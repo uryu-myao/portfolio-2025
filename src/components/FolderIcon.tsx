@@ -1,8 +1,24 @@
 import { useState } from 'react';
 import '@/styles/components/folder-icon.scss';
 import type { FolderIconProps } from '@/types';
+import {
+  paperContentNuskinGuideline,
+  paperContentNuskinBranding,
+  paperContentNuskinProducts,
+  paperContentStores,
+  paperContentLegacy,
+} from '@/components/svg/paperContents';
 import FolderIconSVG from '@/components/svg/FolderIconSVG';
 import LockIcon from '@/assets/icon-lock.svg';
+
+const paperContentMap: Record<string, React.ReactNode> = {
+  'nuskin--guideline': paperContentNuskinGuideline,
+  'nuskin--branding': paperContentNuskinBranding,
+  'nuskin--products': paperContentNuskinProducts,
+  'stores-all': paperContentStores,
+  'legacy--2019': paperContentLegacy,
+  'legacy--2017': paperContentLegacy,
+};
 
 const FolderIcon: React.FC<FolderIconProps> = ({
   id,
@@ -25,23 +41,19 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   const colorMap = {
     nuskin: {
       folderColor: '#FFD639',
-      paperColor: '#F2F1E0',
     },
     stores: {
       folderColor: '#A1E8CC',
-      paperColor: '#EEF1F1',
     },
     legacy: {
       folderColor: '#34F6F2',
-      paperColor: '#EBEFEE',
     },
     personal: {
       folderColor: '#FFD639',
-      paperColor: '#EBE2D8',
     },
   };
 
-  const { folderColor, paperColor } = colorMap[variant] || colorMap.personal;
+  const { folderColor } = colorMap[variant] || colorMap.personal;
 
   return (
     <div
@@ -52,10 +64,10 @@ const FolderIcon: React.FC<FolderIconProps> = ({
       <div className="folder-icon__img">
         <FolderIconSVG
           folderColor={folderColor}
-          paperColor={paperColor}
           isOpen={hovered}
           width={88}
           height={63}
+          paperContent={paperContentMap[id]}
         />
         {!localStorage.getItem(`unlocked:${id}`) && isLocked && (
           <img src={LockIcon} className="folder-icon__lock" alt="Locked" />
