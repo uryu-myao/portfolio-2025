@@ -87,6 +87,18 @@
       ]
     },
 
+    "branding": {
+      "bg-title": "背景と目的",
+      "bg-text": [""],
+      "position-title": "担当役割",
+      "position-text": [""],
+      "solution-title": "制作上の課題と問題解決（各プロモーション共通）",
+      "solution-text": [""],
+      "achievement-title": "主な成果",
+      "achievement-text": [""],
+      "cta": "LPページを見る"
+    },
+
     "products": {
       "bg-title": "背景と目的",
       "bg-text": [
