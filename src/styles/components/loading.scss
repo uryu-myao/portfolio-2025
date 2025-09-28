@@ -1,14 +1,39 @@
 .loading {
   &-container {
-    background-color: var(--window-header-clr);
+    position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+
+    &__up {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--window-header-clr);
+      z-index: 1;
+    }
+    &__down {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--window-header-clr);
+      z-index: 1;
+    }
   }
 
   &-content {
+    position: relative;
     width: 460px;
     border: 1px solid #1e293b;
     background-color: #000a1a;
@@ -19,6 +44,11 @@
     justify-content: center;
     align-items: center;
     gap: 3.2em;
+    z-index: 2;
+
+    @media screen and (max-width: 768px) {
+      width: 90vw;
+    }
   }
 
   &-text {
@@ -28,8 +58,8 @@
   }
 
   &-percent {
-    width: 2em;
-    font-size: 2rem;
+    // width: 2em;
+    font-size: 1.2rem;
     font-weight: 800;
     color: white;
   }
@@ -55,12 +85,12 @@
 
 .progress-bar {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   justify-content: center;
 }
 
 .bar {
-  width: 8px;
-  height: 30px;
+  width: 6px;
+  height: 24px;
   background: $lightBlue;
 }
