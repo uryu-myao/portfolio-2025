@@ -111,9 +111,8 @@
       ],
       "achievement-title": "Key Achievements",
       "achievement-text": [
-        "<strong>Successfully promoted the adoption of the brand refresh in the Japanese market</strong><br/>Through the provision of necessary assets and daily content reviews, understanding of the new brand standards improved across the organization.",
-        "By establishing a cross-departmental review and coordination framework, <mark>strengthened consistency in brand expression throughout Japan.</mark>",
-        "Enhanced understanding of brand guidelines both within and outside the content creative team, <mark>contributing as a bridge between global and local teams</mark>."
+        "Successfully completed the renewal of the CSR microsite, streamlining site operations and updates. <mark>Additionally, by introducing Git-based management, the overall efficiency of the team was significantly improved.</mark>",
+        "By migrating from AEM to a new platform, flexible design expression and faster updates became possible. As a result, <mark>both information delivery and user experience were greatly enhanced</mark>, <mark>helping to bring the appeal of Nu Skin’s CSR activities to a much wider audience.</mark>"
       ],
       "cta": "Implementation Guidelines"
     },
