@@ -31,7 +31,7 @@ const NuskinProdWindowContent = () => {
               <p className="text-primary">
                 UI/UX Designer
                 <br />
-                Digital Contents Creater
+                Digital Contents Creator
               </p>
             </div>
           </div>
