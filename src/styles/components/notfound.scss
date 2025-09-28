@@ -30,20 +30,4 @@
     font-size: 1.4rem;
     margin-bottom: 4rem;
   }
-
-  a {
-    display: inline-block;
-    color: var(--text-primary-clr);
-    font-size: 1.6rem;
-    border: 2px solid var(--text-primary-clr);
-    padding: 1.6rem 3rem;
-    border-radius: 10px;
-    transition: all 0.1s ease;
-
-    &:hover {
-      background-color: var(--text-primary-clr);
-      color: var(--window-bg-clr);
-      text-decoration: none;
-    }
-  }
 }

@@ -86,6 +86,64 @@
       ]
     },
 
+    "brand": {
+      "title": "Implementation of Brand Refresh in Japan",
+      "bg-title": "Background & Objectives",
+      "bg-text": [
+        "In 2023, Nu Skin Global defined a new branding framework and rolled it out across all markets. In Japan, we promoted the transition of digital channels, content creation in line with the new brand standards, and collaboration with other departments while taking into account the unique characteristics of localization.",
+        "The objectives of this brand refresh are as follows:"
+      ],
+      "bg-list": [
+        "Strengthen brand value as an integrated Beauty & Wellness brand and express it in a more attractive way",
+        "Present the brand appropriately and effectively across digital and social channels",
+        "Increase appeal and impact toward consumers"
+      ],
+      "position-title": "Role",
+      "position-text": [
+        "Planned and facilitated internal branding workshops",
+        "Reviewed visual content within the team",
+        "Reviewed and proposed revisions for content submitted by other departments"
+      ],
+      "solution-title": "Challenges and Solutions",
+      "solution-text": [
+        "<strong>Promoting awareness of brand visual importance</strong>: <br>To help departments without design expertise understand the importance of brand consistency, <mark>I not only pointed out issues but also proposed practical alternatives such as specific color and font combinations</mark>, making them easy to apply in daily work.",
+        "<strong>Balancing global standards with Japanese market needs</strong>: <br>For main visuals of new products, I collaborated with the Product Marketing department, which holds decision-making authority, to maintain brand consistency while also <mark>considering visual expressions that resonate with Japanese affiliates through direct appeal and contribute to sales</mark>. When necessary, AB testing was used to achieve the optimal visual balance."
+      ],
+      "achievement-title": "Key Achievements",
+      "achievement-text": [
+        "<strong>Successfully promoted the adoption of the brand refresh in the Japanese market</strong><br/>Through the provision of necessary assets and daily content reviews, understanding of the new brand standards improved across the organization.",
+        "By establishing a cross-departmental review and coordination framework, <mark>strengthened consistency in brand expression throughout Japan.</mark>",
+        "Enhanced understanding of brand guidelines both within and outside the content creative team, <mark>contributing as a bridge between global and local teams</mark>."
+      ],
+      "cta": "Implementation Guidelines"
+    },
+
+    "csr": {
+      "title": "CSR Microsite Renewal",
+      "bg-title": "Background & Objectives",
+      "bg-text": [
+        "Nu Skin’s CSR initiatives have gained strong empathy from many members, and there was a need to communicate this pride more widely to society. To strengthen branding and improve both communication effectiveness and user experience, the CSR content previously hosted on AEM was rebuilt as an <mark>independent microsite</mark>."
+      ],
+      "position-title": "Role",
+      "position-text": [
+        "<mark>Directed external vendors</mark> throughout the CSR microsite renewal project",
+        "Handled <mark>creative production and operational support</mark> based on requests from the internal CSR owner department"
+      ],
+      "solution-title": "Challenges and Solutions",
+      "solution-text": [
+        "<strong>Accurately reflecting the intentions of the owner department</strong>: <br>Carefully gathered requirements from the CSR division and translated objectives and intentions into clear visuals, aligning understanding among stakeholders.",
+        "<strong>Optimizing collaboration with external vendors</strong>: <br>To smoothly connect vendor-led development with internal team operations, promoted <mark>adjustments to the development environment and the introduction of Git-based version control</mark>. As a result, daily updates became more efficient and continuous improvements were made possible."
+      ],
+      "achievement-title": "Key Achievements",
+      "achievement-text": [
+        "<mark>Successfully completed the renewal of the CSR microsite</mark>",
+        "Established smoother site operation and updates, improving overall team efficiency",
+        "Compared to the AEM era, <mark>UI/UX visibility improved and the number of active users increased compared to before the renewal (◯◯%)</mark>",
+        "Enabled consistent brand-aligned CSR communications, helping Nu Skin’s initiatives reach a wider audience"
+      ],
+      "cta": "View CSR Site"
+    },
+
     "products": {
       "bg-title": "Background and Objectives",
       "bg-text": [

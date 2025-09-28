@@ -1,4 +1,5 @@
 import ScrambleText from '@/components/ScrambleText';
+import CTAButton from '@/components/CTAButton';
 import '@/styles/components/notfound.scss';
 
 const NotFound: React.FC = () => {
@@ -12,9 +13,9 @@ const NotFound: React.FC = () => {
           <p className="text-en">
             Oops! The page you're looking for doesn't exist.
           </p>
-          <a className="text-en" href="/">
-            ← Back to Home
-          </a>
+          <div className="m-center">
+            <CTAButton href="/" label={'Back to Home'} />
+          </div>
         </div>
       </div>
     </main>
