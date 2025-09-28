@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks/useTheme';
 import type { WindowData } from '@/types';
-
 import Nav from '@/components/Nav';
 import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import SayHi from '@/components/SayHi';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
-import PasswordPopup from '@/components/windows/PasswordWindowContent';
-
+import GlobalPasswordGate from '@/components/GlobalPasswordGate';
 import { iconMeta, getIcons, getWelcomeMeta, IconID } from '@/data/icons';
 
 const Home: React.FC = () => {
-  const { t } = useTranslation();
   const isMobile = window.innerWidth <= 768;
+  const { t } = useTranslation();
   const { toggleTheme } = useTheme();
+  const [isGlobalUnlocked, setIsGlobalUnlocked] = useState(false);
+  const [checkingUnlock, setCheckingUnlock] = useState(true);
 
   const handleOpenWindow = (id: IconID) => {
     const meta = iconMeta[id];
@@ -28,7 +28,6 @@ const Home: React.FC = () => {
       const baseX = 100;
       const baseY = 100;
       const newIndex = prev.length;
-
       const initialX = meta.initialX ?? baseX + newIndex * offset;
       const initialY = meta.initialY ?? baseY + newIndex * offset;
 
@@ -45,40 +44,38 @@ const Home: React.FC = () => {
         },
       ];
     });
-
     setZOrders((prev) => [...prev.filter((z) => z !== id), id]);
   };
 
   const handleProtectedOpenWindow = (id: IconID) => {
-    const unlocked = localStorage.getItem(`unlocked:${id}`) === 'true';
-    const meta = iconMeta[id];
-    if (!meta) return;
-
-    if (unlocked) {
-      handleOpenWindow(id);
-    } else {
-      setShowPasswordFor(id);
-    }
+    // for now, fallback to normal
+    handleOpenWindow(id);
   };
 
   const [openWindows, setOpenWindows] = useState<WindowData[]>([
     getWelcomeMeta(isMobile),
   ]);
   const [zOrders, setZOrders] = useState<string[]>(['welcome']);
-  const [showPasswordFor, setShowPasswordFor] = useState<string | null>(null);
 
   const handleCloseWindow = (id: string) => {
     setOpenWindows((prev) => prev.filter((w) => w.id !== id));
     setZOrders((prev) => prev.filter((z) => z !== id));
   };
 
-  // 用于 Nav props
   const safeHandleOpenWindow = (id: string) => {
     if (id in iconMeta) handleOpenWindow(id as IconID);
   };
-  const safeHandleProtectedOpenWindow = (id: string) => {
-    if (id in iconMeta) handleProtectedOpenWindow(id as IconID);
-  };
+
+  useEffect(() => {
+    const unlocked = localStorage.getItem('global-unlocked') === 'true';
+    setIsGlobalUnlocked(unlocked);
+    setCheckingUnlock(false);
+  }, []);
+
+  if (checkingUnlock) return null; // 等待判断完成
+  if (!isGlobalUnlocked) {
+    return <GlobalPasswordGate onUnlock={() => setIsGlobalUnlocked(true)} />;
+  }
 
   return (
     <main className="home container">
@@ -88,14 +85,11 @@ const Home: React.FC = () => {
           className="temp-btn"
           style={{ position: 'absolute', bottom: 10, right: 10 }}
           onClick={() => {
-            Object.keys(localStorage)
-              .filter((key) => key.startsWith('unlocked:'))
-              .forEach((key) => localStorage.removeItem(key));
-            alert('所有密码验证缓存已清除');
+            localStorage.clear();
+            alert('主页密码验证缓存已清除');
           }}>
-          重置所有密码验证
+          清除主页密码验证缓存
         </button> */}
-
         <FolderIconList
           icons={getIcons(handleOpenWindow, handleProtectedOpenWindow, t)}
         />
@@ -105,28 +99,13 @@ const Home: React.FC = () => {
           zOrders={zOrders}
           setZOrders={setZOrders}
         />
-
-        {showPasswordFor && (
-          <PasswordPopup
-            folderId={showPasswordFor}
-            title={iconMeta[showPasswordFor as IconID].title}
-            onSuccess={() => {
-              handleOpenWindow(showPasswordFor as IconID);
-              setShowPasswordFor(null);
-            }}
-            onClose={() => setShowPasswordFor(null)}
-          />
-        )}
-
         <Nav
           onToggleTheme={toggleTheme}
           onOpenWindow={safeHandleOpenWindow}
-          onProtectedOpenWindow={safeHandleProtectedOpenWindow}
+          onProtectedOpenWindow={handleProtectedOpenWindow}
         />
-
         <SayHi />
       </div>
-
       <CanvasGridBackground />
     </main>
   );

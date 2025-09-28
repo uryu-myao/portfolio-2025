@@ -9,7 +9,6 @@ import {
   paperContentLegacy,
 } from '@/components/svg/paperContents';
 import FolderIconSVG from '@/components/svg/FolderIconSVG';
-import LockIcon from '@/assets/icon-lock.svg';
 
 const paperContentMap: Record<string, React.ReactNode> = {
   'nuskin--guideline': paperContentNuskinGuideline,
@@ -25,7 +24,6 @@ const FolderIcon: React.FC<FolderIconProps> = ({
   label,
   onOpen,
   variant = 'personal', // Default variant
-  isLocked = false,
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -69,9 +67,6 @@ const FolderIcon: React.FC<FolderIconProps> = ({
           height={63}
           paperContent={paperContentMap[id]}
         />
-        {!localStorage.getItem(`unlocked:${id}`) && isLocked && (
-          <img src={LockIcon} className="folder-icon__lock" alt="Locked" />
-        )}
         {tagLabel && (
           <p
             className={`folder-icon__tag folder-icon__tag--${tagLabel} text-theme`}>

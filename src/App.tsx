@@ -1,13 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Home from '@/pages/Home';
 import NotFound from '@/pages/NotFound';
 import LoadingScreen from '@/components/LoadingScreen';
+import GlobalPasswordGate from '@/components/GlobalPasswordGate';
 
 const App = () => {
-  // const isLoading = true; // Uncomment this line to simulate loading state
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [checkingUnlock, setCheckingUnlock] = useState(true);
+  // const isLoading = true;
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const unlocked = localStorage.getItem('global-unlocked');
+    if (unlocked === 'true') {
+      setIsUnlocked(true);
+    }
+    setCheckingUnlock(false);
+  }, []);
+
+  if (checkingUnlock) return null;
+  if (!isUnlocked) {
+    return <GlobalPasswordGate onUnlock={() => setIsUnlocked(true)} />;
+  }
 
   return (
     <ThemeProvider>

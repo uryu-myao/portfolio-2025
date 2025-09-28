@@ -73,11 +73,12 @@
       font-size: 1.65rem;
       text-align: center;
       font-weight: bold;
+      padding: 0 60px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       @media screen and (max-width: 768px) {
-        padding: 0 80px;
+        padding: 0 70px;
       }
     }
 

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
-
 import GithubIconSVG from '@/components/svg/GithubIconSVG';
 import MailIconSVG from '@/components/svg/MailIconSVG';
 import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
@@ -15,7 +14,6 @@ const Nav: React.FC<NavProps> = ({
   onProtectedOpenWindow,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [isFullscreen, setIsFullscreen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const { i18n, t } = useTranslation();
