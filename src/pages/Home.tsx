@@ -7,6 +7,7 @@ import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import SayHi from '@/components/SayHi';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
+import Confetti from '@/components/confetti';
 import GlobalPasswordGate from '@/components/GlobalPasswordGate';
 import { iconMeta, getIcons, getWelcomeMeta, IconID } from '@/data/icons';
 

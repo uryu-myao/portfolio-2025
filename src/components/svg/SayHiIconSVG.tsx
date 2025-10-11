@@ -3,16 +3,18 @@ import { motion as m } from 'motion/react';
 
 interface SayHiIconSVGProps extends SVGMotionProps<SVGSVGElement> {
   triggerAnimate?: boolean;
+  isMaxed?: boolean;
 }
 
 const SayHiIconSVG = ({
   triggerAnimate = false,
+  isMaxed = false,
   ...props
 }: SayHiIconSVGProps) => {
   return (
     <m.svg viewBox="-5 -5 30 30" xmlns="http://www.w3.org/2000/svg" {...props}>
       <m.path
-        fill="#4DA2FF"
+        fill={isMaxed ? 'var(--window-header-clr)' : '#4DA2FF'}
         stroke="var(--text-primary-clr)"
         strokeWidth={2}
         animate={triggerAnimate ? { scale: [1, 1.3, 1] } : {}}

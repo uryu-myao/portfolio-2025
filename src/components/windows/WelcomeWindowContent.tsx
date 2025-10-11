@@ -26,6 +26,8 @@ const WelcomeWindowContent = () => {
             loop
             muted
             playsInline
+            preload="auto"
+            poster="/assets/portrait-video-thumbnail.png"
           />
         </div>
       </div>

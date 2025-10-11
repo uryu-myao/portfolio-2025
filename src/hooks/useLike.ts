@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
+export const MAX_LIKES = 5;
 export const useLike = () => {
   const [likeCount, setLikeCount] = useState<number | null>(null);
   const [userLikes, setUserLikes] = useState<number | null>(null);
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const MAX_LIKES = 20;
   const [lastVisitor, setLastVisitor] = useState<{
     city: string;
     country: string;
