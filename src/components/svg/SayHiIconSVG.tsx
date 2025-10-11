@@ -2,7 +2,7 @@ import type { SVGMotionProps } from 'motion/react';
 import { motion as m } from 'motion/react';
 
 interface SayHiIconSVGProps extends SVGMotionProps<SVGSVGElement> {
-  triggerAnimate?: boolean; // 外部控制是否触发动画
+  triggerAnimate?: boolean;
 }
 
 const SayHiIconSVG = ({

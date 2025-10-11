@@ -7,13 +7,13 @@ export const useLike = () => {
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const MAX_LIKES = 5;
+  const MAX_LIKES = 999;
   const [lastVisitor, setLastVisitor] = useState<{
     city: string;
     country: string;
   } | null>(null);
 
-  // 获取访客 IP 和位置
+  // visitor's IP location
   useEffect(() => {
     fetch('https://ipwho.is/')
       .then((res) => res.json())
@@ -73,7 +73,10 @@ export const useLike = () => {
   }, [ip]);
 
   const handleLike = async () => {
-    if (!ip || userLikes === null || userLikes >= MAX_LIKES) return;
+    console.log('Current likes from IP:', userLikes);
+    if (!ip || userLikes === null || userLikes >= MAX_LIKES) {
+      return;
+    }
 
     const newCount = userLikes + 1;
     const { error } = await supabase.from('likes').upsert({
@@ -83,7 +86,9 @@ export const useLike = () => {
       updated_at: new Date().toISOString(),
     });
 
-    if (!error) {
+    if (error) {
+      console.error('🔥 Supabase error inserting like:', error);
+    } else {
       setUserLikes(newCount);
       setLikeCount((prev) => (prev !== null ? prev + 1 : newCount));
     }

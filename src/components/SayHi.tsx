@@ -10,7 +10,7 @@ const SayHi = () => {
   const [showPlusOne, setShowPlusOne] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement>(null);
-  useMagneticHover(btnRef, 0.25); //the intensity
+  useMagneticHover(btnRef, 0.25);
 
   const handleClickLike = async () => {
     if (hasReachedLimit) return;
@@ -28,7 +28,8 @@ const SayHi = () => {
         ref={btnRef}
         className="sayhi-btn"
         onClick={handleClickLike}
-        disabled={hasReachedLimit}>
+        // disabled={hasReachedLimit}
+      >
         <span className="sayhi-icon">
           <SayHiIconSVG />
         </span>
