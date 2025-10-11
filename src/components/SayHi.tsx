@@ -31,7 +31,7 @@ const SayHi = () => {
         // disabled={hasReachedLimit}
       >
         <span className="sayhi-icon">
-          <SayHiIconSVG />
+          <SayHiIconSVG triggerAnimate={showPlusOne} />
         </span>
         <p className="text-theme sayhi-number">
           {likeCount === null ? '-' : likeCount}

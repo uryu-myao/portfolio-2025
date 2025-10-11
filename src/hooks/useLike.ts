@@ -7,7 +7,7 @@ export const useLike = () => {
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const MAX_LIKES = 999;
+  const MAX_LIKES = 20;
   const [lastVisitor, setLastVisitor] = useState<{
     city: string;
     country: string;
