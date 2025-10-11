@@ -1,4 +1,5 @@
 import { useTranslation, Trans } from 'react-i18next';
+import { useEffect, useState } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import CTAButton from '@/components/CTAButton';
 import NuskinImageProductsTrme from '@/assets/img-nuskin-products-trme.png';
@@ -9,6 +10,15 @@ import NuskinLogoBlack from '@/assets/logo-nuskin-black.svg';
 const NuskinProdWindowContent = () => {
   const { t } = useTranslation();
   const { theme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState(NuskinLogoBlack);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogoSrc(NuskinLogoWhite);
+    } else {
+      setLogoSrc(NuskinLogoBlack);
+    }
+  }, [theme]);
 
   return (
     <div className="window-content nuskin-content">
@@ -16,10 +26,7 @@ const NuskinProdWindowContent = () => {
         {/* header */}
         <div className="window-content__header">
           <h2>
-            <img
-              src={theme === 'dark' ? NuskinLogoWhite : NuskinLogoBlack}
-              alt="Nuskin logo"
-            />
+            <img src={logoSrc} alt="Nuskin logo" />
           </h2>
           <div className="window-content__header-info">
             <div>

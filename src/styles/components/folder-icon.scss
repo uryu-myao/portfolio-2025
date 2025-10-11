@@ -18,27 +18,23 @@
 
     @media (max-width: 768px) {
       width: 100%;
+      height: 100%;
+      grid-template-areas: none;
       grid-template-columns: 1fr;
-      padding-left: 5vw;
-      padding-right: 5vw;
-      grid-template-areas:
-        'desktop-r1'
-        'desktop-r2'
-        'desktop-r3'
-        'desktop-r4'
-        'desktop-r5'
-        'desktop-r6'
-        'desktop-r7';
+      grid-auto-rows: minmax(100px, 1fr);
+      padding: 50px 5vw 100px;
     }
   }
 
   &-item {
     position: relative;
-    // padding: 0 2em 1em 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
+    @media (max-width: 768px) {
+      grid-area: unset !important;
+    }
   }
 
   &__info {
@@ -110,44 +106,20 @@
 
   &__nuskin--guideline {
     grid-area: desktop-r1-c1;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r1;
-    }
   }
   &__nuskin--branding {
     grid-area: desktop-r1-c2;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r2;
-    }
   }
   &__nuskin--products {
     grid-area: desktop-r2-c2;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r3;
-    }
   }
   &__stores {
     grid-area: desktop-r4-c2;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r4;
-    }
   }
-  // &__personal--app {
-  //   grid-area: desktop-r5-c1;
-  //   @media screen and (max-width: 768px) {
-  //     grid-area: desktop-r5;
-  //   }
-  // }
   &__legacy--2019 {
     grid-area: desktop-r6-c1;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r6;
-    }
   }
   &__legacy--2017 {
     grid-area: desktop-r6-c2;
-    @media screen and (max-width: 768px) {
-      grid-area: desktop-r7;
-    }
   }
 }
