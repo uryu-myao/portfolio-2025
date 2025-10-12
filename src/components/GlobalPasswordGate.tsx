@@ -21,40 +21,47 @@ const GlobalPasswordGate = ({ onUnlock }: { onUnlock: () => void }) => {
   };
 
   return (
-    <div className="window-password">
-      <div className={`shake-wrapper ${shake ? 'shake' : ''}`}>
-        <label className="window-password__label" htmlFor="password-input">
-          Password
-        </label>
-        <input
-          id="password-input"
-          className="window-password__input"
-          type="password"
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-            setError(false);
-          }}
-          onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          autoFocus
-        />
-        <button className="window-password__button" onClick={handleSubmit}>
-          <img src={ArrowIcon} alt="" />
-        </button>
+    <div className="window-password-wrapper">
+      <div className="window-password-inner">
+        <div className={`shake-wrapper ${shake ? 'shake' : ''}`}>
+          <label className="window-password__label" htmlFor="password-input">
+            Password
+          </label>
+          <input
+            id="password-input"
+            className="window-password__input"
+            type="password"
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              setError(false);
+            }}
+            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+            autoFocus
+          />
+          <button className="window-password__button" onClick={handleSubmit}>
+            <img src={ArrowIcon} alt="submit button" />
+          </button>
+        </div>
+        {error && (
+          <p className="password-error text-en">
+            Hmm, that doesn’t look right.
+          </p>
+        )}
       </div>
-      {error && (
-        <p className="password-error text-en">
-          Hmm, that doesn’t look right. <br />
-          If you’re unsure, please&nbsp;
+      <div className="window-password-contact text-en">
+        <p className="" style={{ color: '#5e5e5e' }}>
+          Need access? Feel free to{' '}
           <a
+            className=""
             href="mailto:myao.jpn@gmail.com"
             target="_blank"
             rel="noopener noreferrer">
-            contact the creator
+            contact the author
           </a>
           .
         </p>
-      )}
+      </div>
     </div>
   );
 };

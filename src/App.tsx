@@ -9,14 +9,18 @@ import GlobalPasswordGate from '@/components/GlobalPasswordGate';
 const App = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [checkingUnlock, setCheckingUnlock] = useState(true);
+  // ▼ TEST: ACTIVATE for testing loading screen
   // const isLoading = true;
+  // ▲ down to here ▲
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const unlocked = localStorage.getItem('global-unlocked');
-    if (unlocked === 'true') {
-      setIsUnlocked(true);
-    }
+    // ▼ TEST: COMMENT OUT for disable password gate for development
+    // const unlocked = localStorage.getItem('global-unlocked');
+    // if (unlocked === 'true') {
+    //   setIsUnlocked(true);
+    // }
+    // ▲ down to here ▲
     setCheckingUnlock(false);
   }, []);
 

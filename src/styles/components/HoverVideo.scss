@@ -42,6 +42,9 @@
 
   &-tag {
     color: var(--text-primary-clr);
+    @media screen and (max-width: 768px) {
+      padding-left: 29px;
+    }
   }
 
   &-cont {

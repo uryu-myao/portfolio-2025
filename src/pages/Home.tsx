@@ -7,7 +7,6 @@ import WindowManager from '@/components/WindowManager';
 import FolderIconList from '@/components/FolderIconList';
 import SayHi from '@/components/SayHi';
 import CanvasGridBackground from '@/components/CanvasGridBackground';
-import Confetti from '@/components/confetti';
 import GlobalPasswordGate from '@/components/GlobalPasswordGate';
 import { iconMeta, getIcons, getWelcomeMeta, IconID } from '@/data/icons';
 
@@ -38,9 +37,9 @@ const Home: React.FC = () => {
           id,
           title: meta.title,
           content: meta.content,
-          initialX: isMobile ? 20 : initialX,
+          initialX: isMobile ? 0 : initialX,
           initialY: isMobile ? 60 : initialY,
-          width: isMobile ? '90vw' : meta.width,
+          width: isMobile ? '100vw' : meta.width,
           height: isMobile ? 'calc(100dvh - 50px - 30px)' : meta.height,
         },
       ];
