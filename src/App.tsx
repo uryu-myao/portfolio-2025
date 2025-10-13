@@ -15,11 +15,11 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // ▼ TEST: COMMENT OUT for disable password gate for development
-    // const unlocked = localStorage.getItem('global-unlocked');
-    // if (unlocked === 'true') {
-    //   setIsUnlocked(true);
-    // }
+    // ▼ TEST: COMMENT OUT for testing password gate
+    const unlocked = localStorage.getItem('global-unlocked');
+    if (unlocked === 'true') {
+      setIsUnlocked(true);
+    }
     // ▲ down to here ▲
     setCheckingUnlock(false);
   }, []);
