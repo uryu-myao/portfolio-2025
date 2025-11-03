@@ -199,19 +199,19 @@ const NuskinWebWindowContent = () => {
                     videoSrc={NuskinVideoAchieve01}
                   />
                   <HoverVideo
-                    href="https://www.nuskin.com/markets/ja_JP/company/about-nu-skin.html"
+                    href="https://www.nuskin.com/markets/ja_JP/company/product-development.html"
                     text={t('nuskin.web.achievement-case.1')}
                     tag={t('nuskin.web.achievement-tag')}
                     videoSrc={NuskinVideoAchieve02}
                   />
                   <HoverVideo
-                    href="https://www.nuskin.com/markets/ja_JP/company/about-nu-skin.html"
+                    href="https://www.nuskin.com/markets/ja_JP/customer-service/official-contents.html"
                     text={t('nuskin.web.achievement-case.2')}
                     tag={t('nuskin.web.achievement-tag')}
                     videoSrc={NuskinVideoAchieve03}
                   />
                   <HoverVideo
-                    href="https://www.nuskin.com/markets/ja_JP/company/about-nu-skin.html"
+                    href="https://www.nuskin.com/markets/ja_JP/opportunity/joinus/automatic-delivery-program.html"
                     text={t('nuskin.web.achievement-case.3')}
                     tag={t('nuskin.web.achievement-tag')}
                     videoSrc={NuskinVideoAchieve04}

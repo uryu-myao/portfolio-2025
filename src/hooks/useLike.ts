@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
-export const MAX_LIKES = 5;
+export const MAX_LIKES = 3;
 export const useLike = () => {
   const [likeCount, setLikeCount] = useState<number | null>(null);
   const [userLikes, setUserLikes] = useState<number | null>(null);
