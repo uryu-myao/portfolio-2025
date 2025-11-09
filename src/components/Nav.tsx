@@ -4,6 +4,7 @@ import { getIcons } from '@/data/icons';
 import type { NavProps } from '@/types';
 import '@/styles/components/nav.scss';
 import GithubIconSVG from '@/components/svg/GithubIconSVG';
+import LinkedinIconSVG from '@/components/svg/LinkedinIconSVG';
 import MailIconSVG from '@/components/svg/MailIconSVG';
 import ThemeIconSVG from '@/components/svg/ThemeIconSVG';
 import Time from '@/components/Time';
@@ -100,6 +101,16 @@ const Nav: React.FC<NavProps> = ({
                       <GithubIconSVG />
                     </span>
                     github
+                  </a>
+                  <a
+                    className="nav-menu-pulldown-item text-en"
+                    href="https://www.linkedin.com/in/uryu-myao/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <span className="nav-menu-pulldown-item-icon">
+                      <LinkedinIconSVG />
+                    </span>
+                    LinkedIn
                   </a>
                   <a
                     className="nav-menu-pulldown-item text-en"
