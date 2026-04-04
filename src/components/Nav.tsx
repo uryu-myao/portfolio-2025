@@ -14,8 +14,10 @@ const Nav: React.FC<NavProps> = ({
   onOpenWindow,
   onProtectedOpenWindow,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const [isWorksOpen, setIsWorksOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const worksRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const { i18n, t } = useTranslation();
   const toggleLanguage = () => {
@@ -24,22 +26,28 @@ const Nav: React.FC<NavProps> = ({
     localStorage.setItem('preferred-lang', newLang);
   };
 
-  // ✅ 点击非 menu 区域关闭菜单
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        isMenuOpen &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
+        isWorksOpen &&
+        worksRef.current &&
+        !worksRef.current.contains(event.target as Node)
       ) {
-        setIsMenuOpen(false);
+        setIsWorksOpen(false);
+      }
+      if (
+        isContactOpen &&
+        contactRef.current &&
+        !contactRef.current.contains(event.target as Node)
+      ) {
+        setIsContactOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isWorksOpen, isContactOpen]);
 
   const icons = getIcons(onOpenWindow, onProtectedOpenWindow, t);
 
@@ -55,19 +63,21 @@ const Nav: React.FC<NavProps> = ({
           </button>
         </div>
 
-        <div className="nav-menu" ref={menuRef}>
-          <button
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="nav-menu-link text-en">
-            menu
-          </button>
-          <section
-            className={
-              isMenuOpen ? 'nav-menu-pulldown' : 'nav-menu-pulldown hidden'
-            }>
-            <div className="nav-menu-pulldown-inner">
-              <div>
-                <h3 className="nav-menu-pulldown-ttl text-en">project log</h3>
+        <div className="nav-menus">
+          <div className="nav-menu" ref={worksRef}>
+            <button
+              onClick={() => {
+                setIsWorksOpen((prev) => !prev);
+                setIsContactOpen(false);
+              }}
+              className="nav-menu-link text-en">
+              Works
+            </button>
+            <section
+              className={
+                isWorksOpen ? 'nav-menu-pulldown' : 'nav-menu-pulldown hidden'
+              }>
+              <div className="nav-menu-pulldown-inner">
                 <ul className="nav-menu-pulldown-list">
                   {icons.map((icon) => (
                     <li
@@ -75,7 +85,7 @@ const Nav: React.FC<NavProps> = ({
                       className="nav-menu-pulldown-item"
                       onClick={() => {
                         icon.onOpen();
-                        setIsMenuOpen(false);
+                        setIsWorksOpen(false);
                       }}>
                       <span
                         className={`folder-icon__tag folder-icon__tag--${icon.variant} text-theme`}>
@@ -88,9 +98,25 @@ const Nav: React.FC<NavProps> = ({
                   ))}
                 </ul>
               </div>
-              <hr />
-              <div>
-                <h3 className="nav-menu-pulldown-ttl text-en">contact</h3>
+            </section>
+          </div>
+
+          <div className="nav-menu" ref={contactRef}>
+            <button
+              onClick={() => {
+                setIsContactOpen((prev) => !prev);
+                setIsWorksOpen(false);
+              }}
+              className="nav-menu-link text-en">
+              Contact
+            </button>
+            <section
+              className={
+                isContactOpen
+                  ? 'nav-menu-pulldown'
+                  : 'nav-menu-pulldown hidden'
+              }>
+              <div className="nav-menu-pulldown-inner">
                 <div className="nav-menu-pulldown-list">
                   <a
                     className="nav-menu-pulldown-item text-en"
@@ -124,8 +150,8 @@ const Nav: React.FC<NavProps> = ({
                   </a>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
 
         <div className="nav-icons">
